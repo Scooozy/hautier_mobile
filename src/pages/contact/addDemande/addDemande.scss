@@ -1,0 +1,75 @@
+page-add-demande-contact {
+
+  #load, #loader{
+    display: none;
+  }
+
+  ion-content{
+    width: 90%;
+    margin-left: 5%;
+
+    #dem-form{
+      margin-bottom: 65px;
+      margin-top: 60px;
+
+      #dem-form-title{
+        color: #62b0ad;
+        font-size: 20px;
+        margin-top: 15px;
+        margin-bottom: 20px;
+      }
+
+      #dem1 {
+
+        select, ion-input, textarea{
+          background: transparent;
+          padding: 10px;
+          width: 100%;
+          border: 1px solid lightgrey;
+          margin-bottom: 20px;
+        }
+
+        textarea{
+          height: 235px;
+        }
+
+        ion-input{
+          padding: 19px 0 18px 12px;
+        }
+
+        #dem-send-btn{
+          width: 100%;
+          text-align: right;
+          background-color: #007BC0;
+          padding: 10px;
+          color: #FFF;
+          font-weight: bold;
+          font-size: 16px;
+
+          div{
+            display: inline-block;
+            vertical-align: middle;
+          }
+
+          div:nth-child(1){
+            width: 57%;
+            margin-right: 7%;
+          }
+
+          div:nth-child(2){
+            width: 29%;
+            text-align: center;
+            transform: rotate(45deg);
+            font-size: 35px;
+          }
+
+        }
+
+      }
+
+    }
+
+
+  }
+
+}

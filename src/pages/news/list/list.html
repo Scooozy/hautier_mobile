@@ -1,0 +1,104 @@
+<div class="header-box">
+  <div class="icon-journal picto"></div>
+  <p class="title" *ngIf="typeActu == 'groupe'">News Groupe</p>
+  <p class="title" *ngIf="typeActu == 'filiale'">News Filiale</p>
+  <!--<div id="accessFiltre" tappable (click)="openFilter()">
+    <ion-icon name="md-funnel"></ion-icon>
+  </div>-->
+</div>
+
+<ion-content content="content" #content>
+
+  <ion-select class="select-cat" [(ngModel)]="typeActuFilter" (ionChange)='setFilter()' name="cat" okText="Valider" cancelText="Annuler" #SelectCat>
+    <ion-option value="all">Toutes les actualités</ion-option>
+    <!--<ion-option value="tweet">Les tweets</ion-option>-->
+    <!--<ion-option value="facebook">Facebook</ion-option>
+    <ion-option value="instagram">Instagram</ion-option> -->
+    <ion-option value="post">Les posts</ion-option>
+    <ion-option value="new">Les news</ion-option>
+  </ion-select>
+
+  <h6 id="textNoData">Il n'y a aucune actualité</h6>
+  <div id="actu_content">
+    <ng-container *ngFor="let ac of actu; let i = index">
+      <ion-card *ngIf="ac.type == typeActuFilter || typeActuFilter == 'all'" id="{{ac.type}}-{{ac.id}}">
+        <ion-icon name="bookmark" class="bookmark">
+          <ion-icon class='type_actu logo-twitter' *ngIf="ac.type == 'tweet'" name="logo-twitter"></ion-icon>
+          <ion-icon class='type_actu' *ngIf="ac.type == 'facebook'" name="logo-facebook"></ion-icon>
+          <ion-icon class='type_actu' *ngIf="ac.type == 'instagram'" name="logo-instagram"></ion-icon>
+          <div class='type_actu type_actu_text' *ngIf="ac.type == 'post'"><b>Post</b></div>
+          <div class='type_actu type_actu_text' *ngIf="ac.type == 'new'"><b>News</b></div>
+        </ion-icon>
+
+        <!--<img src="{{ac.image}}" *ngIf="isImg(ac.image)" (click)="displayFullImg(ac)">-->
+
+        <div>
+          <br/>
+          <br/>
+        </div>
+
+        <ion-card-content>
+          <!--<p id="description_{{i}}"></p>-->
+          <p [innerHTML]="ac.description"></p>
+          <a target="_blank" (click)="clickLink(ac.image)" *ngIf="isPDF(ac.image)">Ouvrir la pièce jointe</a>
+        </ion-card-content>
+
+        <div *ngIf="isImg(ac.image)">
+          <br/>
+          <br/>
+        </div>
+
+        <img src="{{ac.image}}" *ngIf="isImg(ac.image)" (click)="displayFullImg(ac)">
+        <video *ngIf="ac.video != '' && ac.video != null" controls="controls" preload="metadata" class="videoPlayer">
+          <source src="https://hautier.teamsmart.fr/video/actualite/{{ac.video}}#t=0.1" type="{{ac.video_type}}" />
+        </video>
+
+        <ion-item>
+          <ion-avatar *ngIf="ac.avatar != '' && ac.avatar != null" id="img_avatar_{{i}}" item-left [style.backgroundImage]="'url(https://hautier.teamsmart.fr//images/jevents/jevlocations/'+ac.avatar+')'"></ion-avatar>
+          <ion-avatar *ngIf="ac.avatar == ''" id="img_avatar_{{i}}" item-left>
+            <ion-icon md="md-person"></ion-icon>
+          </ion-avatar>
+          <h2>{{ac.nameAuthor}}</h2>
+          <div class="bottom_card">
+            <p class="date">{{dateForActu(ac.date)}}</p>
+            <ion-icon *ngIf="right_comment || right_read_comment" tappable (click)="comment(ac.id,ac.type)" class="data_bottom data_icon" ios="ios-chatbubbles" md="md-chatbubbles"></ion-icon>
+            <p *ngIf="right_comment || right_read_comment" id="nb_comment_{{ac.id}}" class="data_bottom data_number"></p>
+            <div *ngIf="right_like" tappable (click)="like(ac.id)" id="like_{{ac.id}}" [style.color]="checkIfLike(ac.likes_list)" class="data_bottom data_icon icon-coeur-plein"></div>
+            <p *ngIf="right_like" id="nb_like_{{ac.id}}" class="data_bottom data_number" >{{ac.nb_like}}</p>
+          </div>
+        </ion-item>
+      </ion-card>
+    </ng-container>
+  </div>
+
+</ion-content>
+
+<!--<ion-footer>
+  <ion-card id="cardInput">
+    <div class="img_avatarPost" (click)="openProfil()" [style.backgroundImage]="'url(' + bgImage + ')'">
+      <ion-icon md="md-person"></ion-icon>
+    </div>
+    <ion-card-content>
+      <textarea id="input_post" [(ngModel)]="monPost" name="monPost" placeholder="Exprimez-vous"></textarea>
+    </ion-card-content>
+    <ion-icon tappable (click)="getImg()" class="attachement_icon" ios="ios-images" md="md-images"></ion-icon>
+    <ion-icon tappable (click)="savePost()" class="attachement_icon" ios="ios-send" md="md-send"></ion-icon>
+    <div class='img-cross-delete' (click)="removeImg()">
+      <ion-icon name='close'></ion-icon>
+    </div>
+  </ion-card>
+</ion-footer>-->
+
+<div id="load-news"></div>
+<ion-spinner icon="circles" id="loader-news"></ion-spinner>
+
+<div class="img_full_size">
+  <div class="icon-croix" (click)="closeImg()"></div>
+  <div #imageParent class="img_box" >
+    <img #image src="" />
+  </div>
+  <div class="img_post_info">
+    <div class="name"></div>
+    <div class="desc"></div>
+  </div>
+</div>

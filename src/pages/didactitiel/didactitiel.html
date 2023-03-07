@@ -1,0 +1,10 @@
+<ion-content>
+  <ion-slides pager>
+    <ion-slide *ngFor="let did of didactitiel; let i = index">
+      <div [innerHTML]="did.html" readonly></div>
+      <div *ngIf="i == didactitiel.length - 1" class="button-box accept-btn" (click)="goToHome()" tappable>
+        <div>Suivant</div>
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

@@ -1,0 +1,76 @@
+<ion-menu [content]="content" side="right">
+  <ion-header>
+    <ion-toolbar>
+      <ion-title>
+        <img class=" logo_header logo_header_fsc" src="assets/imgs/logo_fsc_carre.png"/>
+        <img class="logo_header logo_header_team_smart" src="assets/imgs/logo-hautier.png"/>
+      </ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <div class="clis">
+      <div *ngFor="let c of cli" class="item-cli cli-{{c.id_ent}}" (click)="openPage(c)">
+        <img src="https://hautier.teamsmart.fr/images/jevents/jevlocations/{{c.img}}" />
+      </div>
+    </div>
+    <ion-list>
+      <div menuClose ion-item *ngFor="let p of pages" tappable (click)="openPage(p)" class="menu-items {{p.class}}">
+        <!--<button menuClose class="{{p.icon}}"></button>-->
+        <button menuClose>{{p.title}}</button>
+      </div>
+    </ion-list>
+  </ion-content>
+
+  <div id='capps_logo'>
+    <div>Une solution </div>
+    <img src='assets/imgs/logo-teamsmart.png'/>
+  </div>
+
+</ion-menu>
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="true"></ion-nav>
+
+<ion-header>
+  <ion-navbar hideBackButton="false">
+
+    <div id="#ma_back_arrow" class="myBackArrow">
+      <div class="icon-fleche-gauche"></div>
+    </div>
+    <div class="empty"></div>
+
+    <ion-title>
+      <img class=" logo_header logo_header_fsc" src="assets/imgs/logo_fsc_carre.png"/>
+      <img class="logo_header logo_header_team_smart" src="assets/imgs/logo-hautier.png"/>
+    </ion-title>
+
+    <button id="side-menu-right" ion-button menuToggle right>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+
+  </ion-navbar>
+</ion-header>
+
+<!-- Conserver footer -->
+<ion-footer>
+ <ion-toolbar>
+   <div *ngFor="let item of footerMenu" class="menu-icon-item {{item.icon}}" tappable (click)="goTo('form',item.id)"></div>
+   <!--<div class="menu-icon-item icon-boite-outils" tappable (click)="goTo(1)"></div>-->
+   <div class="menu-icon-item icon-voie-publique" tappable (click)="goTo('sign',2)"></div>
+   <!--<div class="icon-sondage"  tappable (click)="goTo(1)">
+    <span id="sondage-notif"> <div>!</div></span>
+  </div>-->
+</ion-toolbar>
+</ion-footer>
+
+<!--<div class="img_full_size">
+  <div class="icon-croix" (click)="closeImg()"></div>
+  <div #image class="img_box" >
+    <img src="" />
+  </div>
+  <div class="img_post_info">
+    <div class="name"></div>
+    <div class="desc"></div>
+  </div>
+</div>
+-->

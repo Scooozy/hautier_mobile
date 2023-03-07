@@ -1,0 +1,310 @@
+page-compte-rh{
+
+  ion-content{
+
+    .scroll-content{
+
+      #warning {
+        width: 100%;
+        text-align: center;
+        padding: 10px;
+      }
+
+      #wave {
+        position: relative;
+        height: 140px;
+        width: 100%;
+
+        svg{
+          width: 100%;
+          //height: 600px;
+          position: absolute;
+        }
+
+        .add-btn{
+          z-index: 10;
+          position: absolute;
+          background: #678E9B;
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          text-align: center;
+          font-size: 40px;
+          color: #FFF;
+          right: 20px;
+          top: 90px;
+          box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+          display: flex;
+          align-content: center;
+          justify-content: center;
+
+        }
+
+        #header {
+          display: flex;
+          position: absolute;
+          align-items: center;
+          color: #FFF;
+          font-size: 22px;
+          margin: 16px;
+
+          .picto {
+            font-size: 40px;
+          }
+
+          .title {
+            padding-left: 16px;
+            text-transform: uppercase;
+          }
+        }
+      }
+
+      .tab-box{
+        border-bottom: 1px solid lightgray;
+        width: 100%;
+        z-index: 1;
+        background: #FFF;
+        display: flex;
+
+
+        .tabs{
+          font-size: 17px;
+          display: inline-block;
+          vertical-align: middle;
+          flex: 1;
+          text-align: center;
+          color: #727272;
+          padding: 3% 0;
+          border-bottom: 2px solid transparent;
+        }
+
+        .active {
+          border-bottom: 2px solid #678E9B;
+          font-weight: bold;
+          color: #678E9B;
+        }
+
+
+      }
+
+      .hiddenChart{
+        display: none !important;
+      }
+
+    }
+
+  }
+
+  #solde_total{
+    width : 100%;
+    text-align: center;
+    position: absolute;
+    margin-top: -60px;
+  }
+
+  .titre{
+    font-size: 17px;
+    color: #678E9B;
+   //margin-bottom: 1.6rem;
+    margin-left: 5px;
+  }
+
+  .trait {
+    width: 100%;
+    //display: inline-block;
+    height: 1px;
+    background-color: #678E9B;
+    //margin-bottom: 5px;
+    margin-left: 5px;
+
+  }
+
+  .titre-compterh{
+    margin-top: 170px;
+    padding: 0 16px;
+
+    .titre{
+      font-size: 18px !important;
+    }
+
+  }
+
+  .add-btn{
+    position: absolute;
+    right: 16px;
+    text-align: center;
+    background-color: #678E9B;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    color: #FFF;
+    font-size: 40px;
+    //padding-top: 7px;
+    top: 16px;
+    display: flex;
+  }
+
+  #add-sugg{
+    //padding-top: 10px;
+    display: flex;
+    top: 100px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-nav-year{
+    display: inline-block;
+    position: relative;
+    /*top: 125px;*/
+    color: #D85756;
+    font-size: 25px;
+    z-index: 10;
+  }
+
+  .btn-nav-year:first-of-type{
+    margin-left: 10px;
+  }
+
+  .date_filter{
+    font-size: 15px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 3;
+    padding: 0 15px;
+
+    div{
+      display: inline-block;
+      text-align: center;
+      flex: 1;
+    }
+
+    div:last-of-type{
+      flex: 2;
+    }
+
+    .arrow{
+      right: 10px;
+      font_size: 20px;
+      font-weight: bold;
+    }
+
+    .block{
+      display: inline-block;
+    }
+
+    .filter_tab{
+      padding-bottom: 5px;
+    }
+  }
+
+  .container-graph-conge{
+    width: 270px !important;
+    height: 135px !important;
+    margin: auto;
+    margin-top: 10px;
+
+    &.hide-graph{
+      display: none !important;
+    }
+
+  }
+
+  .solde_conge{
+    width: 100%;
+    border-top: 1px solid lightgrey;
+    border-bottom: 1px solid lightgrey;
+    margin-top: 30px;
+    padding-left: 0 !important;
+
+    li{
+      width: 48%;
+      display: inline-block;
+      vertical-align: middle;
+      border-right: 1px solid lightgrey;
+      text-align: center;
+      padding-top: 13px;
+      padding-bottom: 2px;
+
+      div:nth-child(1){
+        /*border-bottom: 1px solid lightgrey;*/
+      }
+
+      .ion-arrow-up-b{
+        font-size: 1.5em;
+      }
+
+      .hr-solde{
+        height: 0px !important;
+      }
+
+      .results-pourcent-sondage {
+        font-weight: 700;
+      }
+
+    }
+
+    .solde_restant{
+     border-right: none;
+    }
+
+    .hr-solde-pris{
+      border: 1px solid #678E9B;
+    }
+
+    .hr-solde-restant{
+      border: 1px solid #D85756;
+    }
+
+    .ion-arrow-up-b-pris{
+      color: #678E9B;
+    }
+
+    .ion-arrow-up-b-restant{
+      color: #D85756;
+    }
+
+    .forward_arrow {
+      visibility: hidden;
+    }
+  }
+
+  table {
+    width: calc(100% - 32px);
+    margin: 20px 16px 60px 16px;
+    text-align: center;
+    font-size: 10px;
+  }
+
+  td, th{
+    height: 50px;
+    border-bottom: 1px solid lightgray;
+  }
+
+  thead {
+    color: #678E9B;
+    font-size: 12px;
+  }
+
+  tbody {
+    font-size: 12px;
+  }
+
+  #check {
+    color : green;
+    font-size : 20px !important;
+  }
+
+  #encours {
+    font-size : 20px !important;
+  }
+
+  #croix {
+    color : red;
+    font-size : 20px !important;
+  }
+}
+
+
+

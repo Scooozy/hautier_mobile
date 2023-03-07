@@ -1,0 +1,44 @@
+
+<ion-content content="content" #content>
+
+  <div id="app-form">
+    <div id="app-form-title">
+      <p>Je prends rendez-vous ...</p>
+    </div>
+    <div id="app1">
+      <div>
+        <div id="filtreEnt" *ngIf="originPage == 'rendez-vous'">
+          <select id="select-filtre-ent" (change)="setFiltreEnt()">
+            <option value="" disabled selected>Filtrer par entreprise</option>
+            <option *ngFor="let e of ent" value="{{e.loc_id}}">{{e.title}}</option>
+          </select>
+        </div>
+
+        <div *ngIf="filtreTeam == true" id="contact">
+          <select id="select-contact" (change)="setContact()">
+            <option value="" disabled selected>Selectionner une personne de la liste</option>
+            <option *ngFor="let c of contact" value="{{c.id_employe}}">{{c.prenom}} {{c.nom}}</option>
+          </select>
+        </div>
+
+        <!--<div *ngIf="filtreTeam == false && originPage == 'rendez-vous'" id="contact">
+          <select id="select-contact" (change)="setContact()">
+            <option value="" disabled selected>Selectionner une personne de la liste</option>
+            <option *ngFor="let c of contact" value="{{c.id}}">{{c.prenom}} {{c.nom}}</option>
+          </select>
+        </div>-->
+      </div>
+      <ion-input type="text" [(ngModel)]="subject" id="subject" placeholder="Intitulé du rendez-vous *"></ion-input>
+      <textarea type="text" id="desc" placeholder="Descriptif *"></textarea>
+      <ion-input type="text" [(ngModel)]="lieu" id="lieu" placeholder="Lieu du rendez-vous *"></ion-input>
+      <input type="date" id="date" />
+      <input type="time" id="time" value="00:00" step="300" />
+      <div id="app-send-btn" tappable (click)="verifForm()">
+        <div>Envoyer</div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<div id="load" *ngIf="load"></div>
+<ion-spinner icon="circles" id="loader" *ngIf="load"></ion-spinner>

@@ -1,0 +1,219 @@
+page-events-formulaire {
+  background: #ffffff !important;
+
+  ion-content{
+    width: 90%;
+    margin-left: 5%;
+
+    #name, #lieu, .event-date, .event-desc,
+    #select-cat, .lvl1-list, .adminent{
+      width: 100%;
+      margin-top: 7%;
+      border-radius: 5px;
+      opacity: 0.9;
+      border: 1px solid #d6d6d6;
+      color: #4d4d4d;
+      font-weight: bold;
+      padding: 3%;
+      font-size: 15px;
+      max-width: inherit;
+      background: #FFF;
+    }
+
+    .lvl1-list{
+      margin-top: 0 !important;
+      background: transparent !important;
+    }
+
+    .event-desc{
+      height: 230px;
+      margin-top: 7%;
+    }
+
+    #select-cat{
+      margin-top: 7%;
+      background: transparent !important;
+    }
+
+    .comments{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 7% 0;
+    }
+
+    .participations{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 7% 0;
+    }
+
+    /*.lvl1-list{
+      display: flex;
+      justify-content: start;
+      flex-wrap: wrap;
+
+      .lvl1-btn{
+        width: max-content;
+        border: 1px solid lightgray;
+        padding: 10px;
+        border-radius: 5px;
+        color: #000;
+        font-weight: bold;
+        display: inline-block;
+        vertical-align: middle;
+        margin: 10px;
+
+        div{
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        div:first-of-type{
+          margin-right: 10px;
+        }
+
+      }
+
+      .checked-lvl1{
+        background: #E90000;
+        border: none;
+        color: #FFF;
+      }
+    }*/
+
+    .event-date{
+      background: transparent;
+      width: 49%;
+      display: inline-block;
+      vertical-align: middle;
+      margin-top: 0;
+    }
+
+    #name, .select-categ-box{
+      background-color: transparent;
+      padding-left: 3%;
+    }
+
+    .img-box{
+      border: 1px solid lightgray;
+      border-radius: 5px;
+      margin-top: 7%;
+
+      .add-img-btn, .add-img-preview{
+        display: inline-block;
+        vertical-align: top;
+        min-height: 40px;
+      }
+
+      .add-img-btn{
+        background: #97BF0E;
+        color: #FFFFFF;
+        width: 20%;
+        text-align: center;
+        font-size: 22px;
+        padding-top: 5px;
+      }
+      .add-img-preview{
+        width: 78%;
+        padding-left: 10px;
+
+        p{
+          margin-top: 11px;
+          margin-bottom: 11px;
+        }
+
+        .img-cross-delete{
+          color: #FFF;
+          background: lightgray;
+          width: 25px;
+          height: 25px;
+          text-align: center;
+          font-size: 20px;
+          position: absolute;
+          border-radius: 50%;
+          left: 22%;
+          display: none;
+          margin-top: -7px;
+
+          ion-icon{
+            font-size: 22px;
+            text-align: center;
+            width: inherit;
+            color: #FFF;
+          }
+
+        }
+
+      }
+
+    }
+
+    .select-categ-box{
+
+      .select-categ-event{
+        color: #4d4d4d;
+        font-weight: bold;
+        width: 100%;
+        background: transparent;
+        border: none;
+        font-size: 18px;
+      }
+
+    }
+
+    #select-categ-lvl2{
+      display: none;
+    }
+
+    .toggle-content {
+      width: 100%;
+      margin-top: 5%;
+      font-size: 15px;
+
+      .label-toggle{
+        width: 65%;
+        margin-top: 6%;
+        color: #4d4d4d;
+        font-weight: bold;
+      }
+
+      .toggle{
+        float: right;
+        height: 13px;
+      }
+
+      .toggle .item{
+        background-color: transparent;
+        border: none;
+        padding: 21px;
+        vertical-align: bottom;
+      }
+
+      .label-toggle, .toggle{
+        display: inline-block;
+        vertical-align: bottom;
+      }
+
+    }
+
+    .button-box{
+      width: 100%;
+      margin-top: 7%;
+      margin-bottom: 10%;
+      background: #4D6073;
+      color: #FFF;
+      font-weight: 600;
+
+      div {
+        text-align: center;
+        font-size: 17px;
+        padding: 14px;
+      }
+
+    }
+
+  }
+
+}

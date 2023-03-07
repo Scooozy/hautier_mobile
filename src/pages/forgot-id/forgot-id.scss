@@ -1,0 +1,159 @@
+page-forgot-id {
+
+  .content-ios{
+    .scroll-content{
+      margin-top: 0 !important;
+    }
+  }
+
+  ion-content{
+    .scroll-content{
+      margin-top: 0px !important;
+      margin-bottom: 30px !important;
+      //background-image: url("../assets/imgs/background_connect.jpg");
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      //background-size: cover;
+      //background: url("../assets/imgs/background_connect.jpg") no-repeat center center fixed;
+      background-size: cover;
+      background-color: #003375 !important;
+    }
+
+    #user_identification{
+      margin-top: 20%;
+
+      #login, #email, #secret-code, #mdp, #mdp1{
+        background: #fff;
+        border: none;
+        border-radius: 5px;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 15px;
+        padding: 12px;
+      }
+
+      #secret-code, #mdp, #mdp1{
+        display: none;
+      }
+
+      #confirm-connect-fp{
+        margin-top: 15px;
+        background-color: #007BC0;
+        color: #FFF;
+        text-align: center;
+        padding: 13px;
+        width: 60%;
+        margin-left: 20%;
+        font-weight: 700;
+        border-radius: 5px;
+        border: none;
+      }
+    }
+
+    #back-button {
+      width: 35px;
+      height: 35px;
+      text-align: center;
+      border-radius: 50%;
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      padding-top: 5px;
+      font-size: 25px;
+      background-color: #eaeaea;
+
+      div {
+        color: #000;
+        font-size: 25px;
+      }
+    }
+
+    .button-inner {
+      visibility: visible;
+    }
+
+    .logoCentral{
+      text-align: center;
+
+      ion-icon{
+        transform: rotate(45deg);
+        font-size: 100px;
+        color: #fff;
+        display: inline-block;
+      }
+
+    }
+  }
+
+}
+
+.platform-ios{
+  page-forgot-id {
+    .scroll-content {
+      margin-top: 0;
+    }
+  }
+}
+
+@media only screen
+and (device-width : 375px){
+  .platform-ios {
+    page-forgot-id {
+      #back-button{
+        top: 45px;
+      }
+      #user_identification {
+        margin-top: 25%;
+      }
+    }
+  }
+}
+
+//iPhone XR
+@media only screen
+and (device-width : 414px){
+
+  .platform-ios {
+    page-forgot-id {
+      #back-button{
+        top: 45px;
+      }
+      #user_identification {
+        margin-top: 25%;
+      }
+    }
+  }
+}
+
+//iPhone XS
+@media only screen
+and (device-width : 375px) {
+
+  .platform-ios {
+    page-forgot-id {
+      #back-button{
+        top: 45px;
+      }
+      #user_identification {
+        margin-top: 25%;
+      }
+    }
+  }
+}
+
+// iPhone XSMax
+@media only screen
+and (device-width : 414px) {
+
+  .platform-ios {
+    page-forgot-id {
+      #back-button{
+        top: 45px;
+      }
+      #user_identification {
+        margin-top: 25%;
+      }
+    }
+  }
+}

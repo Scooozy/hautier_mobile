@@ -1,0 +1,26 @@
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/highcharts-more.js"></script>
+<ion-content content="content" #content>
+
+  <div class="sondage-form">
+    <div class="question">
+      <div>{{name}}</div>
+      <div>Sondage effectué du {{datedebut}} au {{datefin}}.</div>
+    </div>
+    <!--<div id="container-graph-sond"></div>-->
+    <canvas id="container-graph-sond" #doughnutCanvas></canvas>
+    <div id="solde_total">{{total}}</div>
+    <ul id="results-name-sondage">
+      <li *ngFor="let reponse of reponses, let i = index" id="reponse-{{i}}" >
+        <div>{{reponse.response}}</div>
+        <hr class="hr-sondage" width="25px" />
+        <div class="results-pourcent-sondage">{{reponse.pourcent}} %</div>
+        <ion-icon md="md-arrow-dropup" class="ion-arrow-up-b"></ion-icon>
+      </li>
+    </ul>
+  </div>
+
+</ion-content>
+
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>

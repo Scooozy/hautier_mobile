@@ -1,0 +1,41 @@
+<!-- <ion-header>
+	<ion-navbar> 
+		<ion-title>test</ion-title>
+	</ion-navbar>
+</ion-header> -->
+
+<ion-content>
+	<h1 class="title">Mes favoris</h1>
+	
+	<div class="accessFiltre" tappable (click)="openFilter()">
+		<ion-icon name="md-funnel"></ion-icon>
+	</div>
+
+	<ion-select class="select-cat" [(ngModel)]="cat" (ionChange)='setCat()' name="cat" okText="Valider" cancelText="Annuler" #Select>
+		<ion-option value="Toutes les catégories" selected>Toutes les catégories</ion-option>
+		<ion-option value="team">Employés</ion-option>
+		<ion-option value="ent">Entreprises</ion-option>
+	</ion-select>
+
+	<ul class="draggable-objects" id="list-categ-home">
+		<li *ngFor="let obj of grid" class="{{obj.id_line}} cat-diamond-home li-grid li-grid-{{obj.clic}}" id="li{{obj.id}}">
+			<div class="hexa" id="hexagon_{{obj.clic}}">
+				<div class="hex1">
+					<div class="hex2">
+						<img *ngIf="obj.type == 'team'" class="imgHex" />
+						<img *ngIf="obj.type != 'team'" class="imgHex imgHexPartenaire" />
+					</div>
+					<div class="hex3" tappable (click)="savePlace(obj.clic, obj.type, obj.src, obj.is_entreprise)">
+						<div class="person" id="person-{{obj.clic}}">
+							<div class="icon-cartable"></div>
+						</div>
+					</div>
+					<button tappable (click)="savePlace(obj.clic, obj.type, obj.src, obj.is_entreprise)" div id="{{obj.id}}" class="losange-titre">{{obj.title}}</button>
+				</div>
+			</div>
+		</li>
+	</ul>
+</ion-content>
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>
+

@@ -1,0 +1,113 @@
+
+<ion-content content="content" #content>
+
+  <div class="SVGMotif">
+    <svg height="125" width="600">
+      <defs>
+        <pattern id="img1" patternUnits="userSpaceOnUse" width="600" height="600">
+          <image id="bg1" xlink:href="assets/imgs/background_motif.png" x="0" y="0" width="600" height="325" />
+          <!--<image id="bg2" xlink:href="assets/imgs/bg-hex.png" x="0" y="0" width="520" height="300" />-->
+        </pattern>
+      </defs>
+      <path d="M0,125 C300,85 100,0 1500,250 L450,00 L0,0 Z"
+      fill="url(#img1)" />
+    </svg>
+  </div>
+
+  <div id="wave">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <path d="M0,125 C300,85 100,0 1500,250 L450,00 L0,0 Z" fill="#678E9B" />
+    </svg>
+
+    <div class="info">
+      <div class="content_info">
+        <p class="nom">{{TWname}}</p>
+        <p class="entreprise">{{ent_name}}</p>
+        <p class="fonction">{{service}}</p>
+      </div>
+    </div>
+    <div class="img_avatar" (click)="getImage()" [ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/entreprise/profils/' + image + ')'}">
+      <ion-icon *ngIf="image == ''" md="md-person" class="icon-avatar"></ion-icon>
+      <!--<ion-icon *ngIf="id_user == idTW" (click)="getImage()" id="icon_modif_avatar" name="create"></ion-icon>-->
+    </div>
+
+    <div  *ngIf="id_user == idTW" id="modif-icon" tappable (click)="modifProfil()">
+      <ion-icon ios="ios-more" md="md-more"></ion-icon>
+    </div>
+  </div>
+
+  <div class="content-guidelines">
+    <div class="tw_desc" [innerHTML]="description"></div>
+
+    <div id="competences" class="custom-area">
+      <div class="sous-titre st-fav">
+        <h3 class="titre titre_favoris">Mes compétences</h3>
+        <div class="trait trait_favoris"></div>
+      </div>
+      <div class="favbox" *ngIf="mesFavorisProLength != 0">
+        <span *ngFor="let favP of mesFavorisPro">
+          <div>{{favP.titre}}</div>
+        </span>
+      </div>
+      <p *ngIf="mesFavorisProLength == 0">Aucune compétence n'est enregistrée</p>
+    </div>
+
+    <!--<div id="content_post" *ngIf="right_actu">
+      <div class="sous-titre st-fav">
+        <h3 class="titre titre_actus">Mes actualités</h3>
+        <div class="trait trait_actus"></div>
+      </div>
+      <ion-list class="posts" *ngIf="postsLength != 0">
+        <ion-item class="card_post" *ngFor="let p of mesPosts">
+          <img *ngIf="p.image != ''" class="imgPost imgPost_{{p.id}}" src="https://hautier.teamsmart.fr/images/post/{{p.image}}" (tap)="openImg(p.image)">
+          <div class="post-content">
+            <p>{{p.post}}</p>
+          </div>
+          <div class="post-footer">
+            <div *ngIf="image != ''" class="img_avatarPostSend" [ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/entreprise/profils/' + image + ')'}"></div>
+            <div *ngIf="image == ''" class="img_avatarPostSend" >
+              <ion-icon md="md-person"></ion-icon>
+            </div>
+            <div class="bottom_card">
+              <h2>{{TWname}}</h2>
+              <p class="date">{{dateForPost(p.date)}}</p>
+            </div>
+          </div>
+        </ion-item>
+      </ion-list>
+      <p *ngIf="postsLength == 0">Aucune actualité à afficher</p>
+    </div>-->
+
+  </div>
+
+</ion-content>
+
+<!--<ion-footer>
+  <ion-card *ngIf="id_user == idTW" id="cardInput">
+    <div class="img_avatarPost" [style.backgroundImage]="'url(https://hautier.teamsmart.fr/images/entreprise/profils/' + image + ')'">
+      <ion-icon md="md-person"></ion-icon>
+    </div>
+    <ion-card-content>
+      <textarea id="input_post" [(ngModel)]="monPost" name="monPost" placeholder="Exprimez-vous"></textarea>
+    </ion-card-content>
+    <ion-icon tappable (click)="getImg()" class="attachement_icon" ios="ios-images" md="md-images"></ion-icon>
+    <ion-icon tappable (click)="savePost()" class="attachement_icon" ios="ios-send" md="md-send"></ion-icon>
+  </ion-card>
+  <div *ngIf="id_user != idTW" class="contact-bar">
+    <a *ngIf="tel != ''" class="contact-btn" href="tel: {{tel}}">
+      <div class="icon-tel"></div>
+    </a>
+    <div class="icon-contact contact-btn" (click)="msgTW()"></div>
+    <div class="icon-evenement-ajout contact-btn" (click)="rdvTW()"></div>
+  </div>
+</ion-footer>-->
+
+<div class="img-bg-post">
+  <div class="close-img-bg-post" (click)="closeImg()">
+    <ion-icon name="close"></ion-icon>
+  </div>
+</div>
+
+<div *ngIf="flag" class="icon-check" id="close-settings" tappable (click)="backToFormualaire()"></div>
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>

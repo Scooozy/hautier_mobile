@@ -1,0 +1,274 @@
+@font-face {
+    font-family: "Century Gothic";
+    src: url("./../assets/fonts/CenturyGothic.eot?qxysy6");
+    src: url("./../assets/fonts/CenturyGothic.eot?qxysy6#iefix") format("embedded-opentype"), url("./../assets/fonts/CenturyGothic.ttf?qxysy6") format("truetype"), url("./../assets/fonts/CenturyGothic.woff?qxysy6") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IcoMoon';
+    src: url('./../assets/fonts/icomoon.eot?by079x');
+    src: url('./../assets/fonts/icomoon.eot?by079x#iefix') format('embedded-opentype'), url('./../assets/fonts/icomoon.ttf?by079x') format('truetype'), url('./../assets/fonts/icomoon.woff?by079x') format('woff'), url('./../assets/fonts/icomoon.svg?by079x#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'IcoMoon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-long-camion-plein:before {
+    content: "\e936";
+}
+
+.icon-long-camion:before {
+    content: "\e93b";
+}
+
+.icon-petit-camion-plein:before {
+    content: "\e93c";
+}
+
+.icon-petit-camion:before {
+    content: "\e935";
+}
+
+.icon-RH:before {
+    content: "\e934";
+}
+
+.icon-meteo:before {
+    content: "\e92e";
+}
+
+.icon-ajout-evt:before {
+    content: "\e937";
+}
+
+.icon-voiture:before {
+    content: "\e938";
+}
+
+.icon-commentaires:before {
+    content: "\e939";
+}
+
+.icon-resa-salle:before {
+    content: "\e93a";
+}
+
+.icon-agenda:before {
+    content: "\e900";
+}
+
+.icon-aide:before {
+    content: "\e901";
+}
+
+.icon-annuaire:before {
+    content: "\e902";
+}
+
+.icon-bouton-croix:before {
+    content: "\e903";
+}
+
+.icon-bouton-moins:before {
+    content: "\e904";
+}
+
+.icon-bouton-plus:before {
+    content: "\e905";
+}
+
+.icon-cartable:before {
+    content: "\e906";
+}
+
+.icon-check:before {
+    content: "\e907";
+}
+
+.icon-clubs:before {
+    content: "\e908";
+}
+
+.icon-coeur-contour:before {
+    content: "\e909";
+}
+
+.icon-coeur-plein:before {
+    content: "\e90a";
+}
+
+.icon-concours:before {
+    content: "\e90b";
+}
+
+.icon-conges-rtt:before {
+    content: "\e90c";
+}
+
+.icon-croix:before {
+    content: "\e90d";
+}
+
+.icon-documents:before {
+    content: "\e90e";
+}
+
+.icon-encours2:before {
+    content: "\e90f";
+}
+
+.icon-entreprise:before {
+    content: "\e910";
+}
+
+.icon-favoris-contour:before {
+    content: "\e911";
+}
+
+.icon-favoris-plein:before {
+    content: "\e912";
+}
+
+.icon-filtre-grille:before {
+    content: "\e913";
+}
+
+.icon-filtre-liste:before {
+    content: "\e914";
+}
+
+.icon-filtre:before {
+    content: "\e915";
+}
+
+.icon-fleche-right:before {
+    content: "\e916";
+}
+
+.icon-fleche-gauche:before {
+    content: "\e917";
+}
+
+.icon-fourniture:before {
+    content: "\e918";
+}
+
+.icon-association:before {
+    content: "\e919";
+}
+
+.icon-home:before {
+    content: "\e91a";
+}
+
+.icon-informations:before {
+    content: "\e91b";
+}
+
+.icon-localisation:before {
+    content: "\e91c";
+}
+
+.icon-bibli:before {
+    content: "\e91d";
+}
+
+.icon-menu-points:before {
+    content: "\e91e";
+}
+
+.icon-menu:before {
+    content: "\e91f";
+}
+
+.icon-message-accueil:before {
+    content: "\e920";
+}
+
+.icon-contact:before {
+    content: "\e921";
+}
+
+.icon-modifier:before {
+    content: "\e922";
+}
+
+.icon-moins:before {
+    content: "\e923";
+}
+
+.icon-journal:before {
+    content: "\e924";
+}
+
+.icon-notification:before {
+    content: "\e925";
+}
+
+.icon-outils:before {
+    content: "\e926";
+}
+
+.icon-parametrage:before {
+    content: "\e927";
+}
+
+.icon-petites-annonces:before {
+    content: "\e928";
+}
+
+.icon-gallery:before {
+    content: "\e929";
+}
+
+.icon-plus:before {
+    content: "\e92a";
+}
+
+.icon-poubelle:before {
+    content: "\e92b";
+}
+
+.icon-reservation-materiel:before {
+    content: "\e92c";
+}
+
+.icon-reservation:before {
+    content: "\e92d";
+}
+
+.icon-voie-publique:before {
+    content: "\e92f";
+}
+
+.icon-sondage:before {
+    content: "\e930";
+}
+
+.icon-suggestion:before {
+    content: "\e931";
+}
+
+.icon-valide:before {
+    content: "\e932";
+}
+
+.icon-tel:before {
+    content: "\e933";
+}

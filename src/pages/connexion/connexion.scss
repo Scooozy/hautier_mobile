@@ -1,0 +1,229 @@
+page-connexion {
+
+  top: 0px !important;
+
+  font-family: CenturyGothic !important;
+
+  .content-ios{
+    .scroll-content{
+      margin-top: 0 !important;
+    }
+    #bottom-element{
+      bottom: 40px !important;
+    }
+  }
+
+  ion-content{
+    height: 100% !important;
+
+    .scroll-content{
+      margin-top: 0px !important;
+      margin-bottom: 30px !important;
+      //background-image: url("../assets/imgs/background_connect.jpg");
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      //background-size: cover;
+      //background: url("../assets/imgs/background_connect.jpg") no-repeat center center fixed;
+      background-size: cover;
+      background-color: #003375 !important;
+    }
+
+    .button-inner {
+      visibility: visible;
+    }
+
+    .logoCentral{
+      text-align: center;
+      margin-top: 25px;
+      background-image: url("../assets/imgs/HAUTIER-logo-blanc-300px.png");
+      width: 100%;
+      height: 100px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      margin-bottom: 30px;
+
+      ion-icon{
+        transform: rotate(45deg);
+        font-size: 100px;
+        color: #fff;
+        display: inline-block;
+      }
+
+    }
+
+    #password {
+      position: relative;
+    }
+
+    #password input[type="password"] {
+      padding-right: 30px;
+    }
+
+    #password .eye_button{
+      right:15px;
+      position: absolute;
+      top: 15px;
+
+      ion-icon{
+        font-size: 25px;
+        color: #9E9E9E;
+      }
+    }
+
+    .icon-help{
+      font-weight: bold;
+    }
+
+    #oublierMDP{
+      text-align: center;
+      color: #fff;
+      width: max-content;
+      margin: auto;
+      margin-top: 20px;
+    }
+
+    #oublierID{
+      text-align: center;
+      color: #fff;
+      width: max-content;
+      margin: auto;
+      margin-top: 20px;
+    }
+
+    .content-gidelines{
+      width: 90%;
+      margin-left: 5%;
+
+      #login, #mdp{
+        background: #fff;
+        border: none;
+        border-radius: 5px;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 15px;
+        padding: 12px;
+      }
+
+      #confirm-connect-fp{
+        margin-top: 15px;
+        background-color: #007BC0;
+        color: #FFF;
+        text-align: center;
+        padding: 13px;
+        width: 60%;
+        margin-left: 20%;
+        font-weight: 700;
+        border-radius: 5px;
+        border: none;
+      }
+
+      .new-connect{
+        margin-top: 15px;
+        background-color: #fff;
+        color: #007BC0;
+        text-align: center;
+        padding: 13px;
+        width: 66%;
+        margin-left: 17%;
+        font-weight: 700;
+        border-radius: 5px;
+        border: none;
+      }
+
+      #help-co-fp{
+        position: absolute;
+        right: 40px;
+        top: 65%;
+        border: none;
+        border-radius: 50%;
+        text-align: center;
+        color: #62b0ad;
+        width: 30px;
+        height: 30px;
+        font-size: 13px;
+        z-index: 1000;
+        padding-top: 9px;
+        background-color: #fff;
+      }
+
+      #bottom-element{
+        position: absolute;
+        left: 0;
+        bottom: 30px;
+        width: 100%;
+
+        p {
+          overflow: hidden;
+          text-align: center;
+          color: white;
+        }
+
+        p:before,
+        p:after {
+          background-color: #fff;
+          content: "";
+          display: inline-block;
+          height: 1px;
+          position: relative;
+          vertical-align: middle;
+          width: 30%;
+        }
+
+        p:before {
+          right: 0.5em;
+          margin-left: -50%;
+        }
+
+        p:after {
+          left: 0.5em;
+          margin-right: -50%;
+        }
+      }
+
+    }
+
+  }
+
+  /*
+  @media only screen
+  and (device-width : 375px)
+  and (device-height : 812px)
+  and (-webkit-device-pixel-ratio : 3) {
+
+
+    .logoCentral{
+      margin-top: 40px;
+    }
+  }
+
+  //iPhone XR
+  @media only screen
+  and (device-width : 414px)
+  and (device-height : 896px)
+  and (-webkit-device-pixel-ratio : 2) {
+
+    .logoCentral{
+      margin-top: 40px;
+    }
+  }
+
+  //iPhone XS
+  @media only screen
+  and (device-width : 375px)
+  and (device-height : 812px)
+  and (-webkit-device-pixel-ratio : 3) {
+
+    .logoCentral{
+      margin-top: 40px;
+    }
+  }*/
+
+}
+
+.button-inner, ion-footer {
+  visibility: hidden;
+}
+
+

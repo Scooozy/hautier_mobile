@@ -1,0 +1,39 @@
+<ion-content content="content" #content padding>
+  <h2 class="title">Nouvelle demande</h2>
+
+  <select id="cat" name="cat" [(ngModel)]="cat" (change)="changeCat()" >
+    <option value="">Catégorie d'absence *</option>
+    <!--<option value="0">Congé</option>-->
+    <option  *ngFor="let cat of catsUser" value="{{cat.id}}">
+      {{cat.title}}
+    </option>
+  </select>
+
+  <div class="abs_type">
+    <div class="options">
+      <div>Journée complète</div>
+      <ion-toggle [ngModel]="all_day" (ngModelChange)="changeType(2,0)" ></ion-toggle>
+    </div>
+    <div class="options">
+      <div>Matinée</div>
+      <ion-toggle [ngModel]="morning" (ngModelChange)="changeType(1,1)"></ion-toggle>
+    </div>
+    <div class="options">
+      <div>Après-midi</div>
+      <ion-toggle [ngModel]="afternoon" (ngModelChange)="changeType(1,2)"></ion-toggle>
+    </div>
+  </div>
+
+  <p for="datedebut">Date de début :</p>
+  <input type="date" name="datedebut" id="datedebut" min="{{datetoday}}" value="{{datetoday}}"/>
+
+  <p for="datefin" *ngIf="all_day">Date de fin :</p>
+  <input *ngIf="all_day" type="date" name="datefin" id="datefin" min="{{datetoday}}" value="{{datetoday}}"/>
+
+  <div class="errors">
+    <div *ngFor="let error of errors" class="error">{{error}}</div>
+  </div>
+
+  <div class="button-box save-btn" tappable (click)="checkForm()">Valider</div>
+
+</ion-content>

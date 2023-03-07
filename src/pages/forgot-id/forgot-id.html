@@ -1,0 +1,12 @@
+<ion-content fullscreen padding>
+
+  <div id="back-button" tappable (click)="backToCo()">
+    <div class="icon-fleche-gauche"></div>
+  </div>
+
+  <div id="user_identification">
+    <ion-input type="text" [(ngModel)]="email" id="email" placeholder="Email" tappable (click)="scrollToMe()" ></ion-input>
+    <div id="confirm-connect-fp" tappable (click)="confirmForms()">Valider</div>
+  </div>
+
+</ion-content>

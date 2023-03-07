@@ -1,0 +1,41 @@
+<div class="header-box">
+
+  <!-- Motif rayure avec la vague sur le bottom -->
+  <div class="SVGMotif">
+    <svg height="600" width="600">
+      <defs>
+        <pattern id="img1" patternUnits="userSpaceOnUse" width="600" height="600">
+          <image xlink:href="assets/imgs/background_motif.png" x="0" y="0" width="600" height="325" />
+        </pattern>
+      </defs>
+      <path d="M0,135 C200,140 190,10 800,120 L500,00 L0,0 Z" fill="url(#img1)" />
+    </svg>
+  </div>
+  <!-- Block rouge avec vague sur le bottom -->
+  <div id="wave">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <path d="M0,135 C200,140 190,10 800,120 L500,00 L0,0 Z"
+            fill=#FFC107 />
+    </svg>
+  </div>
+
+  <p class="title">MES CLUBS</p>
+  <div id="add-sugg" class="add-btn" tappable (click)="addClub()">
+    <div class="icon-plus"></div>
+  </div>
+</div>
+<ion-content padding>
+  <div id="dem-list" class="dem-list">
+    <ion-list>
+      <ion-item *ngFor="let club of clubs">
+        <div class="img-club" *ngIf="club.image != ''" [ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/jevents/jevlocations/' + club.image + ')'}"></div>
+        <div class="img-club picto-club" *ngIf="club.image == ''">
+          <ion-icon name="person"></ion-icon>
+        </div>
+        <div class="content-list-club">
+          <div>{{club.title}}</div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

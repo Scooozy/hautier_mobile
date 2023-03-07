@@ -1,0 +1,151 @@
+page-form-list{
+
+  .scroll-content{
+    margin-bottom: 60px;
+  }
+
+  .SVGMotif{
+    position: absolute;
+    z-index: 2;
+    display:none;
+  }
+
+  #wave {
+    position: relative;
+    //top: 0;
+    width: 100%;
+
+    svg{
+      width: 100%;
+      height: 135px;
+      position: absolute;
+    }
+
+    .title {
+      display: inline-block;
+      position: absolute;
+      vertical-align: middle;
+      color: #FFF;
+      font-size: 25px;
+      margin: 40px 25px;
+    }
+  }
+
+  .menu_filter{
+    font-size: 15px;
+    margin-top: 170px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 3;
+    padding: 0 15px;
+
+    p{
+      display: inline-block;
+      text-align: center;
+      width: 33%;
+    }
+
+    p:last-of-type{
+      flex: 2;
+    }
+
+
+    .arrow{
+      right: 10px;
+      font_size: 20px;
+      font-weight: bold;
+    }
+
+    .block{
+      display: inline-block;
+    }
+
+    .filter_tab{
+      padding-bottom: 5px;
+    }
+
+    .active_tab{
+      border-bottom: solid 2px #FFC107;
+      color: #FFC107;
+    }
+  }
+
+  .n1-n2-name{
+    display: inline-block;
+    vertical-align: middle;
+    margin: inherit;
+    padding-left: 10px;
+    width: 50%;
+    font-weight: bold;
+    width: calc(100% - 25px);
+  }
+
+  .tabs{
+    display: none;
+    margin-top: 30px;
+    ion-item{
+
+      p{
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+  .tab-1{
+    display: block;
+  }
+}
+
+@media only screen
+and (device-width : 375px) {
+  .platform-ios {
+
+    .menu_filter{
+      top: 190px !important;
+    }
+  }
+}
+
+//iPhone XR
+@media only screen
+and (device-width : 414px)
+and (device-height : 896px)
+and (-webkit-device-pixel-ratio : 2) {
+
+  .platform-ios {
+
+    .menu_filter{
+      top: 190px !important;
+    }
+  }
+}
+
+//iPhone XS
+@media only screen
+and (device-width : 375px)
+and (device-height : 812px)
+and (-webkit-device-pixel-ratio : 3) {
+
+  .platform-ios {
+
+    .menu_filter{
+      top: 190px !important;
+    }
+  }
+}
+
+// iPhone XSMax
+@media only screen
+and (device-width : 414px)
+and (device-height : 896px)
+and (-webkit-device-pixel-ratio : 3) {
+
+  .platform-ios {
+
+    .menu_filter{
+      top: 190px !important;
+    }
+  }
+}
+

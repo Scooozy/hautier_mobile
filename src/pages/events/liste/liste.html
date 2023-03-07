@@ -1,0 +1,118 @@
+<ion-content>
+  <!-- Motif rayure avec la vague sur le bottom -->
+  <div class="SVGMotif">
+    <svg height="600" width="600">
+      <defs>
+        <pattern id="img1" patternUnits="userSpaceOnUse" width="600" height="600">
+          <image xlink:href="assets/imgs/background_motif.png" x="0" y="0" width="600" height="325" />
+        </pattern>
+      </defs>
+      <path d="M0,135 C200,140 190,10 800,120 L500,00 L0,0 Z"
+            fill="url(#img1)" />
+    </svg>
+  </div>
+
+  <!-- Block rouge avec vague sur le bottom -->
+  <div id="wave">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <path d="M0,135 C200,140 190,10 800,120 L500,00 L0,0 Z"
+            fill="#007BC0" />
+    </svg>
+
+    <!-- Navigation de dates en dates -->
+    <div class="date-block">
+      <ion-icon class="btn-nav-date" tappable (click)="navDays(-86400 )" ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon>
+      <div class="date">
+        <div class="number_day">{{day_number}}</div>
+        <div class="content_day">
+          <p class="jour">{{day_name}}</p>
+          <p class="mois">{{day_month}}, {{day_year}}</p>
+        </div>
+      </div>
+      <ion-icon class="btn-nav-date" tappable (click)="navDays(86400 )" ios="ios-arrow-round-forward" md="md-arrow-round-forward"></ion-icon>
+    </div>
+
+    <!-- Bouton d'ajout d'évènements -->
+    <div *ngIf="right_add" class="add-btn" (click)="AddEvent()">
+      <ion-icon name="add"></ion-icon>
+    </div>
+
+    <!-- IMG de la personne connectée -->
+    <div tappable (click)="goToUser()" id="img_avatar">
+      <ion-icon md="md-person"></ion-icon>
+    </div>
+  </div>
+
+  <div class="menu_filter container">
+    <p tappable (click)="showDay()"><span id="filter_jour">Jour</span></p>
+    <p tappable (click)="showMonth()"><span id="filter_mois">Mois</span></p>
+    <p tappable (click)="openCalendar()"><span id="filter_full">Tout l'agenda</span></p>
+  </div>
+
+  <div class="select" (click)="openFilter()">
+    <ion-icon name="md-funnel"></ion-icon>
+  </div>
+
+  <div class="hidden-select">
+    <ion-select class="select-text" id="select-filter" [(ngModel)]="catSelected" (ionChange)="setFilter()" cancelText="Fermer" okText="Valider" #SelectCat>
+      <ion-option value="0" [selected]="true">Tout les événements</ion-option>
+      <ion-option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.title}}</ion-option>
+    </ion-select>
+    <span class="select-bar"></span>
+  </div>
+
+  <!-- EVENT DAYS LIST -->
+  <div class="calendar" id="calendar_day">
+    <ion-list class="agenda-list">
+      <ion-item class="event-cat-{{event.catid}} agenda-item item item-block item-md" *ngFor="let event of eventsDay; let i = index" tappable>
+        <div class="trait" [style.backgroundColor]="event.cat_color" (click)="goToDetailEvent(event.evdet_id,event.type)"></div>
+        <div class="event-summary-desc" (click)="goToDetailEvent(event.evdet_id,event.type)">
+          <div class="event-title">{{event.summary}}</div>
+          <div class="event-hour">{{event.jour}} <span *ngIf="event.h_start != '00:00'">-  {{event.h_start}}</span></div>
+        </div>
+        <div class="setEvent" *ngIf="event.created_by == id_user" (click)="eventOptions('day',i)">
+          <ion-icon class="icon-menu-points"></ion-icon>
+        </div>
+      </ion-item>
+    </ion-list>
+    <p class="empty-event-alert" *ngIf="eventsDayLength == 0">Aucun évènement n'est enregistré pour le moment suivant vos critères</p>
+  </div>
+
+
+  <!-- EVENT MONTH LIST -->
+  <div class="calendar" id="calendar_month">
+    <ion-list class="agenda-list">
+      <ion-item class="event-cat-{{event.catid}} agenda-item item item-block item-md" *ngFor="let event of eventsMonth; let i = index" tappable>
+        <div class="trait" [style.backgroundColor]="event.cat_color" (click)="goToDetailEvent(event.evdet_id,event.type)"></div>
+        <div class="event-summary-desc" (click)="goToDetailEvent(event.evdet_id,event.type)">
+          <div class="event-title">{{event.summary}}</div>
+          <div class="event-hour">{{event.jour}} <span *ngIf="event.h_start != '00:00'">-  {{event.h_start}}</span></div>
+        </div>
+        <div class="setEvent" *ngIf="event.created_by == id_user" (click)="eventOptions('month',i)">
+          <ion-icon class="icon-menu-points"></ion-icon>
+        </div>
+      </ion-item>
+    </ion-list>
+    <p class="empty-event-alert" *ngIf="eventsMonthLength == 0">Aucun évènement n'est enregistré pour le moment suivant vos critères</p>
+  </div>
+
+  <!-- EVENT FULL LIST -->
+  <div class="calendar" id="calendar_full">
+    <ion-list class="agenda-list">
+      <ion-item class="event-cat-{{event.catid}} agenda-item item item-block item-md" *ngFor="let event of allEvents; let i = index" tappable>
+        <div class="trait" [style.backgroundColor]="event.cat_color" (click)="goToDetailEvent(event.evdet_id,event.type)"></div>
+        <div class="event-summary-desc" (click)="goToDetailEvent(event.evdet_id,event.type)">
+          <div class="event-title">{{event.summary}}</div>
+          <div class="event-hour">{{event.jour}} <span *ngIf="event.h_start != '00:00'">-  {{event.h_start}}</span></div>
+        </div>
+        <div class="setEvent" *ngIf="event.created_by == id_user" (click)="eventOptions('full',i)">
+          <ion-icon class="icon-menu-points"></ion-icon>
+        </div>
+      </ion-item>
+    </ion-list>
+    <p class="empty-event-alert" *ngIf="eventsLength == 0">Aucun évènement n'est enregistré pour le moment suivant vos critères</p>
+  </div>
+</ion-content>
+
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>

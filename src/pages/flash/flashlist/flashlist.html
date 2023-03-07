@@ -1,0 +1,43 @@
+<ion-content>
+  <div class="header-box">
+    <div class="icon-informations picto"></div>
+    <p class="title">Flashs-Info</p>
+  </div>
+  <div class="flash-list">
+    <ion-list *ngIf="flashs_length != 0">
+      <ion-item *ngFor="let flash of flashs; let i = index" (click)="displayFlash(i)">
+        <div class="flash-title">{{flash.titre}}</div>
+        <div class="flash-date">du {{ flash.date_debut | date : 'd MMMM y':"":"fr"}} au {{ flash.date_fin | date : 'd MMMM y':"":"fr"}}</div>
+      </ion-item>
+    </ion-list>
+    <p *ngIf="flashs_length == 0">Aucune information n'est enregistrée</p>
+  </div>
+</ion-content>
+
+<div id="alert-meteo" *ngIf="showFlash == true">
+  <svg>
+    <polygon points="0,20 800,20 800,75 20,80 0,55" style="fill:#97BF0E;fill-opacity:0.5" />
+  </svg>
+  <svg>
+    <polygon points="0,20 120,20 105,65 75,87 45,98 0,100" style="fill:#97BF0E;fill-opacity:0.5" />
+  </svg>
+  <svg id="bottom-svg">
+    <polygon points="100,20 150,0 150,55 90,55" style="fill:#97BF0E;fill-opacity:0.5" />
+  </svg>
+  <h2>Flashs-Info</h2>
+  <div (click)="closeAlert()" id="alert-meteo-close" class="icon-croix"></div>
+  <div class="alert-container">
+    <h3>{{titre}}</h3>
+    <p id="msg" [innerHTML]="message"></p>
+    <div class="piece_jointe" *ngIf="type == 1" >
+      <a class="href-linkify" (click)="readVideo()"  href="#">Lien Video</a>
+    </div>
+    <div *ngIf="type == 2" class="piece_jointe" >
+      <img id="image_piecejointe" [src]="image_danger">
+    </div>
+    <div *ngIf="type == 3" class="piece_jointe" >
+      <a class="file_document" (click)="openFile()" href="#">Ouvrir le document</a>
+    </div>
+  </div>
+
+</div>

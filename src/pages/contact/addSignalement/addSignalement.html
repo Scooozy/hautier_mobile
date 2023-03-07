@@ -1,0 +1,40 @@
+
+<ion-content content="content" #content>
+
+  <div id="sign-form">
+    <div id="sign-form-title">
+      <p>Je signale ...</p>
+    </div>
+    <div id="sign1">
+      <select id="cat">
+        <option value="">Service concerné *</option>
+        <option value="{{cat.id}}" *ngFor="let cat of categories">{{cat.label}}</option>
+        <!--<option value="3">Déchets</option>
+        <option value="4">Propreté urbaine</option>
+        <option value="5">Mobilier urbain</option>
+        <option value="6">Espace vert</option>
+        <option value="7">Éclairage public</option>-->
+      </select>
+      <input type="text" [(ngModel)]="subject" id="subject" placeholder="Sujet *"/>
+      <textarea type="text" id="desc" placeholder="Précisions sur le problème rencontré ainsi que sur la localisation"></textarea>
+      <div id="image-signalement">
+        <div id="label-image">Image *</div>
+        <img src="" id="imageFile" />
+      </div>
+      <div id="btn-camera" class="ion-ios-camera-outline" tappable (click)="openCamera()"></div>
+      <input type="hidden" [(ngModel)]="fileDirectory" id="fileDirectory"/>
+      <input type="text" [(ngModel)]="location" id="location" placeholder="Localisation *" disabled />
+      <div id="sign-btn-map" tappable (click)="geoloc()">
+        <div class="icon-localisation"></div>
+      </div>
+      <div id="sign-send-btn" tappable (click)="verifForm()">
+        <div>Envoyer</div>
+        <div class="ion-ios-paperplane-outline"></div>
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>

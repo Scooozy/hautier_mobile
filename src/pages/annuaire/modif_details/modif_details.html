@@ -1,0 +1,80 @@
+<ion-content padding>
+
+  <div id="app-form-title">
+    <p>Je modifie mon profil ...</p>
+  </div>
+
+  <button id="modifpwd" (click)="modifpwd()" ion-button block>Modifier son mot de passe</button>
+
+  <form (ngSubmit)="saveProfil()">
+
+    <ion-item class="item_bio">
+      <ion-textarea rows="4" id="input_bio" type="text" (ionChange)='checkvalid()' placeholder="Saisir votre biographie" [(ngModel)]="bio" name="bio"></ion-textarea>
+    </ion-item>
+
+    <!-- <ion-label class="label_favoris">Mes favoris</ion-label> -->
+
+    <ion-item class="item_fonc">
+      <ion-label>Fonction dans l'entreprise</ion-label>
+      <ion-select [(ngModel)]="foncPro" (ionChange)='checkvalid()' name="foncPro" multiple="false" okText="Valider" cancelText="Annuler">
+        <ng-container *ngFor="let fonc of listFonc">
+          <ion-option [value]="fonc.id">{{fonc.nom}}</ion-option>
+        </ng-container>
+      </ion-select>
+    </ion-item>
+
+    <ion-item class="item_fav">
+      <ion-label>Compétences</ion-label>
+      <ion-select [(ngModel)]="favPro" (ionChange)='checkvalid()' name="favPro" multiple="true" okText="Valider" cancelText="Annuler">
+        <ng-container *ngFor="let fav of listFavoris">
+          <ion-option [value]="fav.id" *ngIf="fav.categorie == 1">{{fav.titre}}</ion-option>
+        </ng-container>
+      </ion-select>
+    </ion-item>
+
+
+    <!--<ion-item class="item_fav">
+      <ion-label>Favoris amateurs</ion-label>
+      <ion-select [(ngModel)]="favAma" (ionChange)='checkvalid()' name="favAma" multiple="true" okText="Valider" cancelText="Annuler">
+        <ng-container *ngFor="let fav of listFavoris">
+          <ion-option [value]="fav.id" *ngIf="fav.categorie == 0">{{fav.titre}}</ion-option>
+        </ng-container>
+      </ion-select>
+    </ion-item>-->
+
+    <!--<ion-item class="item_fav">
+      <ion-label>Groupes</ion-label>
+      <ion-select [(ngModel)]="groupes" (ionChange)='checkvalid()' name="groupes" multiple="true" okText="Valider" cancelText="Annuler">
+        <ng-container *ngFor="let grp of listGroupes">
+          <ion-option [value]="grp.id">{{grp.alias}}</ion-option>
+        </ng-container>
+      </ion-select>
+    </ion-item>-->
+
+    <ion-item class="item">
+      <ion-input id="input_tel" type="number" (ionChange)='checkvalid()' placeholder="Saisir votre numéro de téléphone" [(ngModel)]="tel" name="tel"></ion-input>
+    </ion-item>
+
+    <ion-item class="item">
+      <ion-input id="input_mail" type="email" (ionChange)='checkvalid()' placeholder="Saisir votre email" [(ngModel)]="mail" name="mail"></ion-input>
+    </ion-item>
+
+    <!--<ion-item class="item">
+      <ion-input id="input_twitter" type="text" (ionChange)='checkvalid()' placeholder="Saisir votre identifiant twitter" [(ngModel)]="twitter" name="twitter"></ion-input>
+    </ion-item>
+
+    <ion-item class="item">
+      <ion-input id="input_facebook" type="text" (ionChange)='checkvalid()' placeholder="Saisir votre identifiant facebook" [(ngModel)]="facebook" name="facebook"></ion-input>
+    </ion-item>
+
+    <ion-item class="item">
+      <ion-input id="input_insta" type="text" (ionChange)='checkvalid()' placeholder="Saisir votre identifiant instagram" [(ngModel)]="insta" name="insta"></ion-input>
+    </ion-item>
+
+    <ion-item class="item">
+      <ion-input id="input_linkedin" type="text" (ionChange)='checkvalid()' placeholder="Saisir votre identifiant linkedin" [(ngModel)]="linkedin" name="linkedin"></ion-input>
+    </ion-item>-->
+
+    <button id="submit_button" ion-button type="submit" disabled block>Sauvegarder</button>
+  </form>
+</ion-content>

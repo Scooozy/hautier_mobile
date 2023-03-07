@@ -1,0 +1,16 @@
+<ion-content fullscreen padding>
+
+  <div id="back-button" tappable (click)="backToCo()">
+    <div class="icon-fleche-gauche"></div>
+  </div>
+
+  <div id="user_identification">
+    <ion-input type="text" [(ngModel)]="login" id="login" placeholder="Identifiant" tappable (click)="scrollToMe()" ></ion-input>
+    <ion-input type="text" [(ngModel)]="email" id="email" placeholder="Email" tappable (click)="scrollToMe()" ></ion-input>
+    <ion-input type="text" [(ngModel)]="secret_code" id="secret-code" placeholder="Code secret" tappable (click)="scrollToMe()" ></ion-input>
+    <ion-input type="password" [(ngModel)]="mdp" id="mdp" placeholder="Mot de passe" tappable (click)="scrollToMe()" ></ion-input>
+    <ion-input type="password" [(ngModel)]="mdp1" id="mdp1" placeholder="Confirmation" tappable (click)="scrollToMe()" ></ion-input>
+    <div id="confirm-connect-fp" tappable (click)="confirmForms()">Valider</div>
+  </div>
+
+</ion-content>

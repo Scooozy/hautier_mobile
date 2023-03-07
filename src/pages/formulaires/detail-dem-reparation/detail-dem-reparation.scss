@@ -1,0 +1,33 @@
+page-form-detaildemreparation {
+
+  ion-content {
+
+    .scroll-content{
+      margin-bottom: 60px;
+    }
+
+    #title{
+      text-align: center;
+    }
+
+    #demande{
+      margin: 50px 30px 0;
+
+      .item_demande{
+        margin: 20px;
+        display: flex;
+      }
+
+      .field{
+        width: 45%;
+        margin-right: 10%;
+      }
+
+      .reponse{
+        width: 45%;
+      }
+    }
+
+  }
+
+}

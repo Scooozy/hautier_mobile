@@ -1,0 +1,130 @@
+<div class="group_head">
+  <div class="title" *ngIf="typeMessagerie != 'user'">{{gpName}}</div>
+  <div class="title" *ngIf="typeMessagerie == 'user'">{{namereceiver}}</div>
+  <div class="add-btn" (click)="addPeopleInGroupe()" *ngIf="typeMessagerie != 'user'">
+    <ion-icon name="person-add"></ion-icon>
+  </div>
+</div>
+
+<!--<ion-content content="content" #content>
+  <div class="dem-box">
+    <div id="demande-box">
+    </div>
+    <div *ngIf="nulldata">
+      <div class="msg-dem"></div>
+    </div>
+    <div *ngFor="let reponse of responses; let i = index">
+      <div class="date-reponse-box-dem" *ngIf="canDisplayDate(i)">
+        <div class="date-reponse-dem">{{dateMessageFormat(reponse.date,i)}}</div>
+      </div>
+      <div class="msg-dem"></div>
+    </div>
+  </div>
+  <div id="ancreBottom"></div>
+</ion-content>-->
+<ion-content content="content" #content>
+  <div class="dem-box">
+    <ion-infinite-scroll position="top" (ionInfinite)="doInfinite($event)" *ngIf="!allMessageLoad()">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
+    <!-- TEAMWORKER MSG -->
+    <ion-list class="msg-dem" *ngIf="typeMessagerie == 'user'">
+      <ion-item *ngFor="let item of responses_first; let i = index">
+        <div class='date-reponse-box-dem' *ngIf="canDisplayDate(i)">
+          <div class='date-reponse-dem' id='date-dem-"+i+"'>{{dateMessageFormat(item.date,i)}}</div>
+        </div>
+        <div class='chat self' *ngIf="item.id_sender == this.userContact" >
+          <div class="msg-content">
+            <div *ngIf="item.response != 0 || item.doc != null" class='chat-1'>
+              <div class='chat-message-1' (click)="clickLink('msg-'+item.id)" id="msg-{{item.id}}" [innerHTML]="displayText(item.response)"></div>
+              <div class='date-message-1'>{{formatTime(item.date)}}</div>
+            </div>
+            <img *ngIf="item.image != 0" class='image_self' src='https://hautier.teamsmart.fr/images/messagerie/{{item.image}}'/>
+          </div>
+          <div *ngIf="userSender.image != ''" class='user-photo photo_{{item.id_sender}}' [style.backgroundImage]="'url(https://hautier.teamsmart.fr/images/entreprise/profils/' + userSender.image + ')'"></div>
+          <div *ngIf="userSender.image == ''" class='user-photo photo_{{item.id_sender}}' >
+            <ion-icon md='md-person' role='img' class='icon icon-md ion-md-person' arial-label='person' ng-reflect-md='md-person' ></ion-icon>
+          </div>
+        </div>
+        <div class='chat friend' *ngIf="item.id_sender != this.userContact" >
+          <div *ngIf="userReceiver.image != ''" class='user-photo photo_{{item.id_sender}}' [style.backgroundImage]="'url(https://hautier.teamsmart.fr/images/entreprise/profils/' + userReceiver.image + ')'"></div>
+          <div *ngIf="userReceiver.image == ''" class='user-photo photo_{{item.id_sender}}' >
+            <ion-icon md='md-person' role='img' class='icon icon-md ion-md-person' arial-label='person' ng-reflect-md='md-person' ></ion-icon>
+          </div>
+          <div class="msg-content">
+            <div *ngIf="item.response != 0 || item.doc != null" class='chat-2'>
+              <div class='chat-message-2' (click)="clickLink('msg-'+item.id)" id="msg-{{item.id}}" [innerHTML]="displayText(item.response)"></div>
+              <div class='date-message-2'>{{formatTime(item.date)}}</div>
+            </div>
+            <img *ngIf="item.image != 0" class='image_self' src='https://hautier.teamsmart.fr/images/messagerie/{{item.image}}'/>
+          </div>
+        </div>
+        {{ancreToBottom(i)}}
+      </ion-item>
+    </ion-list>
+
+    <!-- GROUPE MSG -->
+    <ion-list class="msg-dem" *ngIf="typeMessagerie != 'user'">
+      <ion-item *ngFor="let item of responses_first; let i = index">
+        <div class='date-reponse-box-dem' *ngIf="canDisplayDate(i)">
+          <div class='date-reponse-dem' id='date-dem-"+i+"'>{{dateMessageFormat(item.date,i)}}</div>
+        </div>
+        <div class='chat self' *ngIf="item.id_user == this.userContact" >
+          <div class="msg-content">
+            <div *ngIf="item.response != 0 || item.doc != null" class='chat-1'>
+              <div class='chat-message-1' (click)="clickLink('msg-'+item.id)" id="msg-{{item.id}}" [innerHTML]="displayText(item.response)"></div>
+              <div class='date-message-1'>{{formatTime(item.date)}}</div>
+            </div>
+            <img *ngIf="item.image != 0" class='image_self' src='https://hautier.teamsmart.fr/images/messagerie/{{item.image}}'/>
+          </div>
+          <div *ngIf="item.img_user != ''" class='user-photo photo_{{item.id_sender}}' [style.backgroundImage]="'url(https://hautier.teamsmart.fr/images/entreprise/profils/' + item.img_user + ')'"></div>
+          <div *ngIf="item.img_user == ''" class='user-photo photo_{{item.id_sender}}' >
+            <ion-icon md='md-person' role='img' class='icon icon-md ion-md-person' arial-label='person' ng-reflect-md='md-person' ></ion-icon>
+          </div>
+        </div>
+        <div *ngIf="item.id_user != this.userContact" class="friend-name">{{displayUserName(item.nom,item.prenom)}}.</div>
+        <div class='chat friend' *ngIf="item.id_user != this.userContact" >
+          <div *ngIf="item.img_user  != ''" class='user-photo photo_{{item.id_sender}}' [style.backgroundImage]="'url(https://hautier.teamsmart.fr/images/entreprise/profils/' + item.img_user + ')'"></div>
+          <div *ngIf="item.img_user  == ''" class='user-photo photo_{{item.id_sender}}' >
+            <ion-icon md='md-person' role='img' class='icon icon-md ion-md-person' arial-label='person' ng-reflect-md='md-person' ></ion-icon>
+          </div>
+          <div class="msg-content">
+            <div *ngIf="item.response != 0 || item.doc != null" class='chat-2'>
+              <div class='chat-message-2' (click)="clickLink('msg-'+item.id)" id="msg-{{item.id}}" [innerHTML]="displayText(item.response)"></div>
+              
+              <div class='date-message-2'>{{formatTime(item.date)}}</div>
+            </div>
+            <img *ngIf="item.image != 0" class='image_self' src='https://hautier.teamsmart.fr/images/messagerie/{{item.image}}'/>
+          </div>
+        </div>
+        {{ancreToBottom(i)}}
+      </ion-item>
+    </ion-list>
+  </div>
+  <div id="ancreBottom"></div>
+</ion-content>
+
+<div id="send-msg-dem">
+  <div class="input-msg">
+    <ion-textarea [(ngModel)]="message" id="send-msg-input-dem" placeholder="Envoyer un message ..."></ion-textarea>
+    <!--<div class="ion-ios-paperplane-outline" ng-click="sendResponse()" ></div>-->
+    <ion-icon tappable (click)="getImg()" class="attachement_icon" ios="ios-images" md="md-images"></ion-icon>
+    <ion-icon *ngIf="typeMessagerie == 'user'" ios="ios-paper-plane-outline" md="md-paper-plane" tappable (click)="sendResponse()" ></ion-icon>
+    <ion-icon *ngIf="typeMessagerie == 'groupe'" ios="ios-paper-plane-outline" md="md-paper-plane" tappable (click)="sendResponseGroupe()" ></ion-icon>
+    <div class='img-cross-delete' (click)="removeImg()">
+      <ion-icon name='close'></ion-icon>
+    </div>
+  </div>
+</div>
+
+<div class="img-bg-post">
+  <!--<div class="download-img-bg-post" (click)="downloadImg()">
+    <ion-icon class="download" name="download"></ion-icon>
+  </div>-->
+  <div class="close-img-bg-post" (click)="closeImg()">
+    <ion-icon class="close" name="close"></ion-icon>
+  </div>
+</div>
+
+<div id="load" *ngIf="load"></div>
+<ion-spinner *ngIf="load" icon="circles" id="loader"></ion-spinner>

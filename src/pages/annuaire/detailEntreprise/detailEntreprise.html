@@ -1,0 +1,176 @@
+
+<ion-content content="content" #content>
+
+  <div class="SVGMotif">
+    <svg height="130" width="100%"></svg>
+  </div>
+
+  <div id="wave">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <path d="M0,130 C300,115 100,0 1500,250 L450,00 L0,0 Z" />
+    </svg>
+
+    <!--<div class="info">
+      <div class="content_info">
+        <p class="nom">{{title}}</p>
+      </div>
+    </div>-->
+    <!--<ion-icon *ngIf="isadmin == true" class="settings-btn" name="settings" (click)="goToModifEnt()"></ion-icon>-->
+    <div id="img_avatar" [ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/jevents/jevlocations/' + image + ')'}">
+      <ion-icon (click)="getImage()" id="icon_modif_avatar" name="create"></ion-icon>
+    </div>
+    <div *ngIf="isadmin == true" class="admin-btn">
+      <div class="admin-icon" tappable (click)="goToModifEnt()">
+        <ion-icon name="settings"></ion-icon>
+      </div>
+      <div class="admin-icon" id="event-icon" tappable (click)="addEvent()">
+       <div class="icon-reservation"></div>
+      </div>
+    </div>
+  </div>
+
+<!--   <div tappable class="goContact" tappable (click)="goDownToContact()">
+    <ion-icon class="icon-fixed" name="contact"></ion-icon>
+  </div> -->
+
+  <div class="content-guidelines">
+    <!--<div class="menu_filter container">
+      <div tappable (click)="change(0)" class="filter active_tab" id="filter_bio">Notre profil</div>
+      <div *ngIf="right_actu" tappable (click)="change(1)" class="filter" id="filter_post">Nos actus</div>
+    </div>-->
+    <div id="contentEnt">
+
+      <div *ngIf="description != ''" id="bio" class="custom-area">
+        <div (click)="showMore()" class="st-bio">
+          <p id="text_bio" [innerHTML]="description"></p>
+          <ion-icon id="arrow_down" name="arrow-dropdown"></ion-icon>
+          <ion-icon id="arrow_up" name="arrow-dropup"></ion-icon>
+        </div>
+      </div>
+      <div class="empty-content" *ngIf="description == ''">Aucune description à afficher</div>
+
+      <div class="sous-titre st-fav">
+        <h3 class="titre titre_lvl">{{list_title}}</h3>
+        <div class="trait trait_lvl"></div>
+      </div>
+      <ion-list class="list-lvl" *ngIf="collabLength != 0">
+        <ion-item *ngFor="let obj of grid; let i = index">
+          <div *ngIf="obj.type == 'entreprise'" class="img-lvl {{obj.imgsize}}" (click)="goToPlace(obj.clic,0)" [ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/jevents/jevlocations/' + obj.image + ')'}"></div>
+          <div *ngIf="obj.type == 'employe'" class="img-lvl {{obj.imgsize}}" (click)="goToPlace(obj.clic,1)" [ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/entreprise/profils/' + obj.image + ')'}"></div>
+          <div class="name-lvl">
+            <p *ngIf="obj.type == 'entreprise'" class="name" (click)="goToPlace(obj.clic,0)">{{obj.title}}</p>
+            <p *ngIf="obj.type == 'employe'" class="name" (click)="goToPlace(obj.clic,1)">{{obj.title}}</p>
+            <p *ngIf="obj.service != null && obj.service != undefined" class="service">{{obj.service}}</p>
+          </div>
+          <ion-icon *ngIf="obj.type == 'entreprise'" class="arrow-right" name="arrow-dropright" (click)="goToPlace(obj.clic,0)"></ion-icon>
+          <ion-icon *ngIf="obj.type == 'employe'" class="arrow-right" name="arrow-dropright" (click)="goToPlace(obj.clic,1)"></ion-icon>
+        </ion-item>
+      </ion-list>
+      <div class="empty-content" *ngIf="collabLength == 0">Ancun élément à afficher</div>
+    </div>
+
+    <div id=contentMesPosts *ngIf="right_actu">
+      <div id="content_post">
+
+        <div class="ent-events-box" *ngIf="events != 0">
+          <div class="ent-event-box-title">AGENDA</div>
+          <ion-icon id="date-event-place" ios="ios-bookmark" md="md-bookmark">
+            <div id="day-event-place">
+              {{_day}}
+            </div>
+            <div id="month-event-place">
+              {{month_short}}
+            </div>
+          </ion-icon>
+          <div class="event-content-box">
+            <ion-icon *ngIf="eventSize > 1" name="arrow-back" class="left-btn-event" (click)="previousEvent()"></ion-icon>
+            <div class="event-content" (click)="getEventDetail()">
+              <div class="event-title">{{event_title}}</div>
+              <div class="event-desc">{{event_desc}}</div>
+            </div>
+            <ion-icon *ngIf="eventSize > 1" name="arrow-forward" class="right-btn-event" (click)="nextEvent()"></ion-icon>
+          </div>
+        </div>
+
+        <div *ngIf="mesPostsLength != ''">
+          <ion-card class="card_post" *ngFor="let p of mesPosts">
+            <img class="imgPost imgPost_{{p.id}}" (tap)="openImg(p.image)">
+            <ion-card-content>
+              <p [innerHTML]="p.post"></p>
+            </ion-card-content>
+            <!--<ion-item>
+              <div *ngIf="p.is_ent == '0'" class="img_avatarPostSend avatar_send_{{p.id_user}}" [ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/entreprise/profils/' + p.img_emp + ')'}">
+                <ion-icon md="md-person"></ion-icon>
+              </div>
+              <div *ngIf="p.is_ent == '1'" class="img_avatarPostSend img_avatarPost" [ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/jevents/jevlocations/' + image + ')'}">
+                <ion-icon md="md-person"></ion-icon>
+              </div>
+              <h2 *ngIf="p.is_ent == '0'">{{p.prenom}} {{p.nom}}</h2>
+              <h2 *ngIf="p.is_ent == '1'">{{title}}</h2>
+              <div class="bottom_card">
+                <p class="date">{{dateForPost(p.date)}}</p>
+              </div>
+            </ion-item>-->
+            <ion-item>
+              <div *ngIf="p.is_ent == '0'" class="img_avatarPostSend avatar_send_{{p.id_user}}" [ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/entreprise/profils/' + p.img_emp + ')'}">
+                <ion-icon md="md-person"></ion-icon>
+              </div>
+              <div *ngIf="p.is_ent == '1'" class="img_avatarPostSend img_avatarPost" [ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/jevents/jevlocations/' + image + ')'}">
+                <ion-icon md="md-person"></ion-icon>
+              </div>
+              <div class="name_date">
+                <h2 *ngIf="p.is_ent == '0'">{{p.prenom}} {{p.nom}}</h2>
+                <h2 *ngIf="p.is_ent == '1'">{{title}}</h2>
+                <div class="bottom_card">
+                  <p class="date">{{dateForPost(p.date)}}</p>
+                  <!--<ion-icon tappable (click)="comment(ac.id,ac.type)" class="data_bottom data_icon" ios="ios-chatbubbles" md="md-chatbubbles"></ion-icon>
+                  <p id="nb_comment_{{ac.id}}" class="data_bottom data_number"></p>
+                  <div tappable (click)="like(ac.id)" id="like_{{ac.id}}" class="data_bottom data_icon icon-heart"></div>
+                  <p id="nb_like_{{ac.id}}" class="data_bottom data_number"></p>-->
+                </div>
+              </div>
+            </ion-item>
+          </ion-card>
+        </div>
+        <div class="empty-content" *ngIf="mesPostsLength == ''">Aucune actualité à afficher</div>
+      </div>
+    </div>
+  </div>
+
+
+</ion-content>
+
+<!--<ion-footer *ngIf="ifadmin == true && isadmin == false">
+  <div class="contact-bar">
+    <a *ngIf="tel != ''" class="contact-btn" href="tel: {{tel}}">
+      <div class="icon-tel"></div>
+    </a>
+    <a *ngIf="mail != ''" class="contact-btn" href="mailto: {{mail}}">
+      <div class="icon-contact"></div>
+    </a>
+    <div *ngIf="niveau2 == 1 && niveau1 == 0" class="icon-evenement-ajout contact-btn" (click)="rdvEnt()"></div>
+  </div>
+</ion-footer>
+<ion-footer *ngIf="isadmin == true">
+  <ion-card id="cardInput">
+    <div class="img_avatarPost" [style.backgroundImage]="'url(https://hautier.teamsmart.fr/images/jevents/jevlocations/' + image + ')'">
+      <ion-icon md="md-person"></ion-icon>
+    </div>
+    <ion-card-content>
+      <textarea id="input_post" [(ngModel)]="monPost" name="monPost" placeholder="Exprimez-vous"></textarea>
+    </ion-card-content>
+    <ion-icon tappable (click)="getImg()" class="attachement_icon" ios="ios-images" md="md-images"></ion-icon>
+    <ion-icon tappable (click)="savePost()" class="attachement_icon" ios="ios-send" md="md-send"></ion-icon>
+  </ion-card>
+</ion-footer>-->
+
+<div class="img-bg-post">
+  <div class="close-img-bg-post" (click)="closeImg()">
+    <ion-icon name="close"></ion-icon>
+  </div>
+</div>
+
+<div *ngIf="flag" class="icon-check" id="close-settings" tappable (click)="backToFormualaire()"></div>
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>
+

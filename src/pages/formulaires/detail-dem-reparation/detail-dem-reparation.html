@@ -1,0 +1,12 @@
+<ion-content content="content" #content>
+
+    <h2 id="title">Demande de réparation</h2>
+
+    <div id="demande" >
+        <div class="item_demande" *ngFor="let demande of demandeReparation">
+          <div class="field">{{getField(demande.id_field)}}  :</div>
+          <div class="reponse">{{demande.reponse}}</div>
+        </div>
+    </div>
+
+</ion-content>

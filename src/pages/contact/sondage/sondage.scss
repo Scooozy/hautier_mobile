@@ -1,0 +1,193 @@
+page-sondage-contact {
+
+  ion-content{
+
+    #sond-list-box {
+      margin-top: 55px;
+      width: 90%;
+      margin-left: 5%;
+      margin-bottom: 60px;
+
+      .item-sondage{
+        padding-left: 9px !important;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid lightgrey;
+        padding-right: 9px !important;
+
+        .item-inner{
+          padding: 0 !important;
+          border: none !important;
+
+          ion-label{
+            margin-right: 0 !important;
+          }
+
+        }
+
+        .icon-list-sond{
+          /* empty */
+        }
+
+        .content-list-sond{
+          display: inline-block;
+          vertical-align: middle;
+          width: 90%;
+          overflow: hidden;
+
+          p:first-child{
+            color: #61AFAC;
+            font-weight: bold;
+            font-size: 17px;
+          }
+
+        }
+
+        .r-list-sond{
+          display: inline-block;
+          vertical-align: middle;
+          width: 7%;
+          text-align: right;
+          font-size: 25px;
+        }
+
+      }
+
+    }
+
+    #dashboard-box-1 {
+      padding-left: 35px;
+      padding-right: 5%;
+
+      #account-box-2, #account-box-3 {
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      #account-box-1{
+        background-image: url("../assets/imgs/hexa-gris.png");
+        background-repeat: no-repeat;
+        background-size: 65%;
+        height: 200px;
+        position: absolute;
+        width: 200px;
+        left: 20px;
+        top: 25px;
+
+        .icon-sondage{
+          font-size: 45px;
+          color: #FFF;
+          position: absolute;
+          z-index: 10;
+          left: 44px;
+          top: 40px;
+        }
+
+      }
+
+      .hexagon {
+        position: absolute;
+        width: 100px;
+        height: 57.74px;
+        left: 5%;
+        top: 40px;
+        background-size: auto 115.4701px;
+        background-position: center;
+        /*box-shadow: 3px 4px 8px 0 #C1C1C1;*/
+        background-color: #97BF0E;
+
+
+        .icon-sondage{
+          font-size: 45px;
+          color: #FFF;
+          position: absolute;
+          z-index: 10;
+          left: 28%;
+          top: 8px;
+        }
+
+        .hexTop, .hexBottom {
+          position: absolute;
+          z-index: 1;
+          width: 70.71px;
+          height: 70.71px;
+          overflow: hidden;
+          -webkit-transform: scaleY(0.5774) rotate(-45deg);
+          -ms-transform: scaleY(0.5774) rotate(-45deg);
+          transform: scaleY(0.5774) rotate(-45deg);
+          background: inherit;
+          left: 14.64px;
+        }
+
+
+        .hexTop:after, .hexBottom:after {
+          content: "";
+          position: absolute;
+          width: 100.0000px;
+          height: 57.73502691896258px;
+          -webkit-transform: rotate(45deg) scaleY(1.7321) translateY(-28.8675px);
+          -ms-transform: rotate(45deg) scaleY(1.7321) translateY(-28.8675px);
+          transform: rotate(45deg) scaleY(1.7321) translateY(-28.8675px);
+          -webkit-transform-origin: 0 0;
+          -ms-transform-origin: 0 0;
+          transform-origin: 0 0;
+          background: inherit;
+        }
+
+        .hexTop {
+          top: -35.3553px;
+        }
+
+        .hexTop:after {
+          background-position: center top;
+        }
+
+        .hexBottom {
+          bottom: -35.3553px;
+          /*box-shadow: 0px 2px 5px 3px #C1C1C1;*/
+        }
+
+        .hexBottom:after {
+          background-position: center bottom;
+        }
+
+        .hexagon:after {
+          content: "";
+          position: absolute;
+          top: 0.0000px;
+          left: 0;
+          width: 100.0000px;
+          height: 57.7350px;
+          z-index: 2;
+          background: inherit;
+        }
+
+      }
+
+      #account-box-2 {
+        text-align: left;
+        color: #4d6073;
+        font-weight: 600;
+        font-size: 20px;
+        padding-left: 40%;
+        margin-top: 20px;
+      }
+
+      #account-box-3{
+        width: 17%;
+        vertical-align: text-bottom;
+        text-align: right;
+        font-size: 30px;
+        color: #9e9e9e;
+        padding-right: 3%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+    }
+
+  }
+
+}

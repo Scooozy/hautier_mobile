@@ -1,0 +1,293 @@
+page-rendez_vous {
+
+  .header-box{
+    padding: 16px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    background: #FFF;
+
+    .picto, .title{
+      display: inline-block;
+      vertical-align: middle;
+      color: #950054;
+    }
+
+    .picto{
+      font-size: 30px;
+    }
+
+    .title{
+      font-size: 25px;
+      margin: 0 16px;
+    }
+
+    #accessFiltre{
+      float: right;
+
+      ion-icon{
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 20px;
+      }
+
+      #add-btn{
+        display: inline-flex;
+        vertical-align: middle;
+        text-align: center;
+        background: #950054;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        color: #FFF;
+        z-index: 15;
+        font-size: 40px;
+        //padding-top: 7.5px;
+        margin-left: 10px;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+
+  }
+
+  ion-content{
+    //top: 85px;
+    height: calc(100% - 85px);
+
+    .select-cat{
+      display: none;
+    }
+
+    #noData{
+    display: inline-block;
+    position: absolute;
+    top: 150px;
+    text-align: center;
+    width: 100%;
+    font-size: 17px;
+    }
+
+
+    #dem-list{
+      margin-top: 85px;
+      margin-left: 5%;
+      width: 90%;
+
+      ion-list{
+
+        ion-item{
+
+          padding-right: 0 !important;
+          padding-left: 0 !important;
+
+
+          .notif{
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #950054;
+            vertical-align: top;
+            margin-bottom: 10px;
+            font-size: 12px;
+            color: #FFF;
+            position: absolute;
+            display: none;
+            left: 0;
+            top: 0;
+            text-align: center;
+          }
+
+          .item-inner{
+            border-bottom: 1px solid #dedede !important;
+            padding-right: 8px !important;
+            padding-left: 8px !important;
+
+
+            ion-label{
+              display: flex;
+
+              .content-list-dem{
+
+                width: 70%;
+                margin: auto;
+                display: inline-block;
+                vertical-align: middle;
+                white-space: nowrap;
+                overflow: hidden;
+
+                div:first-child{
+                  color: #62b0ad;
+                  font-weight: 700;
+                  margin-bottom: 5px;
+                }
+
+                div:last-child{
+                  font-size: 14px;
+                }
+
+              }
+
+              .noResponse{
+                display: none;
+                background: #FF9800;
+                border-radius: 50%;
+                width: 15px;
+                height: 15px;
+                position: relative;
+                z-index: 100;
+                margin: auto;
+              }
+
+              .laResponse{
+                border-radius: 50%;
+                width: 10px;
+                height: 10px;
+                position: relative;
+                z-index: 100;
+                margin: auto;
+              }
+
+              .response{
+                display: flex;
+                text-align: center;
+                width: 17%;
+                font-size: 13px;
+                margin: auto;
+                padding: 7px;
+                color: #9E9E9E;
+
+                ion-icon{
+                  margin: auto;
+                }
+              }
+
+              .response_receiver{
+                border-radius: 5px;
+                box-shadow: 0 1px 2px rgba(0, 0, 0, 0.16), 0 1px 2px rgba(0, 0, 0, 0.23);
+              }
+
+              .arrow-list-dem{
+                width: 10%;
+                display: inline-block;
+                vertical-align: middle;
+                text-align: center;
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+    }
+
+    #dashboard-box-1 {
+      padding-left: 35px;
+      padding-right: 5%;
+
+      #account-box-2 {
+        width: 100%;
+        text-align: center;
+        vertical-align: middle;
+      }
+
+      .hexagon {
+        position: absolute;
+        width: 100px;
+        height: 57.74px;
+        left: 5%;
+        top: 40px;
+        background-size: auto 115.4701px;
+        background-position: center;
+        background-color: #4B7B89;
+
+        .icon-evenement-ajout{
+          font-size: 45px;
+          color: #FFF;
+          position: absolute;
+          z-index: 10;
+          left: 28%;
+          top: 8px;
+        }
+
+
+        .hexTop, .hexBottom {
+          position: absolute;
+          z-index: 1;
+          width: 70.71px;
+          height: 70.71px;
+          overflow: hidden;
+          -webkit-transform: scaleY(0.5774) rotate(-45deg);
+          -ms-transform: scaleY(0.5774) rotate(-45deg);
+          transform: scaleY(0.5774) rotate(-45deg);
+          background: inherit;
+          left: 14.64px;
+        }
+
+
+        .hexTop:after, .hexBottom:after {
+          content: "";
+          position: absolute;
+          width: 100.0000px;
+          height: 57.73502691896258px;
+          -webkit-transform: rotate(45deg) scaleY(1.7321) translateY(-28.8675px);
+          -ms-transform: rotate(45deg) scaleY(1.7321) translateY(-28.8675px);
+          transform: rotate(45deg) scaleY(1.7321) translateY(-28.8675px);
+          -webkit-transform-origin: 0 0;
+          -ms-transform-origin: 0 0;
+          transform-origin: 0 0;
+          background: inherit;
+        }
+
+        .hexTop {
+          top: -35.3553px;
+        }
+
+        .hexTop:after {
+          background-position: center top;
+        }
+
+        .hexBottom {
+          bottom: -35.3553px;
+        }
+
+        .hexBottom:after {
+          background-position: center bottom;
+        }
+
+        .hexagon:after {
+          content: "";
+          position: absolute;
+          top: 0.0000px;
+          left: 0;
+          width: 100.0000px;
+          height: 57.7350px;
+          z-index: 2;
+          background: inherit;
+        }
+
+      }
+
+      #account-box-2 {
+        text-align: left;
+        color: #4B7B89;
+        font-weight: 600;
+        font-size: 20px;
+        padding-left: 40%;
+      }
+    }
+
+  }
+
+  @media screen and (max-width: 350px) {
+    .header-box {
+      .title {
+        font-size: 20px;
+      }
+    }
+  }
+
+}

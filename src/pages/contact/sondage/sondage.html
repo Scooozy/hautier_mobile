@@ -1,0 +1,50 @@
+
+<ion-content content="content" #content>
+
+<div id="dashboard-box-1">
+    <!--<div id="account-box-1">
+      <div id="sond-losange-box">
+        <div class="icon-contact"></div>
+      </div>-->
+<!--       <div id="account-box-1">
+        <div class="icon-sondage"></div>
+      </div> -->
+
+      <div class="hexagon">
+        <div class="hexTop"></div>
+        <div class="hexBottom"></div>
+        <div class="icon-sondage"></div>
+      </div>
+      <!--</div>-->
+      <div id="account-box-2">
+        <p>Répondez ...</p>
+      </div>
+    <!--<div id="account-box-3" ng-click="openprofil()">
+      <ion-icon md="md-more"></ion-icon>
+    </div>-->
+  </div>
+
+  <div id="sond-list-box">
+    <h5>Aucun sondage à afficher</h5>
+    <ion-list>
+      <ion-item class="item-sondage" *ngFor="let sondage of sondageList; let i = index" tappable (click)="sondageQuest(sondage.id, i)">
+        <!--<div class="icon-list-sond">
+          <div class="losange-list-sond">
+            <div class="icon-sondage"></div>
+          </div>
+        </div>-->
+        <div class="content-list-sond">
+          <p>{{sondage.question}}</p>
+          <p>{{sondage.status}}</p>
+        </div>
+        <div class="r-list-sond">
+          <ion-icon md="md-arrow-dropright"></ion-icon>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>
+
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>

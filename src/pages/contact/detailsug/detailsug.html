@@ -1,0 +1,58 @@
+
+<ion-content content="content" #content>
+
+  <div id="dashboard-box-1">
+
+      <div class="hexagon">
+        <div class="hexTop"></div>
+        <div class="hexBottom"></div>
+        <div class="icon-suggestion"></div>
+      </div>
+      <!--</div>-->
+      <div id="account-box-2">
+        <p>{{titre}}</p>
+      </div>
+  </div>
+
+    <ion-card>
+        <!--<img id="img" src="https://www.teamsmart.fr{{image}}">-->
+        <div id="description">
+            <div>{{description}}</div>
+        </div>
+
+        <!--<div id="response_event" *ngIf="participation == 1">
+            <div id="participate" tappable (click)="iParticipate()">
+                <div class="icon-check"></div>
+                <div>Je participe</div>
+            </div>
+            <div id="dknow" tappable (click)="iDKnow()">
+                <div class="icon-help"></div>
+                <div>Peut-être</div>
+            </div>
+            <div id="noparticipate" tappable (click)="iNoParticipate()">
+                <div class="icon-croix"></div>
+                <div>Ne participe pas</div>
+            </div>
+        </div>-->
+
+        <div id="proposer" (click)="openProfil()">
+            <p>Proposé par : </p>
+            <ion-item>
+                <ion-avatar id="img_avatar" item-left>
+                    <ion-icon md="md-person"></ion-icon>
+                </ion-avatar>
+                <h2>{{prenom}} {{nom}}</h2>
+
+            </ion-item>
+        </div>
+
+        <div *ngIf="right_vote" class="note">
+            <ion-icon class="coeur icon-petit-camion" id="coeur-1" (click)="onclickCoeur(1)"></ion-icon>
+            <ion-icon class="coeur icon-petit-camion" id="coeur-2" (click)="onclickCoeur(2)"></ion-icon>
+            <ion-icon class="coeur icon-petit-camion" id="coeur-3" (click)="onclickCoeur(3)"></ion-icon>
+            <ion-icon class="coeur icon-petit-camion" id="coeur-4" (click)="onclickCoeur(4)"></ion-icon>
+            <ion-icon class="coeur icon-petit-camion" id="coeur-5" (click)="onclickCoeur(5)"></ion-icon>
+            <span class="afficher-note" id="note"></span>
+        </div>
+    </ion-card>
+</ion-content>

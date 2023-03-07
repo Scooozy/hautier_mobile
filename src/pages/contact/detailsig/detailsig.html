@@ -1,0 +1,50 @@
+
+<ion-content content="content" #content>
+
+  <div id="back-button" tappable (click)="backToSuggs()">
+    <div class="icon-fleche-gauche"></div>
+  </div>
+
+  <div id="sign-details-map"></div>
+  <div id="triangle-bottomright"></div>
+  <!--<div id="losange-detail-sign">
+    <div class="icon-voie-publique"></div>
+  </div>-->
+
+  <div class="hexa">
+    <div class="hex1">
+      <div class="hex2"></div>
+      <div class="hex3">
+        <div>
+          <div class="icon-voie-publique icon-hexa"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="title-detail-sign">{{sujet}}</div>
+
+  <div id="user-sign-box">
+    <div id="img-user-sign-box">
+      <img id="img-user-sign" />
+    </div>
+    <div id="img-user-sign-none">
+      <div class="ion-person"></div>
+    </div>
+    <div id="name-user-sign">
+      <div>{{name}} {{prenoms}}</div>
+      <div>publié le {{publication}}</div>
+    </div>
+    <div id="suivi-detail-sign">
+      <div class="{{icon_trait}}"></div>
+      <div>{{txt_trait}}</div>
+    </div>
+  </div>
+
+  <div id="desc-detail-sign">{{description}}</div>
+  <img id="img-detail-sign"/>
+
+</ion-content>
+
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>

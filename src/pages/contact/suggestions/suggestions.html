@@ -1,0 +1,45 @@
+
+<ion-content content="content" #content>
+
+<div id="dashboard-box-1">
+
+      <div class="hexagon">
+        <div class="hexTop"></div>
+        <div class="hexBottom"></div>
+        <div class="{{icon}}"></div>
+      </div>
+      <!--</div>-->
+      <div id="account-box-2">
+        <p>{{title}}</p>
+      </div>
+    <!--<div id="account-box-3" ng-click="openprofil()">
+       <ion-icon md="md-more"></ion-icon>
+     </div>-->
+   </div>
+
+   <div *ngIf="right_add" id="add-sugg" tappable (click)="openForm()">
+    <div class="icon-plus"></div>
+   </div>
+
+    <div id="sond-list-box">
+        <div *ngIf="suggestions.length == 0 || cptsuggestion == 0">Aucune suggestion n'est enregistrée pour le moment</div>
+        <ion-list>
+          <ng-container *ngFor="let sugg of suggestions">
+            <ion-item *ngIf="sugg.id_user == userContact || right_see_others" class="item-sondage" tappable (click)="suggDetail(sugg.id)">
+              <div class="content-list-sond">
+                <p>{{sugg.titre}}</p>
+                <div *ngIf="sugg.note != ''">Mon vote : {{sugg.note}} / 5</div>
+              </div>
+              {{increaseCPT()}}
+              <div class="r-list-sond">
+                <ion-icon name="arrow-dropright"></ion-icon>
+              </div>
+            </ion-item>
+          </ng-container>
+        </ion-list>
+    </div>
+
+</ion-content>
+
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>

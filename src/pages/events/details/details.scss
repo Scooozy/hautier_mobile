@@ -1,0 +1,311 @@
+page-events-details {
+  background: #ffffff !important;
+
+  ion-footer{
+    background: #FFF;
+    position: fixed;
+    bottom: 0;
+    height: 44px;
+    border-top: 1px solid lightgray;
+
+    #btn-rdv, #btn-rdv-1{
+      width: 100%;
+    }
+
+    .ok_rdv {
+      width: 40%;
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+      /* margin-top: 25px !important; */
+      padding: 5px;
+      border: 1px solid;
+      margin-left: 1%;
+      border-radius: 17px;
+      font-size: 15px;
+      color: #FFF;
+      background: lightgray;
+    }
+
+    #btn-rdv, #btn-rdv-1{
+      display: none;
+    }
+
+    .ok_rdv_{
+      width: 100%;
+      font-size: 18px;
+      margin-top: 10px;
+
+      strong{
+        display: inline-block;
+        vertical-align: middle;
+        padding-bottom: 8px;
+        color: orange;
+        margin-right: 10px;
+      }
+
+
+    }
+
+    #decline{
+      ion-icon{
+        display: inline-block;
+        vertical-align: middle;
+        color: #007BC0;
+        margin-right: 10px;
+        padding-bottom: 2px;
+      }
+    }
+
+
+    #valide{
+      ion-icon{
+        display: inline-block;
+        vertical-align: middle;
+        color: #4CAF50;
+        margin-right: 10px;
+        padding-bottom: 2px;
+      }
+    }
+
+  }
+
+  ion-content{
+
+    .open-message{
+      position: fixed;
+      top: 170px;
+      right: 10px;
+      background-color: #950054;
+      width: 35px;
+      height: 35px;
+      text-align: center;
+      border-radius: 50%;
+      z-index: 5;
+
+      .icon-fixed{
+        margin-top: 8px !important;
+        color: #fff;
+        font-size: 20px;
+      }
+
+    }
+
+    .SVGMotif{
+      position: absolute;
+      z-index: 2;
+      display: block;
+    }
+
+    #wave {
+      position: relative;
+      /*top: 0;*/
+      width: 100%;
+
+      svg{
+        width: 100%;
+        height: 130px;
+        position: absolute;
+        z-index: 1;
+      }
+
+      #open-agenda{
+        top: 125px;
+        background-color: #FFF;
+        width: 35px;
+        height: 35px;
+        text-align: center;
+        border-radius: 50%;
+        position: absolute;
+        right: 4%;
+        z-index: 5;
+
+        .icon-reservation{
+          margin-top: 8px !important;
+          color:#950054;
+          font-size: 20px;
+          margin-left: 1px;
+        }
+      }
+
+      .content_wave{
+        position: absolute;
+        z-index: 3;
+        text-align: center;
+        width: 100%;
+        color: #fff;
+
+        h6{
+          width: 75%;
+          margin-left: 12.5%;
+        }
+
+
+      }
+    }
+
+    .event-content{
+      position: absolute;
+      top: 95px;
+      z-index: 0;
+      width: 100%;
+
+      #img_event{
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 230px;
+        background-position: center;
+        /*position: absolute;
+        z-index: 0;
+        top: 95px;*/
+      }
+
+      #event-content {
+        width: 90%;
+        margin-left: 5%;
+        padding-bottom: 20px;
+        margin-top: 20px;
+        /*position: absolute;
+        top: 55%;
+        z-index: 5;*/
+
+        .participation{
+          display: flex;
+
+          div{
+            margin: auto;
+          }
+
+
+          .response{
+            padding: 7px;
+            border-radius: 5px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.16), 0 1px 2px rgba(0,0,0,0.23);
+            color: #007BC0;
+          }
+        }
+
+        .participants{
+          margin-top: 20px;
+
+          .p-title{
+            display: inline-block;
+            vertical-align: middle;
+          }
+          .img-img{
+            width: 45px;
+            height: 45px;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 4px;
+
+            img{
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: 50%;
+            }
+
+          }
+          .img-avatar{
+            width: 45px;
+            height: 45px;
+            display: inline-block;
+            vertical-align: middle;
+            background: #F2F2F2;
+            border-radius: 50%;
+            text-align: center;
+            font-size: 25px;
+            padding-top: 5px;
+            margin-left: 4px;
+          }
+          .others{
+            display: inline-block;
+            vertical-align: middle;
+            text-align: center;
+          }
+        }
+
+        .event-content-contact{
+          .img_avatarRDV{
+            display: inline-block;
+            top: 20px;
+            width: 40px;
+            height: 40px;
+            background-color: #EEEEEE;
+            border-radius: 50%;
+            z-index: 3;
+            margin: 5px;
+            color: black;
+            background-size: 100% auto;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: inline-block;
+            vertical-align: top;
+
+            ion-icon{
+              display:none;
+              font-size: 25px;
+              margin-left: 11px;
+              margin-top: 5px;
+            }
+          }
+          .event-content-contact-detail{
+            display: inline-block;
+            width: 75%;
+            padding-top: 3px;
+          }
+        }
+      }
+
+    }
+  }
+}
+@media only screen
+and (device-width : 375px) {
+  .platform-ios {
+    .event-content{
+      top: 115px !important;
+    }
+  }
+}
+
+//iPhone XR
+@media only screen
+and (device-width : 414px)
+and (device-height : 896px)
+and (-webkit-device-pixel-ratio : 2) {
+
+  .platform-ios {
+    .event-content{
+      top: 115px !important;
+    }
+  }
+}
+
+//iPhone XS
+@media only screen
+and (device-width : 375px)
+and (device-height : 812px)
+and (-webkit-device-pixel-ratio : 3) {
+
+  .platform-ios {
+    .event-content{
+      top: 115px !important;
+    }
+  }
+}
+
+// iPhone XSMax
+@media only screen
+and (device-width : 414px)
+and (device-height : 896px)
+and (-webkit-device-pixel-ratio : 3) {
+
+  .platform-ios {
+    .event-content{
+      top: 115px !important;
+    }
+  }
+}

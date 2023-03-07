@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "619127012075",
+    "firebase_url": "https://hautier1.firebaseio.com",
+    "project_id": "hautier1",
+    "storage_bucket": "hautier1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619127012075:android:8714c7de7112cbda",
+        "android_client_info": {
+          "package_name": "com.teamsmart.hautier1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "619127012075-h3gahgq46ma434m5q5os3lkf54qakel8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-Tz_PS0fiebw60PlSp2Tmk9Pm5V6LM4Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "619127012075-h3gahgq46ma434m5q5os3lkf54qakel8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "619127012075-tb5pojvnhfur4reoe5alj7630t0pg1aa.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.teamsmart.hautier1"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

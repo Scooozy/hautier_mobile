@@ -1,0 +1,8 @@
+{
+  "name": "Hautier",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "app_id": ""
+}

@@ -1,0 +1,200 @@
+<ion-content>
+  <div class="couleur"></div>
+  <!-- Motif rayure avec la vague sur le bottom -->
+  <div class="SVGMotif">
+    <svg height="600" width="600">
+      <defs>
+        <pattern id="img1" patternUnits="userSpaceOnUse" width="600" height="600">
+          <image xlink:href="assets/imgs/background_motif.png" x="0" y="0" width="600" height="325" />
+        </pattern>
+      </defs>
+      <path d="M0,135 C200,140 190,10 800,120 L500,00 L0,0 Z" fill="url(#img1)" />
+    </svg>
+  </div>
+  <!-- Block rouge avec vague sur le bottom -->
+  <div id="wave">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <path d="M0,135 C200,140 190,10 800,120 L500,00 L0,0 Z"
+            fill=#003375 />
+    </svg>
+  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-slides #slides>
+          <ion-slide>
+            <div class="header">
+              <div class="back-button" tappable (click)="backToCo()">
+                <div class="icon-fleche-gauche"></div>
+              </div>
+              <h1 class="titre_slide">Rejoignez votre équipe</h1>
+            </div>
+            <form class="content_slide" [formGroup]="slide2Form" (ngSubmit)="valideCode(1)">
+              <p>Pour entrer dans l'aventure,\n munissez-vous de votre \n code équipe fourni par \n votre administrateur</p>
+              <ion-input class="input-text" placeholder="Votre code équipe" type="text" formControlName="code"></ion-input>
+              <div class="button-box">
+                <button tappable class="nextButton" type="submit" [disabled]="!slide2Form.valid">
+                  <ion-icon name="arrow-forward"></ion-icon>
+                </button>
+              </div>
+            </form>
+            <div class="footer">
+              <p>Pas de code ?</p>
+              <button tappable class="buttonGoEntreprise" (click)="lienAdhesion()">Référencez votre équipe</button>
+            </div>
+          </ion-slide>
+
+          <ion-slide class="create-user">
+            <div class="header">
+              <div class="back-button" tappable (click)="backToCo()">
+                <div class="icon-fleche-gauche"></div>
+              </div>
+              <h1 class="titre_slide">Devenez un teamworker</h1>
+            </div>
+            <form class="content_slide" [formGroup]="slide1Form" (ngSubmit)="inscription()">
+              <ion-item>
+                <ion-input type="text" placeholder="Votre nom *" formControlName="nom"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input type="text" placeholder="Votre prénom *" formControlName="prenom"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input type="text" placeholder="Définissez votre identifiant *" formControlName="identifiant"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input type="{{typeMdp}}" placeholder="Votre mot de passe *" formControlName="mdp"></ion-input>
+                <button class="eye_button" *ngIf="!showPass" ion-button clear color="dark" type="button" item-right tappable (click)="showPassword()">
+                  <ion-icon id="eye_open_mpd" ios="ios-eye" md="md-eye"></ion-icon>
+                </button>
+                <button class="eye_button" *ngIf="showPass" ion-button clear color="dark" type="button" item-right tappable (click)="showPassword()">
+                  <ion-icon id="eye_close_mdp" ios="ios-eye-off" md="md-eye-off"></ion-icon>
+                </button>
+              </ion-item>
+              <ion-item>
+                <ion-input type="{{typeMdpConfirmation}}" placeholder="Confirmer votre mot de passe" formControlName="mdp_confirmation"></ion-input>
+                <button class="eye_button" *ngIf="!showPassConfirmation" ion-button clear color="dark" type="button" item-right tappable (click)="showPasswordConfirmation()">
+                  <ion-icon id="eye_open_confirmation" ios="ios-eye" md="md-eye"></ion-icon>
+                </button>
+                <button class="eye_button" *ngIf="showPassConfirmation" ion-button clear color="dark" type="button" item-right tappable (click)="showPasswordConfirmation()">
+                  <ion-icon id="eye_close_confirmation" ios="ios-eye-off" md="md-eye-off"></ion-icon>
+                </button>
+              </ion-item>
+              <ion-item>
+                <ion-input id='email' type="email" placeholder="Votre email *" formControlName="email"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input type="text" placeholder="Votre téléphone" formControlName="telephone"></ion-input>
+              </ion-item>
+              <div class="button-box">
+                <button tappable class="nextButton" type="submit" [disabled]="!slide1Form.valid">
+                  <ion-icon name="arrow-forward"></ion-icon>
+                </button>
+              </div>
+            </form>
+          </ion-slide>
+
+          <ion-slide>
+            <div class="header">
+              <div class="back-button" tappable (click)="backToCo()">
+                <div class="icon-fleche-gauche"></div>
+              </div>
+              <p class="titre_slide">Affichez votre entreprise</p>
+            </div>
+            <div class="content_slide">
+              <form class="content_slide" [formGroup]="slide3Form" (ngSubmit)="valideEntreprise()">
+                <p>Votre entreprise est déja référencée</p>
+                <ion-item>
+                  <ion-label class="select-ent-label">Les entreprises</ion-label>
+                  <ion-select #S id="selectEntreprise" (ionChange)="onChange(S.value)" formControlName="entreprise" placeholder="Sélectionner son entreprise"  okText="Valider" cancelText="Fermer" >
+                    <ion-option  *ngFor="let entreprise of entreprises" value="{{entreprise.loc_id}}">
+                      {{entreprise.title}}
+                    </ion-option>
+                  </ion-select>
+                </ion-item>
+                <div class="button-box">
+                  <button tappable class="nextButton" type="submit" [disabled]="!slide3Form.valid">
+                    <ion-icon name="arrow-forward"></ion-icon>
+                  </button>
+                </div>
+              </form>
+              <div class="footer">
+                  <p>Vous ne trouvez pas \n votre entreprise ?</p>
+                  <button tappable class="buttonGoEntreprise" (click)="ajoutEntreprise()">Référencez votre entreprise</button>
+              </div>
+            </div>
+            </ion-slide>
+
+          <ion-slide>
+            <div class="header">
+              <div class="back-button" tappable (click)="backToCo()">
+                <div class="icon-fleche-gauche"></div>
+              </div>
+              <h1 class="titre_slide">Affichez votre plus \n beau profil</h1>
+            </div>
+            <form class="content_slide profil_form" [formGroup]="slide4Form" (ngSubmit)="checkProfil()">
+              <ion-item class="bio">
+                <ion-textarea formControlName="desc" placeholder="Dites-nous en un peu plus sur vous ..." ></ion-textarea>
+              </ion-item>
+              <div class="img-box">
+                <div class="img" (click)="getImg('user')" [ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/entreprise/profils/' + img_user + ')'}"></div>
+                <div class="img-btn" (click)="getImg('user')">Ajouter votre plus beau sourire</div>
+              </div>
+              <ion-item class="temp_hide">
+                <ion-textarea formControlName="competence" placeholder="Relevez vos compétences" ></ion-textarea>
+              </ion-item>
+              <div class="button-box">
+                <button tappable class="nextButton" type="submit" [disabled]="!slide4Form.valid">
+                  <ion-icon name="arrow-forward"></ion-icon>
+                </button>
+              </div>
+            </form>
+          </ion-slide>
+
+          <ion-slide>
+            <div class="header">
+              <div class="back-button" tappable (click)="backToCo()">
+                <div class="icon-fleche-gauche"></div>
+              </div>
+              <h1 class="titre_slide">Entrez dans l'aventure</h1>
+            </div>
+            <div id="cgu" [innerHTML]="cgu" readonly></div>
+            <button tappable class="lastbtn" (click)="checkCGU()" ion-button>C'est parti !</button>
+          </ion-slide>
+
+          <ion-slide class="create-ent">
+            <div class="header">
+              <div class="back-button" tappable (click)="backToCo()">
+                <div class="icon-fleche-gauche"></div>
+              </div>
+              <h1 class="titre_slide">Référencez \n votre entreprise</h1>
+            </div>
+            <form class="content_slide" [formGroup]="slide6Form" (ngSubmit)="checkCreationEntreprise()">
+              <ion-item>
+                <ion-input type="text" placeholder="Votre nom d'entreprise *" formControlName="nom"></ion-input>
+              </ion-item>
+              <ion-item class="temp_hide">
+                <ion-input type="text" placeholder="Votre logo *"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input type="text" placeholder="Votre téléphone *" formControlName="telephone"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-input type="text" placeholder="Votre email *" formControlName="email"></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-textarea rows="5" cols="40" formControlName="bio" placeholder="Quelque mots sur votre entreprise"></ion-textarea>
+              </ion-item>
+              <div class="img-box">
+                <div class="img" (click)="getImg('ent')" [ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/jevents/jevlocations/' + img_ent + ')'}"></div>
+                <div class="img-btn" (click)="getImg('ent')">Votre Logo</div>
+              </div>
+              <div class="footer">
+                <button tappable class="entrepriseButton" ion-button type="submit" [disabled]="!slide6Form.valid">Valider son Entreprise</button>
+              </div>
+            </form>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

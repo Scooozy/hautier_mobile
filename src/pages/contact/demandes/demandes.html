@@ -1,0 +1,104 @@
+<div class="header-box">
+  <div class="icon-contact picto"></div>
+  <p class="title">MESSAGERIE</p>
+  <div id="add-sugg" class="add-btn" tappable (click)="openForm()">
+    <div class="icon-plus"></div>
+  </div>
+  <div id="add-group" class="add-btn" tappable (click)="openModal()">
+    <div class="icon-association"></div>
+    <!--<ion-icon name="person-add"></ion-icon>
+    <ion-icon class="icon-person-btn" name="person"></ion-icon>-->
+  </div>
+
+</div>
+<div class="tab-box">
+  <div class="tw tabs active" (click)="displayList('tw')">
+    <span>Collaborateurs</span>
+    <div *ngIf="notif_tw == true" class="tw_notif">!</div>
+  </div>
+  <div class="gr tabs" (click)="displayList('gr')">
+    <span>Groupes</span>
+    <div *ngIf="notif_group == true" class="tw_notif">!</div>
+  </div>
+</div>
+<ion-content content="content" #content>
+
+  <div id="dem-list" class="dem-list">
+    <p *ngIf="msglength == 0">Aucune conversation à afficher</p>
+    <ion-list *ngIf="msglength != 0">
+      <ion-item *ngFor="let dem of demandes; let i =index" class="item-list-sugg" id="item-list-sugg{{dem.id}}" tappable (click)="demDetail(dem.id,i,'user','')">
+        <div class="img-tw" *ngIf="dem.image != ''" (click)="goToTW(item.id)" [ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/entreprise/profils/' + dem.image + ')'}"></div>
+        <div class="img-tw picto-tw" *ngIf="dem.image == ''">
+          <ion-icon name="person"></ion-icon>
+        </div>
+        <div class="content-list-dem">
+          <div *ngIf="userContact == dem.user_id_sender">{{dem.name_receiver}}</div>
+          <div *ngIf="userContact != dem.user_id_sender">{{dem.name_sender}}</div>
+          <div>{{dem.msg}}</div>
+        </div>
+        <ion-icon *ngIf="userContact == dem.sender || dem.is_read == 1" class="arrow-list-dem" ios="ios-arrow-forward-outline" md="md-arrow-dropright"></ion-icon>
+        <div *ngIf="userContact != dem.sender && dem.is_read == 0" class="notif">!{{getTWNotif()}}</div>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div id="dem-gr-list" class="dem-list">
+    <p *ngIf="grlength == 0">Aucune conversation de groupe à afficher</p>
+    <ion-list *ngIf="grlength != 0">
+      <ion-item *ngFor="let demg of demandesGroupe; let i =index" class="item-list-sugg" id="item-list-sugg{{demg.id}}" tappable (click)="demDetail(demg.id,i,'groupe',demg.nom)">
+        <!--<div id="notif1_{{demg.id}}" class="notif">!</div>-->
+        <div class="content-list-dem">
+          <div>{{demg.nom}}</div>
+          <div>{{demg.msg}}</div>
+        </div>
+        <ion-icon *ngIf="userContact == demg.sender || demg.is_read == 1 || demg.is_read == null" class="arrow-list-dem" ios="ios-arrow-forward-outline" md="md-arrow-dropright"></ion-icon>
+        <div *ngIf="userContact != demg.sender && demg.is_read == 0" class="notif">!{{getGroupNotif()}}</div>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>
+
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>
+
+<div class="msg-modal" *ngIf="displayMsgModal">
+  <div class="msg-modal-form">
+    <div class="msg-modal-head">
+      <p>Informations de votre groupe de discussion</p>
+      <div class="icon-croix" (click)="closeModal()"></div>
+    </div>
+    <div class="msg-modal-field">
+      <input type="text" id="title" placeholder="Nom du groupe *" [(ngModel)]="groupName" />
+    </div>
+    <div class="members-container">
+      <div class="members-head">
+        <p>Ajouter des membres</p>
+        <div class="filter-bar">
+          <div class="search-bar">
+            <input type="text" [(ngModel)]="search" placeholder="Rechercher un utilisateur..." (keyup)="userFilter()" />
+            <ion-icon class="icon-loupe input-icon" name="search"></ion-icon>
+          </div>
+        </div>
+      </div>
+      <div class="members">
+        <ion-list>
+          <ng-container *ngFor="let user of users; let i = index">
+            <ion-item *ngIf="user.id != id_user" (click)="selectUser(user,i)">
+              <div class="img-user">
+                <img *ngIf="user.image != ''" src="https://hautier.teamsmart.fr/images/entreprise/profils/{{user.image}}" />
+                <ion-icon *ngIf="user.image == ''" md="md-person"></ion-icon>
+              </div>
+              <div class="user-name">{{user.prenom}} {{user.nom}}</div>
+              <div class="icon-check" *ngIf="isSelected(user)"></div>
+            </ion-item>
+          </ng-container>
+        </ion-list>
+      </div>
+    </div>
+    <div class="btn-box">
+      <div class="save-btn" (click)="saveGroup()">Créer le groupe</div>
+    </div>
+  </div>
+  {{displayModal()}}
+</div>

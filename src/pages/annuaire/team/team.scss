@@ -1,0 +1,517 @@
+page-team {
+  background: #ffffff !important;
+  $main : #000;
+  $blanc : #FFF;
+  $gris : #727272;
+  $lightgrey: #F2F2F2;
+
+  .header-box{
+    padding: 16px;
+    position: fixed;
+    width: 100%;
+    margin-top: 44px;
+    z-index: 1;
+    background: $blanc;
+
+    .picto, .title{
+      display: inline-block;
+      vertical-align: middle;
+      color: $main;
+    }
+
+    .picto{
+      font-size: 30px;
+    }
+
+    .title{
+      font-size: 25px;
+      margin: 0 16px;
+    }
+
+  }
+
+  ion-content{
+    top: 65px;
+    height: calc(100% - 65px);
+
+    ion-list{
+
+      ion-item{
+
+        .item-inner{
+          padding-right: 0 !important;
+
+          ion-label{
+            margin-right: 0 !important;
+
+            .img-n1, .img-n2, .img-tw{
+              width: 45px;
+              height: 45px;
+              display: inline-block;
+              vertical-align: middle;
+              border-radius: 50%;
+              background-position: center;
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-color: $lightgrey;
+            }
+
+            .picto-tw{
+              text-align: center;
+              font-size: 20px;
+              padding-top: 7px;
+            }
+
+            .n1-n2-name{
+              display: inline-block;
+              vertical-align: middle;
+              margin: inherit;
+              padding-left: 10px;
+              width: 50%;
+              font-weight: bold;
+            }
+
+            .n2-name{
+              width: calc(100% - 55px);
+            }
+
+            .tw-content{
+              display: inline-block;
+              vertical-align: middle;
+              padding-left: 10px;
+              width: calc(100% - 55px);
+
+              p{
+                margin: inherit;
+              }
+              p:first-of-type{
+                margin: inherit;
+                font-weight: bold;
+              }
+              p:last-of-type{
+                font-size: 12px;
+              }
+            }
+
+          }
+
+        }
+      }
+    }
+  }
+
+  .person{
+    display: none;
+    position: absolute;
+    padding-top: 20px;
+    top: 0px;
+    left: 18px;
+
+    ion-icon{
+      font-size: 60px;
+      margin-left: 30px;
+      position: absolute;
+      margin-top: -15px;
+      z-index: 6;
+      color: white;
+    }
+  }
+
+  .icon-entreprise{
+    display: none;
+    position: absolute;
+    padding-top: 20px;
+    top: 0px;
+    left: 70px;
+    color: #fff;
+    z-index: 6;
+    font-size: 60px;
+    margin-top: -10px !important;
+  }
+
+  .imgHex{
+    min-height: 100px;
+    max-height: 100px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-position: center;
+    background-size: 70%;
+    background-repeat: no-repeat;
+  }
+
+  .imgHexPartenaire{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80%;
+    height: auto;
+    margin-top: 25px;
+  }
+
+
+  .hexa, .hexa div {
+    position: absolute;
+    margin: 0 auto;
+    transform-origin: 50% 50%;
+    overflow: hidden;
+    width: 137px;
+    height: 118px;
+  }
+
+  .hexa {
+    width: 137px;
+    //height = width/1.733
+    height: 118.49px;
+  }
+
+  .hexa div {
+    width: 100%;
+    height: 100%;
+  }
+
+  .hexa {
+    transform: rotate(120deg);
+    position: absolute;
+  }
+
+  .hex1 {
+    transform: rotate(-60deg);
+  }
+
+  .hex2 {
+    transform: rotate(-60deg);
+    background-color: rgba(0, 0, 0, 0.0980392);
+  }
+
+  .hex3 {
+    transform: rotate(-60deg);
+    border-bottom: solid 35px rgba(0, 0, 0, 0.6);
+  }
+
+  .add_diamond{
+    background-image: url("../assets/imgs/hexa-plus.png");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    color: #FFF;
+  }
+
+  .empty_diamond{
+    background-image: url("../assets/imgs/hexa-vide.png");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    color: #FFF;
+  }
+
+  .hexa_img{
+    background-color: lightgrey;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    color: #FFF;
+  }
+
+  .hexa-bleu{
+    background-image: url("../assets/imgs/hexa-bleu.png");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    color: #FFF;
+  }
+
+  .dark_blue_diamond{
+    background-image: url("../assets/imgs/hexa-noir.png");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    color: #FFF;
+  }
+
+  .hexa-pink{
+    background-image: url("../assets/imgs/hexa-rose.png");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    color: #FFF;
+  }
+
+  .pink_diamond{
+    background-image: url("../assets/imgs/hexa-rose.png");
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    color: #FFF;
+  }
+  .draggable-objects {
+    width: 103%;
+    padding-top: 20px !important;
+    margin-top: 65px;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  ul.draggable-objects:after {
+    display: block;
+    content: "";
+    clear: both;
+  }
+
+  .draggable-objects li {
+    float: left;
+    display: block;
+    width: 135px;
+    height: 135px;
+    margin-bottom: -4px;
+    margin-top: -67px;
+  }
+
+  .dragging-object{
+    position: relative;
+    z-index: 20;
+  }
+
+  .cat-diamond, .cat-diamond-home {
+    width: 150px;
+    height: 150px;
+    margin-top: -85px;
+    margin-right: 7px;
+  }
+
+  .losange-content {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    border: none;
+    background-color: transparent;
+    color: #FFF;
+    position: relative;
+    z-index: 2;
+    display: block;
+    font-size: 16px;
+    height: 100%;
+    margin-top: 17px;
+    display: inline-block;
+    padding-left: 18px;
+
+    #icon-cartable-home{
+      font-size: 35px;
+      color: #FFF;
+    }
+
+  }
+
+  .losange-content button{
+    width: 67px;
+    min-height: 38px;
+    margin-left: -15px;
+    background: transparent !important;
+    padding: 0 !important;
+    color: white;
+    margin-top: 60px;
+    padding: 0px;
+  }
+
+  .losange-titre{
+    position: absolute;
+    width: 95px !important;
+    min-height: 45px !important;
+    color: #FFF;
+    font-size: 16px;
+    background-color: transparent;
+    z-index: 10;
+    top: 56px;
+    left: 58px;
+    text-align: center;
+    transform: rotate(-60deg);
+    font-size: 15px;
+  }
+
+
+  .ko{
+    margin-left: 111px !important;
+  }
+  .okl{
+    margin-right: 87px !important;
+  }
+
+  #list-settings {
+    display: none;
+    .delete-diamond {
+      position: absolute;
+      margin-top: 52px;
+      margin-left: 105px;
+      font-size: 20px;
+      z-index: 11;
+      background: transparent;
+      border: 1px solid #000;
+      border-radius: 50%;
+      height: 33px;
+      width: 33px;
+    }
+    .empty_diamond, .add_diamond {
+      button {
+        display: none;
+      }
+    }
+  }
+
+  @keyframes shake-rotate {
+    0%, 50%, 100% {
+      transform: translate(0, 0) rotate(0);
+    }
+    3% {
+      transform: translate(0, 0) rotate(0.5deg);
+    }
+    6% {
+      transform: translate(0, 0) rotate(1deg);
+    }
+    12% {
+      transform: translate(0, 0) rotate(1.5deg);
+    }
+    18% {
+      transform: translate(0, 0) rotate(2deg);
+    }
+    22% {
+      transform: translate(0, 0) rotate(2.5deg);
+    }
+    25% {
+      transform: translate(0, 0) rotate(3deg);
+    }
+    30% {
+      transform: translate(0, 0) rotate(2.5deg);
+    }
+    35% {
+      transform: translate(0, 0) rotate(2deg);
+    }
+    40% {
+      transform: translate(0, 0) rotate(1.5deg);
+    }
+    43% {
+      transform: translate(0, 0) rotate(1deg);
+    }
+    47% {
+      transform: translate(0, 0) rotate(0.5deg);
+    }
+    53% {
+      transform: translate(0, 0) rotate(-0.5deg);
+    }
+    56% {
+      transform: translate(0, 0) rotate(-1deg);
+    }
+    60% {
+      transform: translate(0, 0) rotate(-1.5deg);
+    }
+    68% {
+      transform: translate(0, 0) rotate(-2deg);
+    }
+    72% {
+      transform: translate(0, 0) rotate(-2.5deg);
+    }
+    75% {
+      transform: translate(0, 0) rotate(-3deg);
+    }
+    79% {
+      transform: translate(0, 0) rotate(-2.5deg);
+    }
+    85% {
+      transform: translate(0, 0) rotate(-2deg);
+    }
+    91% {
+      transform: translate(0, 0) rotate(-1.5deg);
+    }
+    96% {
+      transform: translate(0, 0) rotate(-0.5deg);
+    }
+  }
+
+  .shake-rotate {
+    animation-name: shake-rotate;
+    animation-duration: 800ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+
+  #close-settings {
+    display: block;
+    position: absolute;
+    bottom: 20px;
+    z-index: 11;
+    background-color: silver;
+    width: 60px;
+    border-radius: 50%;
+    min-height: 60px;
+    text-align: center;
+    font-size: 40px;
+    padding-top: 10px;
+    margin-left: 40%;
+    -webkit-box-shadow: 2px 2px 5px #888888;
+    box-shadow: 2px 2px 5px #888888;
+    right: 20px;
+  }
+}
+
+@media screen and (max-width: 340px){
+  page-formulaire {
+    ul{
+      margin-left: 1% !important;
+      margin-top: 95px !important;
+      li {
+        width: 115px !important;
+        height: 115px !important;
+        margin-top: -55px !important;
+
+        .hexa{
+          width: 115px !important;
+          height: 100px !important;
+        }
+
+        .imgHex{
+          min-height: 100px !important;
+          display: block !important;
+          margin-left: -15px !important;
+          margin-right: auto !important;
+          width: auto !important;
+          max-width: 150px !important;
+        }
+
+        .losange-titre {
+          position: initial !important;
+          width: 92px !important;
+          min-height: 45px !important;
+          color: #FFF;
+          background-color: transparent;
+          z-index: 10;
+          margin-top: 44px !important;
+          margin-left: 37px !important;
+          text-align: center;
+          -webkit-transform: rotate(-60deg);
+          transform: rotate(-60deg);
+          font-size: 12px;
+        }
+
+        .person{
+          left: 12px;
+          ion-icon{
+            margin-left: 7px;
+          }
+        }
+
+      }
+      .okl{
+        margin-right: 81px !important;
+      }
+      .ko{
+        margin-left: 98px !important;
+      }
+    }
+  }
+}
+
+.platform-ios{
+  page-team{
+    padding-top: 15px;
+  }
+}

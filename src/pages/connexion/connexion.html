@@ -1,0 +1,32 @@
+<ion-content fullscreen content="content" #content>
+  <div class="logoCentral">
+    <!--<ion-icon ios="ios-apps" md="md-apps"></ion-icon>-->
+  </div>
+
+  <div class="content-gidelines">
+    <div>
+      <input type="text" [(ngModel)]="login" id="login" placeholder="Identifiant" tappable />
+      <div class="form-group " id="password">
+        <input type="{{type}}" [(ngModel)]="mdp" id="mdp" placeholder="Mot de passe" tappable />
+        <button class="eye_button" *ngIf="!showPass" ion-button clear color="dark" type="button" item-right tappable (click)="showPassword()">
+         <ion-icon id="eye_open" ios="ios-eye" md="md-eye"></ion-icon>
+       </button>
+       <button class="eye_button" *ngIf="showPass" ion-button clear color="dark" type="button" item-right tappable (click)="showPassword()">
+        <ion-icon id="eye_close" ios="ios-eye-off" md="md-eye-off"></ion-icon>
+      </button>
+    </div>
+    <div id="confirm-connect-fp" tappable (click)="confirmConnect()">Se connecter</div>
+      <p id="oublierID" tappable (click)="forgotID()">Identifiant oublié ?</p>
+    <p id="oublierMDP" tappable (click)="forgotPasssword()">Mot de passe oublié ?</p>
+    <!--<div id="bottom-element">
+      <p>OU</p>
+      <div class="new-connect" tappable (click)="addAccount(1)">Référencer son entreprise</div>
+      <div class="new-connect" tappable (click)="addUserAccount()">Créer un compte utilisateur</div>
+    </div>-->
+
+  </div>
+  <!--<div id="help-co-fp" tappable (click)="displayHelp()">
+    <div class="icon-help"></div>
+  </div>-->
+</div>
+</ion-content>

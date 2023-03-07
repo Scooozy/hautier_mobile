@@ -1,0 +1,46 @@
+<ion-content content="content" #content>
+
+  <div class="header-box">
+  <div class="icon-reservation picto"></div>
+  <p class="title">RENDEZ - VOUS</p>
+  <div id="accessFiltre">
+    <ion-icon name="md-funnel" tappable (click)="openFilter()"></ion-icon>
+    <div id="add-btn" tappable (click)="openForm()">
+      <div class="icon-plus"></div>
+    </div>
+  </div>
+</div>
+
+<ion-select class="select-cat" [(ngModel)]="typeRdv" (ionChange)='setFilter()' name="cat" okText="Valider" cancelText="Annuler" #Select>
+  <ion-option value="all" selected>Tous les rendez-vous</ion-option>
+  <ion-option value="valid">Rendez-vous validés</ion-option>
+  <ion-option value="wait">Rendez-vous en attente</ion-option>
+  <ion-option value="refuse">Rendez-vous refusés</ion-option>
+</ion-select>
+
+<div id="noData">Vous n'avez pas de rendez-vous</div>
+
+<div id="dem-list">
+  <ion-list>
+    <ion-item *ngFor="let r of rdv; let i =index" class="item-list-sugg" id="item-list-sugg{{r.id}}">
+      <!-- <div class="content-list-dem" (click)="goToDetailEvent(r.id)"> -->
+        <div class="content-list-dem" (click)="goToDetailEvent(r.id)">
+          <div *ngIf="userContact == r.id_sender">{{r.name_receiver}}</div>
+          <div *ngIf="userContact != r.id_sender">{{r.name_sender}}</div>
+          <div>{{r.title}}</div>
+          <div>{{dateForRDV(r.date)}}</div>
+        </div>
+        <div *ngIf="userContact != r.id_sender" tappable (click)="comfirmed(r.id, r.confirmed)" id="icon_{{r.id}}" class="response response_receiver">
+          <div class="laResponse"></div>
+        </div>
+        <div *ngIf="userContact == r.id_sender" id="icon_{{r.id}}" class="response">
+          <div class="laResponse"></div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>
+
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>

@@ -1,0 +1,30 @@
+
+<ion-content content="content" #content>
+
+  <div class="sondage-form">
+    <div class="question">
+      <div>{{name}}</div>
+      <div>Sélectionnez la réponse de votre choix.</div>
+      <div>Sélectionnez la ou les réponse(s) de votre choix.</div>
+    </div>
+    <div id="reponse-box-song">
+      <div class="reponses" *ngFor="let reponse of reponses, let i = index" tappable (click)="answerIt(reponse.id, i)">
+        <div class="lesrep" id="rep-{{reponse.id}}">
+          {{reponse.response}}
+        </div>
+      </div>
+    </div>
+    <div id="valid-reponse-box-sond">
+      <div id="valid-reponse-sond" tappable (click)="verifAnswer()">
+        Valider ma réponse
+      </div>
+      <div>
+        Ce sondage est disponible jusqu'au {{datepublication}}. Les résultats seront accessibles sur cette application à partir de cette date.
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>

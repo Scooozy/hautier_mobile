@@ -1,0 +1,136 @@
+<ion-content>
+  <div class="SVGMotif">
+    <svg height="130" width="100%"></svg>
+  </div>
+
+  <div id="wave">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <path d="M0,130 C300,115 100,0 1500,250 L450,00 L0,0 Z" fill="#39414c" />
+    </svg>
+    <div id="img_avatar" [ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/jevents/jevlocations/' + image + ')'}">
+      <div class="icon-entreprise"></div>
+      <ion-icon (click)="getImage()" id="icon_modif_avatar" name="create"></ion-icon>
+    </div>
+    <div *ngIf="isadmin == true" class="admin-btn">
+      <div class="admin-icon" tappable (click)="goToModifEnt()">
+        <ion-icon name="settings"></ion-icon>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-guidelines">
+    <div class="menu_filter container">
+      <div tappable (click)="change(0)" class="filter active_tab" id="filter_bio">Notre profil</div>
+      <div tappable (click)="change(1)" class="filter" id="filter_post">Nos actus</div>
+    </div>
+
+    <div id="contentEnt">
+      <div *ngIf="description != ''" id="bio" class="custom-area">
+        <div (click)="showMore()" class="sous-titre st-bio">
+          <p id="text_bio" [innerHTML]="description"></p>
+          <ion-icon *ngIf="descriptionLength > 250" id="arrow_down" name="arrow-dropdown"></ion-icon>
+          <ion-icon *ngIf="descriptionLength > 250" id="arrow_up" name="arrow-dropup"></ion-icon>
+        </div>
+      </div>
+      <div class="empty-content" *ngIf="description == ''">Aucune description à afficher</div>
+
+      <div id="content-offres" *ngIf="mesOffresLength > 0">
+        <div class="sous-titre st-fav">
+          <h3 class="titre titre_offres">Nos offres</h3>
+          <div class="trait trait_offres"></div>
+        </div>
+
+        <ion-card class="card_post" *ngFor="let o of mesOffres">
+          <img class="imgPost imgPost_{{o.id}}" (tap)="openImg(o.image)">
+          <ion-card-content>
+            <div [innerHTML]="o.post"></div>
+          </ion-card-content>
+          <ion-item>
+            <div *ngIf="o.is_ent == '0'" class="img_avatarPostSend avatar_send_{{o.id_user}}" [style.backgroundImage]="'url(https://hautier.teamsmart.fr/images/entreprise/profils/' + o.img_emp + ')'">
+              <ion-icon md="md-person"></ion-icon>
+            </div>
+            <div *ngIf="o.s_ent == '1'" class="img_avatarPostSend img_avatarPost" [style.backgroundImage]="'url(https://hautier.teamsmart.fr/images/jevents/jevlocations/' + image + ')'">
+              <ion-icon md="md-person"></ion-icon>
+            </div>
+            <h2 *ngIf="o.is_ent == '0'">{{o.prenom}} {{o.nom}}</h2>
+            <h2 *ngIf="o.is_ent == '1'">{{title}}</h2>
+            <div class="bottom_card">
+              <p class="date">{{dateForPost(o.date)}}</p>
+            </div>
+          </ion-item>
+        </ion-card>
+      </div>
+
+    </div>
+
+    <div id="contentActu">
+      <div *ngIf="mesPostsLength != ''">
+        <ion-card class="card_post" *ngFor="let p of mesPosts">
+          <img class="imgPost imgPost_{{p.id}}" (tap)="openImg(p.image)">
+          <ion-card-content>
+            <p>{{p.post}}</p>
+          </ion-card-content>
+          <ion-item>
+            <div *ngIf="p.is_ent == '0'" class="img_avatarPostSend avatar_send_{{p.id_user}}" [style.backgroundImage]="'url(https://hautier.teamsmart.fr/images/entreprise/profils/' + p.img_emp + ')'">
+              <ion-icon md="md-person"></ion-icon>
+            </div>
+            <div *ngIf="p.is_ent == '1'" class="img_avatarPostSend img_avatarPost" [style.backgroundImage]="'url(https://hautier.teamsmart.fr/images/jevents/jevlocations/' + image + ')'">
+              <ion-icon md="md-person"></ion-icon>
+            </div>
+            <h2 *ngIf="p.is_ent == '0'">{{p.prenom}} {{p.nom}}</h2>
+            <h2 *ngIf="p.is_ent == '1'">{{title}}</h2>
+            <div class="bottom_card">
+              <p class="date">{{dateForPost(p.date)}}</p>
+            </div>
+          </ion-item>
+        </ion-card>
+      </div>
+      <div class="empty-content" *ngIf="mesPostsLength == ''">Aucune actualité à afficher</div>
+    </div>
+  </div>
+
+</ion-content>
+
+<!--<ion-footer *ngIf="isadmin == false && ifadmin == true">
+  <div class="contact-bar">
+    <a *ngIf="tel != ''" class="contact-btn" href="tel: {{tel}}">
+      <div class="icon-tel"></div>
+    </a>
+    <div *ngIf="mail != ''" class="icon-contact contact-btn" (click)="newMsg()"></div>
+    <div class="icon-evenement-ajout contact-btn" (click)="rdvEnt()"></div>
+  </div>
+</ion-footer>
+<ion-footer *ngIf="isadmin == true">
+  <ion-card id="cardInput_post"  *ngIf="type_message == 'post'">
+    <div class="img_avatarPost" [style.backgroundImage]="'url(https://hautier.teamsmart.fr/images/jevents/jevlocations/' + image + ')'">
+      <ion-icon md="md-person"></ion-icon>
+    </div>
+    <ion-card-content>
+      <textarea id="input_post" [(ngModel)]="monPost" name="monPost" placeholder="Exprimer vous ..."></textarea>
+    </ion-card-content>
+    <ion-icon tappable (click)="getImg()" class="attachement_icon" ios="ios-images" md="md-images"></ion-icon>
+    <ion-icon tappable (click)="savePost()" class="attachement_icon" ios="ios-send" md="md-send"></ion-icon>
+  </ion-card>
+  <ion-card id="cardInput_offre"  *ngIf="type_message == 'offre'">
+    <div class="img_avatarPost" [style.backgroundImage]="'url(https://hautier.teamsmart.fr/images/jevents/jevlocations/' + image + ')'">
+      <ion-icon md="md-person"></ion-icon>
+    </div>
+    <ion-card-content>
+      <textarea  id="input_offre" [(ngModel)]="monOffre" name="monOffre" placeholder="Publier une offre ..."></textarea>
+    </ion-card-content>
+    <ion-icon tappable (click)="getImg()" class="attachement_icon" ios="ios-images" md="md-images"></ion-icon>
+    <ion-icon tappable (click)="saveOffre()" class="attachement_icon" ios="ios-send" md="md-send"></ion-icon>
+  </ion-card>
+
+
+</ion-footer>-->
+
+<div class="img-bg-post">
+  <div class="close-img-bg-post" (click)="closeImg()">
+    <ion-icon name="close"></ion-icon>
+  </div>
+</div>
+
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>
+

@@ -1,0 +1,131 @@
+page-inscription {
+  background: #ffffff !important;
+
+  .content-ios{
+    .fixed-content, .scroll-content{
+      margin-top: 0px!important;
+    }
+
+    .scroll-content{
+      -webkit-overflow-scrolling: auto !important;
+    }
+
+  }
+
+  ion-content {
+
+    .scroll-content{
+      margin-top: 0px !important;
+      margin-bottom: 30px !important;
+      background-image: url("../assets/imgs/background_connect.jpg");
+      height: 100%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      .forms{
+        display: none;
+        margin-top: 55px;
+
+        input, select{
+          background: #fff;
+          border: none;
+          border-radius: 5px;
+          width: 90%;
+          margin-left: 5%;
+          margin-top: 15px;
+          padding: 12px;
+        }
+
+        textarea{
+          background: #fff;
+          border: none;
+          border-radius: 5px;
+          width: 90%;
+          margin-left: 5%;
+          margin-top: 15px;
+          padding: 12px;
+          height: 80px;
+        }
+
+        #confirm-connect-fp{
+          margin-top: 15px;
+          background-color: #007BC0;
+          color: #FFF;
+          text-align: center;
+          padding: 13px;
+          width: 60%;
+          margin-left: 20%;
+          font-weight: 700;
+          border-radius: 5px;
+          border: none;
+        }
+
+      }
+
+      #form-0{
+        #name, #pwd, #tw, #insta{
+          width: 44%;
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        #f_name, #pwd1, #fb, #link{
+          width: 45%;
+          display: inline-block;
+          vertical-align: middle;
+          margin-left: 1%;
+        }
+
+        #sex{
+          width: 30%;
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        #phone{
+          width: 59%;
+          display: inline-block;
+          vertical-align: middle;
+          margin-left: 1%;
+        }
+      }
+
+      #form-1{
+        #postcode,#color1,#tw, #insta{
+          width: 44%;
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        #city,#color2,#fb, #link{
+          width: 45%;
+          display: inline-block;
+          vertical-align: middle;
+          margin-left: 1%;
+        }
+      }
+
+    }
+
+    #back-button {
+      width: 35px;
+      height: 35px;
+      text-align: center;
+      border-radius: 50%;
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      padding-top: 5px;
+      font-size: 25px;
+      background-color: #eaeaea;
+
+        div {
+        color: #000;
+        font-size: 25px;
+      }
+    }
+
+  }
+
+}

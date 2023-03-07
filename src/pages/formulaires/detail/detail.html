@@ -1,0 +1,29 @@
+<ion-content content="content" #content>
+    <div id="app-form">
+        <div id="app-form-title">
+            <p>{{title}}</p>
+        </div>
+        <div *ngIf="id_form == 1" class="menu_filter container">
+            <div tappable (click)="setTab(1)" class="tabs filter_tab filter_tab_1 active_tab">Nouvelle demande</div>
+            <div *ngIf="right_list" tappable (click)="setTab(2)" class="tabs filter_tab filter_tab_2">Mes demandes</div>
+        </div>
+        <div id="app1">
+            <form id='form' action='' (ngSubmit)='sendReponse()' method='post'>
+                <div [innerHTML]="form" ></div>
+                <input id="app-send-btn" type='submit' value='Valider'/>
+            </form>
+        </div>
+        <div *ngIf="id_form == 1 && right_list" id="demandes">
+            <ion-item *ngFor="let demande of demandesReparation" (click)="goDetailReparation(demande.id_reponse)">
+                <!--<div class="img-n1" [style.backgroundImage]="'url(https://hautier.teamsmart.fr/images/jevents/jevlocations/{{n1.image}})'"></div>-->
+                <p class="n1-n2-name">Demande du {{demande.reponse}}</p>
+                <!--<p class="numero">{{demande.numero}}</p>-->
+                <p class="arrow" *ngIf="demande.statut == '0'">En attente</p>
+                <p class="arrow" *ngIf="demande.statut == '1'">Reçu</p>
+                <p class="arrow" *ngIf="demande.statut == '2'">Prise en charge</p>
+                <p class="arrow" *ngIf="demande.statut == '3'">Faite</p>
+            </ion-item>
+            <div *ngIf="demandesReparation.length == 0">Aucune demande n'a été faite</div>
+        </div>
+    </div>
+</ion-content>

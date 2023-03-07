@@ -1,0 +1,52 @@
+<ion-content>
+  <div class="content-gidelines">
+    <h1>Nouvel événement</h1>
+    <!-- Champs du formulaire -->
+    <ion-input type="text" id="name" [(ngModel)]="titre" placeholder="Titre *" value="{{summary}}"></ion-input>
+    <select id="select-cat" (change)="selectCat()">
+      <option value="">Catégorie *</option>
+      <option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.title}}</option>
+    </select>
+    <select *ngIf="adminEntLength != 0" class="adminent" (change)="selectAdmin()">
+      <option value="">Organisé par *</option>
+      <option *ngFor="let ent of adminEnt" value="{{ent.loc_id}}">{{ent.title}}</option>
+    </select>
+    <p class="lvl1-list-label">Ouvert à :</p>
+    <select class="lvl1-list" multiple="true" (change)="checkLvl1()">
+      <option *ngFor="let lvl1 of lvl1list" value="{{lvl1.loc_id}}" id="lvl1-{{lvl1.loc_id}}">{{lvl1.title}}{{selectCat()}}</option>
+    </select>
+    <ion-input type="text" [(ngModel)]="lieu" id="lieu" placeholder="Lieu *" value="{{lieu}}"></ion-input>
+    <p>Date de début *</p>
+    <input type="date" class="event-date" id="datedebut" tappable value="{{dd}}" />
+    <input type="time"  class="event-date" id="heuredebut" tappable value="08:00:00" />
+    <p>Date de fin *</p>
+    <input type="date" class="event-date" id="datefin" tappable value="{{dd}}" />
+    <input type="time" class="event-date" id="heurefin" tappable value="17:00:00" />
+    <textarea class="event-desc" id="desc" placeholder="Description *" value="{{description}}"></textarea>
+    <div class="img-box">
+      <div class="add-img-btn" (click)="addEventImg()">
+        <ion-icon name="image"></ion-icon>
+      </div>
+      <div class="add-img-preview">
+        <p (click)="addEventImg()">Choisir une image</p>
+        <div class='img-cross-delete' (click)="removeImg()">
+          <ion-icon name='close'></ion-icon>
+        </div>
+      </div>
+    </div>
+
+    <div class="comments" style="display: none;">
+      <div>Autoriser les commentaires</div>
+      <ion-toggle [(ngModel)]="comments"></ion-toggle>
+    </div>
+    <div class="participations">
+      <div>Autoriser les  inscriptions</div>
+      <ion-toggle [(ngModel)]="participations"></ion-toggle>
+    </div>
+
+    <!-- Bouton d'enregistrement -->
+    <div class="button-box" tappable (click)="saveEvent()">
+      <div>Enregistrer</div>
+    </div>
+  </div>
+</ion-content>

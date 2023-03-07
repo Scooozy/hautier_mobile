@@ -1,0 +1,45 @@
+
+
+<ion-content content="content" #content>
+
+  <div class="header-box">
+    <div class="icon-voie-publique picto"></div>
+    <p class="title">SIGNALEMENTS</p>
+  </div>
+
+  <div id="settings-box-sign">
+    <div id="listing-settings">
+      <ion-icon id="by-list" ios="ios-menu" md="md-menu" tappable (click)="setOption(0)" ></ion-icon>
+      <div id="by-location" class="icon-localisation" tappable (click)="setOption(1)"></div>
+    </div>
+  </div>
+
+  <div *ngIf="right_add" id="add-sign" tappable (click)="openForm()">
+    <div class="icon-plus"></div>
+  </div>
+
+  <div id="triangle-topleft"></div>
+  <div id="sign-map"></div>
+  <div id="sign-list">
+    <h5>Aucun signalement à afficher</h5>
+    <ion-list>
+      <ng-container *ngFor="let sign of signalements">
+        <ion-item *ngIf="(right_mine && userContact == sign.user_id) || right_others" class="item-list-sign" tappable (click)="signDetail(sign.id)">
+          <div class="content-list-sign">
+            <p>- {{sign.catname}} - </p>
+            <p>{{sign.title}}</p>
+            <!--<div>{{sign.description}}</div>-->
+            <div>{{sign.date}}</div>
+          </div>
+          <div class="suivi-list-sign">
+            <ion-icon name="arrow-dropright"></ion-icon>
+          </div>
+        </ion-item>
+      </ng-container>
+    </ion-list>
+  </div>
+
+</ion-content>
+
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>

@@ -1,0 +1,50 @@
+<ion-content content="content" #content>
+
+  <div id="dashboard-box-1">
+    <div id="account-box-1">
+      <div id="dashboard-losange-box">
+        <div id="dashboard-img-profil"></div>
+        <ion-icon ios="ios-images-outlines" md="md-images" id="open-gallery-btn" tappable (click)="openPics()"></ion-icon>
+        <img id="img-profil-contact" tappable (click)="openPics()" />
+      </div>
+    </div>
+    <div id="account-box-2">
+      <p id="nom-compte">{{name}}</p>
+      <p>{{prenoms}}</p>
+    </div>
+    <div id="account-box-3" tappable (click)="openBox()">
+      <ion-icon md="md-more"></ion-icon>
+    </div>
+  </div>
+
+  <div id="dashboard-box-2">
+    <div id="contact-citoyen" tappable (click)="goTo(0)">
+      <div class="icon-contact"></div>
+      <div class="losange-title-contact">
+        <br/>
+      Mes Demandes</div>
+    </div>
+    <div id="portail-contact" tappable (click)="goTo(1)">
+      <div class="icon-sondage"></div>
+      <div class="losange-title-contact">
+        <br/>
+      Sondages</div>
+    </div>
+    <div id="suggerer-contact" tappable (click)="goTo(2)">
+      <div class="icon-democratie-participative"></div>
+      <div class="losange-title-contact">
+        <br/>
+      Suggérer</div>
+    </div>
+    <div id="signaler-contact" tappable (click)="goTo(3)">
+      <div class="icon-voie-publique"></div>
+      <div class="losange-title-contact">
+        <br/>
+      Signaler</div>
+    </div>
+  </div>
+
+</ion-content>
+
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>

@@ -1,0 +1,19 @@
+
+<ion-content content="content" #content>
+
+  <div id="header-co-fp"></div>
+  <div id="header-opac-fp"></div>
+  <div id="header-title-fp">Identifiez-vous</div>
+  <div id="triangle-bottomright-co"></div>
+  <div class="content-gidelines">
+    <div>
+      <ion-input type="text" [(ngModel)]="login" id="login" placeholder="Identifiant" tappable (click)="scrollToMe()"></ion-input>
+      <ion-input type="password" [(ngModel)]="mdp" id="mdp" placeholder="Mot de passe" tappable (click)="scrollToMe()"></ion-input>
+      <div id="confirm-connect-fp" tappable (click)="confirmConnect()">Se connecter</div>
+    </div>
+    <div id="help-co-fp" tappable (click)="displayHelp()">
+      <div class="icon-help"></div>
+    </div>
+  </div>
+
+</ion-content>

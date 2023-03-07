@@ -1,0 +1,42 @@
+
+<ion-content content="content" #content>
+
+  <div id="sugg-form">
+    <div id="sugg-form-title">
+      <p>Je suggère ...</p>
+    </div>
+    <div id="sugg1">
+      <select id="cat" (change)="changeCat()">
+        <option id="all" value="">Catégorie *</option>
+        <option *ngFor="let cat of categories" value="{{cat.id}}">{{cat.libelle}}</option>
+      </select>
+      <ion-input type="text" id="subject" [(ngModel)]="subject" placeholder="Intitulé du projet *"></ion-input>
+      <textarea type="text" id="desc" [(ngModel)]="desc" placeholder="Descriptif"></textarea>
+      <!--<div id="image-signalement">
+        <div id="label-image">Image *</div>
+        <img src="" id="imageFile" />
+      </div>
+      <div id="btn-camera" class="ion-ios-camera-outline" ng-click="openCamera()"></div>
+      <input type="hidden" id="fileDirectory" />-->
+      <!--<input type="date" id="date" [(ngModel)]="date"/>-->
+      <!--<ion-input type="text" id="location" [(ngModel)]="location" placeholder="Lieu *"></ion-input>-->
+      <!--<div id="sugg-btn-map" ng-click="geoloc()">
+        <div class="icon-localisation"></div>
+      </div>-->
+      <!--<p>Illustration * :</p>-->
+      <div id="img-default-box">
+        <div id="img-default-box2">
+          <div *ngFor="let file of files; let i = index" tappable (click)='setActive(i)' class='imgsD {{file.pre}}' id='imgD-{{i}}'></div>
+        </div>
+      </div>
+      <div id="sugg-send-btn" tappable (click)="verifForm()">
+        <div>Envoyer</div>
+        <!--<ion-icon ios="ios-paper-plane-outline" md="md-paper-plane"></ion-icon>-->
+      </div>
+    </div>
+  </div>
+
+</ion-content>
+
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>

@@ -1,0 +1,61 @@
+<ion-content content="content" #content>
+
+  <div id="wave">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <path d="M0,135 C200,140 190,10 800,120 L500,00 L0,0 Z"
+            fill="#678E9B" />
+    </svg>
+
+    <div id="header" class="header-box">
+      <div class="icon-RH picto"></div>
+      <div class="title">Compte RH</div>
+    </div>
+
+    <div *ngIf="isAllow()" class="add-btn" (click)="addDemande()">
+      <div class="icon-plus"></div>
+    </div>
+  </div>
+
+    <div *ngIf="right_list" class="tab-box">
+      <div class="con tabs active" id="conge-tab" (click)="displaySolde('conge',null)">Congés</div>
+      <div *ngFor="let cat of tabs_list; let i = index" class="rtt tabs" id="cat-{{cat.categorie_id}}" (click)="displaySolde(cat.categorie_id,i)">{{cat.title}}</div>
+    </div>
+
+    <div *ngIf="right_list" [ngClass]="{'hiddenChart': curr_max_solde == 365}" id="graph_solde">
+        <div class="date_filter">
+            <ion-icon class="back_arrow filter_tab btn-nav-year" tappable (click)="selectChart('+')" ios="ios-arrow-round-back" md="md-arrow-round-back"></ion-icon>
+            <div class="filter_tab">{{annee_libelle}}</div>
+            <ion-icon class="forward_arrow filter_tab btn-nav-year" tappable (click)="selectChart('-')" ios="ios-arrow-round-forward" md="md-arrow-round-forward"></ion-icon>
+        </div>
+
+        <canvas class="container-graph-conge" [ngClass]="{'hide-graph': empty_msg}" #doughnutCanvas></canvas>
+
+        <div id="solde_total" *ngIf="total != ''">Acquis : {{total}}</div>
+    </div>
+    <div *ngIf="right_list && empty_msg" id="warning">Votre solde n'est pas initialisé</div>
+
+    <table *ngIf="right_list">
+        <thead>
+            <tr>
+                <th>Catégorie</th>
+                <th>Date de début</th>
+                <th>Date de fin</th>
+                <th>Statut</th>
+            </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let dem of demandes">
+            <tr *ngIf="(dem.categorie_id == 0 && current_abs == 0) || (dem.categorie_id == current_abs && current_abs != 0)">
+              <td>{{getLibelleCat(dem.categorie_id,dem.cat_id)}}</td>
+              <td>{{dem.date_debut | date:'d/M/y'}}</td>
+              <td>{{dem.date_fin | date:'d/M/y'}}</td>
+              <td *ngIf="dem.statut == 1" class="icon-check" id="check"></td>
+              <td *ngIf="dem.statut == 2" class="icon-encours2" id="encours"></td>
+              <td *ngIf="dem.statut == 3" class="icon-croix" id="croix"></td>
+            </tr>
+          </ng-container>
+        </tbody>
+    </table>
+
+
+</ion-content>

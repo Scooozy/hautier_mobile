@@ -1,0 +1,88 @@
+<ion-content content="content" #content>
+
+    <ul class="draggable-objects" id="list-categ-home">
+        <li *ngFor="let obj of grid" class="{{obj.id_line}} hexa_{{obj.id_tuile}} tuile_{{obj.id_bdd}} cat-diamond-home li-grid li-grid-{{obj.classe}}" id="li{{obj.id}}">
+            <div class="hexa" id="hexagon_{{obj.classe}}">
+                <div class="hex1">
+                    <div class="hex2 {{obj.diamond}}">
+                        <img class="imgHex imgHex_{{obj.id_tuile}}" />
+                        <div class="bg-ent"></div>
+                        <div class="add">
+                            <ion-icon ios="ios-add" md="md-add"></ion-icon>
+                        </div>
+                    </div>
+                    <div class="hex3 hex3_{{obj.diamond}}" ion-long-press [interval]="800" (onPressStart)="pressed()" (onPressing)="active()" (onPressEnd)="released()" tappable (click)="tempAdd(obj.clic)">
+                        <div class="{{obj.icon}} icon-hexa"></div>
+                    </div>
+                    <button ion-long-press [interval]="800" (onPressStart)="pressed()" (onPressing)="active()" (onPressEnd)="released()" tappable (click)="tempAdd(obj.clic)" div id="{{obj.id}}" class="losange-titre">{{obj.title}}</button>
+                </div>
+            </div>
+        </li>
+    </ul>
+
+    <ul class="draggable-objects" id="list-settings">
+        <li *ngFor="let obj of grid, let i = index" class="ls-item-{{i}} tuile_ls_{{obj.id_bdd}} {{obj.id_line}} {{obj.shake}} cat-diamond-home li-grid li-grid-{{obj.clic}}" id="li{{obj.id}}">
+            <div class="hexa" id="hexagon_{{obj.clic}}">
+                <div class="hex1">
+                    <div class="hex2 {{obj.diamond}}">
+                        <img class="imgHex" />
+                        <div class="bg-ent"></div>
+                    </div>
+                    <div class="hex3">
+                        <div class="add">
+                            <ion-icon ios="ios-add" md="md-add"></ion-icon>
+                        </div>
+                        <div class="{{obj.icon}} icon-hexa"></div>
+                    </div>
+                    <button id="{{obj.id}}" class="losange-titre">{{obj.title}}</button>
+                    <button *ngIf="obj.remove_diamond && i > (2 + _nbFixe)" class="{{obj.remove_diamond}}" id="cross{{obj.id}}" tappable (click)="removeDiamond(i)"></button>
+                </div>
+            </div>
+        </li>
+    </ul>
+</ion-content>
+
+<div id="alert-meteo">
+    <svg>
+        <polygon points="0,20 800,20 800,75 20,80 0,55" style="fill:#97BF0E;fill-opacity:0.5" />
+    </svg>
+    <svg>
+        <polygon points="0,20 120,20 105,65 75,87 45,98 0,100" style="fill:#97BF0E;fill-opacity:0.5" />
+    </svg>
+    <svg id="bottom-svg">
+        <polygon points="100,20 150,0 150,55 90,55" style="fill:#97BF0E;fill-opacity:0.5" />
+    </svg>
+    <h2>ALERTE</h2>
+    <div (click)="closeAlert()" id="alert-meteo-close" class="icon-croix"></div>
+    <img id="alert-meteo-icon" />
+    <h3 id="vigilance">{{vigilance}}</h3>
+    <h3>{{titre}}</h3>
+    <p>{{date}}</p>
+    <p id="msg" [innerHTML]="message"></p>
+    <div class="piece_jointe" *ngIf="type == 1" >
+        <a class="href-linkify" (click)="readVideo()"  href="#">Lien Video</a>
+    </div>
+    <div *ngIf="type == 2" class="piece_jointe" >
+        <img id="image_piecejointe" [src]="image_danger">
+    </div>
+    <div *ngIf="type == 3" class="piece_jointe" >
+        <a class="file_document" (click)="openFile()" href="#">Ouvrir le document</a>
+    </div>
+
+</div>
+
+
+<div class="icon-check" id="close-settings" tappable (click)="backToHome()"></div>
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>
+
+<div id="load-meteo"></div>
+<ion-spinner icon="circles" id="loader-meteo"></ion-spinner>
+
+<div id="losange-detail">
+    <div id="losange-detail-box">
+        <div class="icon-croix close-losange" onclick="document.getElementById('losange-detail').style.display='none'; document.getElementById('opac-bg').style.display='none';">
+        </div>
+    </div>
+</div>
+<div id="opac-bg"></div>

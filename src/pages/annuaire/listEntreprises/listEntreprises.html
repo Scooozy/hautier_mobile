@@ -1,0 +1,34 @@
+<ion-content content="content" #content>
+
+ <div>
+  <div class="titre">
+    <h2>Annuaire des entreprises</h2>
+  </div>
+</div>
+
+<h4 id="place-none-info">Aucun élément n'est enregistré pour ce service</h4>
+
+<ul class="draggable-objects" id="list-categ-home">
+  <li *ngFor="let obj of grid" class="{{obj.id_line}} cat-diamond-home li-grid li-grid-{{obj.clic}}" id="li{{obj.id}}">
+    <div class="hexa" id="hexagon_{{obj.clic}}">
+      <div class="hex1">
+        <div class="hex2">
+          <img class="imgHex" />
+        </div>
+        <div class="hex3" ion-long-press [interval]="500" (onPressStart)="pressed(obj.clic)"(onPressEnd)="released()" tappable (click)="savePlace(obj.clic)">
+          <div class="person" id="person-{{obj.clic}}">
+           <div class="icon-cartable"></div>
+         </div>
+       </div>
+       <button ion-long-press [interval]="500" (onPressStart)="pressed(obj.clic)"(onPressEnd)="released()" tappable (click)="savePlace(obj.clic)" div id="{{obj.id}}" class="losange-titre">{{obj.title}}</button>
+       <div *ngIf="flag" class="background_icon_star">
+        <div (click)="addFavoris(obj.clic)" class="icon-favori icon-hexa-star icon-hexa-star-{{obj.clic}}"></div>
+      </div>
+    </div>
+  </div>
+</li>
+</ul>
+</ion-content>
+<div *ngIf="flag" class="icon-check" id="close-settings" tappable (click)="backToFormualaire()"></div>
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>

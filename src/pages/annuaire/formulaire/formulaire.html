@@ -1,0 +1,27 @@
+<div class="header-box">
+  <div class="icon-annuaire picto"></div>
+  <p class="title">AJOUTER UNE FILIALE</p>
+</div>
+<ion-content>
+
+  <div class="n1-list tabs-list">
+    <ion-list>
+      <ion-item *ngFor="let n1 of places" (click)="addTile(n1.loc_id)">
+        <!--<div class="img-n1" [style.backgroundImage]="'url(https://hautier.teamsmart.fr/images/jevents/jevlocations/{{n1.image}})'"></div>-->
+        <div class="img-n1" [ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/jevents/jevlocations/' + n1.image + ')'}"></div>
+        <p class="n1-n2-name">{{n1.title}}</p>
+        <div class="hexagon-box">
+          <div class="hexagon">
+            <div class="hexTop"></div>
+            <div class="hexBottom"></div>
+            <ion-icon name="add" class="picto-plus"></ion-icon>
+          </div>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>
+<div *ngIf="flag" class="icon-check" id="close-settings" tappable (click)="backToFormualaire()"></div>
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>

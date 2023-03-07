@@ -1,0 +1,97 @@
+<ion-content>
+
+  <div class="SVGMotif">
+    <svg height="130" width="600">
+      <defs>
+        <pattern id="img1" patternUnits="userSpaceOnUse" width="600" height="130">
+          <image xlink:href="assets/imgs/background_motif.png" x="0" y="0" width="600" height="325" />
+        </pattern>
+      </defs>
+      <path d="M0,130 L1400,00 L0,0 Z"
+            fill="url(#img1)" />
+    </svg>
+  </div>
+
+  <div id="wave">
+    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <path d="M0,130 L1400,00 L0,0 Z"
+            fill="#950054" />
+    </svg>
+
+    <div id="open-agenda" tappable (click)="openAgenda()">
+      <div class="icon-reservation"></div>
+    </div>
+
+    <div class="content_wave">
+      <h5>{{summary}}</h5>
+      <h6 *ngIf="way == 'event'">{{day}} {{month}} {{year}} - {{hour}}:{{minutes}}</h6>
+      <h6 *ngIf="way == 'rdv'">{{date}}</h6>
+    </div>
+
+  </div>
+
+  <div class="event-content">
+    <div *ngIf="way == 'event'" id="img_event"></div>
+    <p *ngIf="way != 'event'"><br/></p>
+    <div id="event-content">
+      <div class="participation" *ngIf="way == 'event' && participations == true">
+        <div><b>Je participe : </b></div>
+        <div tappable (click)="setResponse(1,'set')" id="response_1" class="response">Oui</div>
+        <div tappable (click)="setResponse(2,'set')" id="response_2" class="response">Non</div>
+        <div tappable (click)="setResponse(3,'set')" id="response_3" class="response">Peut être</div>
+      </div>
+      <div id="event-title">
+        <h5 id="event-desc"></h5>
+        <div id="event-lieu" *ngIf="way == 'event' && lieu != ''"><b>Lieu</b> : {{lieu}}</div>
+        <div class="participants" *ngIf="way == 'event' && usersEventsLength != 0 && participations == true">
+          <div class="p-title"><b>Participants : </b></div>
+          <div *ngFor="let user of usersEvents" class="img-{{user.type}}">
+            <img *ngIf="user.image != ''" class="img-user" src="https://hautier.teamsmart.fr/images/entreprise/profils/{{user.image}}"/>
+            <div *ngIf="user.image == ''" class="avatar-user">
+              <ion-icon name="person"></ion-icon>
+            </div>
+          </div>
+          <div class="others" *ngIf="userNb > 1">+ {{userNb}} autres</div>
+          <div class="others" *ngIf="userNb == 1">+ {{userNb}} autre</div>
+        </div>
+        <h6 *ngIf="way == 'rdv'">Lieu : {{lieu}}</h6>
+      </div>
+      <div>
+      </div>
+      <div class="event-content-contact" *ngIf="way == 'rdv'" (click)="openProfil()">
+        <p>Contact : <br/>
+        <div>
+          <div class="img_avatarRDV" [style.backgroundImage]="'url(' + bgImage + ')'">
+            <ion-icon md="md-person"></ion-icon>
+          </div>
+          <div class="event-content-contact-detail">
+            {{contact_name}}<br/>
+            {{contact_ent}}
+            {{contact_fonction}}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div tappable class="open-message" tappable (click)="goToMessage()">
+    <ion-icon class="icon-fixed" ios="ios-chatbubbles" md="md-chatbubbles"></ion-icon>
+  </div>
+
+</ion-content>
+
+<ion-footer *ngIf="way == 'rdv'">
+  <div id="btn-rdv">
+    <div class="ok_rdv" (click)="optionRDV(0)">Accepter le RDV</div>
+    <div class="ok_rdv" (click)="optionRDV(1)">Décliner le RDV</div>
+  </div>
+  <div id="btn-rdv-1">
+    <div class="ok_rdv_" id="attente"><strong>...</strong> <span>En attente d'une réponse.</span></div>
+    <div class="ok_rdv_" id="valide"><ion-icon name="checkmark"></ion-icon> <span>RDV accepté!</span></div>
+    <div class="ok_rdv_" id="decline"><ion-icon name="close"></ion-icon> <span>Désolé, une prochaine fois.</span></div>
+  </div>
+</ion-footer>
+
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>

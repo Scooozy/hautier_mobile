@@ -1,0 +1,60 @@
+<ion-content padding>
+
+  <div id="back-button" tappable (click)="backToCo()">
+    <div class="icon-retour"></div>
+  </div>
+
+  <div class="forms" id="form-0">
+    <h3>Créer un compte utilisateur</h3>
+    <ion-input type="text" id="name" placeholder="Nom *" ></ion-input>
+    <ion-input type="text" id="f_name" placeholder="Prénom *" ></ion-input>
+    <ion-input type="text" id="username" placeholder="Identifiant de connexion *" ></ion-input>
+    <ion-input type="password" id="pwd" placeholder="Mot de passe *" ></ion-input>
+    <ion-input type="password" id="pwd1" placeholder="Confirmation *" ></ion-input>
+    <ion-input type="email" id="email" placeholder="Email *" ></ion-input>
+    <select id="sex">
+      <option value="">Civilité *</option>
+      <option value="0">Mme.</option>
+      <option value="1">M.</option>
+    </select>
+    <ion-input type="tel" id="phone" placeholder="Téléphone" ></ion-input>
+    <select id="company">
+      <option value="">Entreprise *</option>
+      <option *ngFor="let company of companies" value="{{company.loc_id}}">{{company.title}}</option>
+    </select>
+    <textarea id="bio" placeholder="Ma bio"></textarea>
+    <ion-input type="text" id="tw" placeholder="Twitter" ></ion-input>
+    <ion-input type="text" id="fb" placeholder="Facebook" ></ion-input>
+    <ion-input type="text" id="insta" placeholder="Instagram" ></ion-input>
+    <ion-input type="text" id="link" placeholder="Linkedin" ></ion-input>
+    <div id="confirm-connect-fp" tappable (click)="saveMe()">S'enregistrer</div>
+  </div>
+
+  <div class="forms" id="form-1">
+    <h3>Référencer son entreprise</h3>
+    <ion-input type="text" id="name" placeholder="Nom *"></ion-input>
+    <ion-input type="text" id="street" placeholder="Adresse *"></ion-input>
+    <ion-input type="text" id="postcode" placeholder="Code postal *"></ion-input>
+    <ion-input type="text" id="city" placeholder="Ville *"></ion-input>
+    <textarea id="bio" placeholder="Description"></textarea>
+    <ion-input type="email" id="email" placeholder="Email *"></ion-input>
+    <ion-input type="tel" id="phone" placeholder="Téléphone *"></ion-input>location
+    <select id="niveau1">
+      <option value="">Filiale *</option>
+      <option *ngFor="let company of niveau1" value="{{company.loc_id}}">{{company.title}}</option>
+    </select>
+    <!--<input type="text" id="url" placeholder="Site internet" />-->
+    <!--<input type="text" id="color1" placeholder="Couleur 1 (hexadecimal) "/>
+    <input type="text" id="color2" placeholder="Couleur 2 (hexadecimal) "/>-->
+    <!--<input type="text" id="tw" placeholder="Twitter"/>
+    <input type="text" id="fb" placeholder="Facebook"/>
+    <input type="text" id="insta" placeholder="Instagram"/>
+    <input type="text" id="link" placeholder="Linkedin"/>-->
+    <div id="confirm-connect-fp" tappable (click)="saveMe()">S'enregistrer</div>
+  </div>
+
+</ion-content>
+
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>
+

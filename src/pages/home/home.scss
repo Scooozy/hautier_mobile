@@ -1,0 +1,849 @@
+page-home {
+
+  #test{
+    position: absolute;
+    z-index: 10;
+    bottom: 0;
+  }
+
+
+  ion-content{
+    //margin-top: 44px;
+    height: calc(100% - 44px) !important;
+  }
+
+  #alert-meteo {
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #FFF;
+    z-index: 10;
+
+    svg {
+      position: absolute;
+      width: 100%;
+      height: 100px;
+      margin-top: 20px;
+    }
+
+    #bottom-svg {
+      bottom: 0;
+      right: 0;
+      width: 150px;
+      height: 55px;
+    }
+
+    h2 {
+      top: 40px;
+      color: #FFF;
+      position: absolute;
+      left: 20px;
+      font-size: 20px;
+    }
+
+    h3, p:first-of-type {
+      text-align: center;
+    }
+
+    #msg {
+      width: 90%;
+      margin-left: 5%;
+      text-align: center;
+      font-weight: 300;
+    }
+
+    #alert-meteo-close {
+      display: none;
+      position: absolute;
+      top: 45px;
+      right: 5px;
+      color: #FFF;
+      font-size: 40px;
+      padding: 8px;
+      border-radius: 50%;
+    }
+
+    #alert-meteo-icon {
+      margin-top: 35%;
+      width: 40%;
+      margin-left: 30%;
+    }
+
+    .piece_jointe{
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    #image_piecejointe{
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      width: 3000px;
+    }
+
+  }
+
+
+
+
+  ion-footer{
+    position: fixed !important;
+    #cardInput {
+      display: block;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      width: 100%;
+      -webkit-box-shadow: 0px 0.5px 1px #E0E0E0 !important;
+      box-shadow: 0px 0.5px 1px #E0E0E0 !important;
+      margin: 0 !important;
+
+      #input_post{
+        border: none;
+        width: 95%;
+        margin: auto;
+        vertical-align: middle;
+      }
+
+      .img-cross-delete{
+        color: #FFF;
+        background: lightgray;
+        width: 25px;
+        height: 25px;
+        text-align: center;
+        font-size: 20px;
+        position: absolute;
+        border-radius: 50%;
+        left: calc(15% + 20px);
+        display: none;
+        top: 60px;
+
+        ion-icon{
+          font-size: 22px;
+          text-align: center;
+          width: inherit;
+          color: #FFF;
+        }
+
+      }
+
+      .img_avatarPost {
+        display: inline-block;
+        top: 20px;
+        width: 40px;
+        height: 40px;
+        background-color: #EEEEEE;
+        border-radius: 50%;
+        z-index: 3;
+        margin: 5px;
+        color: black;
+        background-size: 100% auto;
+        background-position: center;
+        background-repeat: no-repeat;
+        vertical-align: middle;
+
+        ion-icon {
+          display: none;
+          font-size: 25px;
+          margin-left: 11px;
+          margin-top: 5px;
+        }
+      }
+
+      .attachement_icon {
+        margin: 5px;
+        font-size: 30px;
+        color: #007BC0;
+        vertical-align: middle;
+      }
+
+      ion-card-content {
+        display: inline-block;
+        margin: auto;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        padding: 0;
+        margin-left: 0;
+        width: 60%;
+        vertical-align: middle;
+        border-right: 1px solid #E0E0E0;
+
+        #monPost {
+          border: none;
+          background: transparent;
+          padding: 10px;
+          margin: 0;
+        }
+      }
+
+      .preloadImg {
+        width: 50%;
+        margin-left: 25%;
+      }
+    }
+  }
+
+  #losange-detail{
+    position: absolute;
+    display: none;
+    top: 21%;
+    width: 100%;
+    height: 300px;
+    background-color: #FFF;
+    -ms-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+    z-index: 10;
+    border-radius: 20px;
+    #losange-detail-box {
+      width: 70%;
+      margin-left: 25%;
+      -ms-transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+      transform: rotate(-45deg);
+      margin-top: 10%;
+      text-align: center;
+      height: 100%;
+      #weather-icon, #weather-temp {
+        display: inline-block;
+        vertical-align: middle;
+        margin-left: 8%;
+        margin-right: 10%;
+        background-repeat: no-repeat;
+      }
+      .wind-icon, #wind-speed, #humidity-percent, .humidity-icon {
+        display: inline-block;
+        vertical-align: middle;
+      }
+      #wind-speed {
+        margin-right: auto;
+        margin-left: 3%;
+      }
+      .wind-icon, .humidity-icon {
+        width: 35px;
+        height: 35px;
+      }
+      #wind-icon {
+        background-image: url("../assets/imgs/Vent.png");
+        width: 100%;
+        height: 100%;
+        background-size: 100%;
+      }
+      #humidity-icon {
+        background-image: url("../assets/imgs/Humidite1goutte.png");
+        width: 100%;
+        height: 100%;
+        background-size: 100%;
+      }
+      .clear-day {
+        background-image: url("../assets/imgs/soleil.png");
+        width: 100px;
+        height: 100px;
+      }
+      .clear-night {
+        background-image: url("../assets/imgs/lune.png");
+        width: 100px;
+        height: 100px;
+      }
+      .rain {
+        background-image: url("../assets/imgs/pluie.png");
+        width: 100px;
+        height: 100px;
+      }
+      .snow {
+        background-image: url("../assets/imgs/Neige.png");
+        width: 100px;
+        height: 100px;
+      }
+      .wind {
+        background-image: url("../assets/imgs/Vent.png");
+        width: 100px;
+        height: 100px;
+      }
+      .fog {
+        background-image: url("../assets/imgs/brouillard.png");
+        width: 100px;
+        height: 100px;
+      }
+      .cloudy {
+        background-image: url("../assets/imgs/nuages.png");
+        width: 100px;
+        height: 100px;
+      }
+      .partly-cloudy-day {
+        background-image: url("../assets/imgs/nuageSoleil.png");
+        width: 100px;
+        height: 100px;
+        background-size: 100%;
+      }
+      .partly-cloudy-night {
+        background-image: url("../assets/imgs/LuneNuage.png");
+        width: 100px;
+        height: 100px;
+      }
+      .thunderstorm {
+        background-image: url("../assets/imgs/Orage.png");
+        width: 100px;
+        height: 100px;
+      }
+      .close-losange {
+        font-size: 25px;
+        border: 1px solid #000;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        margin-top: 65px;
+      }
+    }
+  }
+  #opac-bg{
+   background-color: #000;
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   z-index: 9;
+   opacity: 0.7;
+   display: none;
+ }
+
+ #load-meteo {
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  opacity: 0.3;
+  z-index: 10;
+}
+
+#loader-meteo {
+  display: none;
+  width: 20%;
+  margin-left: 40%;
+  margin-top: 80%;
+  position: absolute;
+  font-size: 55px;
+  z-index: 100000;
+  svg {
+    width: 100%;
+  }
+}
+
+  .add{
+    display: none;
+  }
+
+.add_diamond{
+  background-color: #EEEEEE !important;
+  color: #000000;
+
+  .add{
+    display: block;
+    position: absolute;
+    padding-top: 20px;
+    top: 0px;
+    left: 22px;
+
+    ion-icon{
+      font-size: 60px;
+      margin-left: 30px;
+      position: absolute;
+      margin-top: 6px;
+      z-index: 6;
+      color: black;
+    }
+  }
+}
+
+.empty_diamond{
+  background-color: #EEEEEE !important;
+}
+
+/*.hexa-bleu{
+  .add{
+    display: none;
+  }
+}
+
+.hexa-pink{
+  .add{
+    display: none;
+  }
+}*/
+
+.draggable-objects {
+  width: 103%;
+  padding-top: 20px !important;
+  margin-top: 60px;
+  padding-left: 0;
+  margin-left: calc((100% - 360px)/2);
+  position: sticky;
+}
+
+ul.draggable-objects:after {
+  display: block;
+  content: "";
+  clear: both;
+}
+
+.draggable-objects li {
+  float: left;
+  display: block;
+  width: 135px;
+  height: 135px;
+  margin-bottom: -4px;
+  margin-top: -68px;
+}
+
+.dragging-object{
+  position: relative;
+  z-index: 20;
+}
+
+.cat-diamond, .cat-diamond-home {
+  width: 150px;
+  height: 150px;
+  margin-top: -85px;
+  margin-right: 7px;
+}
+
+.losange-content {
+  width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  border: none;
+  background-color: transparent;
+  color: #FFF;
+  position: relative;
+  z-index: 2;
+  display: block;
+  font-size: 16px;
+  height: 100%;
+  margin-top: 17px;
+  display: inline-block;
+  padding-left: 18px;
+
+  #icon-cartable-home{
+    font-size: 35px;
+    color: #FFF;
+  }
+
+}
+
+.losange-content button{
+  width: 67px;
+  min-height: 38px;
+  margin-left: -15px;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* .losange-titre{
+  width: 105px !important;
+  margin-left: -17px !important;
+  min-height: 45px !important;
+  color: #FFF;
+  font-size: 16px;
+} */
+
+.losange-titre{
+  position: absolute;
+  width: 105px !important;
+  min-height: 45px !important;
+  color: #FFF;
+  font-size: 12px;
+  background-color: transparent;
+  z-index: 10;
+  top: 46px;
+  left: 35px;
+  text-align: center;
+  transform: rotate(-60deg);
+}
+
+.icon-hexa{
+  position: absolute;
+  height: 115%;
+  padding-top: 25px;
+  top: 0px;
+  left: 48px;
+  color: #fff;
+  z-index: 6;
+  font-size: 45px;
+  margin-top: -10px !important;
+}
+
+.ko{
+  margin-left: 110px;
+}
+.okl{
+  margin-right: 85px;
+}
+
+.hexa, .hexa div {
+  position: absolute;
+  margin: 0 auto;
+  transform-origin: 50% 50%;
+  overflow: hidden;
+  width: 140px;
+  height: 118px;
+}
+
+.hexa {
+  width: 140px;
+  height: 118.49px;
+}
+
+.hexa div {
+  width: 100%;
+  height: 100%;
+}
+
+.hexa {
+  transform: rotate(120deg);
+  position: absolute;
+
+  .showNotif{
+    border-radius: 50%;
+    position: absolute;
+    z-index: 10;
+    width: 15px;
+    height: 15px;
+    background: #007BC0;
+    top: 50px;
+    left: 2px;
+    vertical-align: top;
+    margin-bottom: 10px;
+    font-size: 12px;
+    color: #FFF;
+    text-align: center;
+    transform: rotate(-120deg);
+  }
+
+}
+
+.hex1 {
+  transform: rotate(-60deg);
+}
+
+.hex2 {
+  transform: rotate(-60deg);
+  background-color: #4d6073;
+
+  .pastilles {
+    position: absolute;
+    top: calc(50% - 10px);
+    right: 10px;
+    width: 20px !important;
+    height: 20px !important;
+    background-color: red;
+    border-radius: 50%;
+    text-align: center;
+    color: #FFF;
+    font-weight: bold;
+    padding-top: 2px;
+    font-size: 12px;
+  }
+
+  .msg-notif{
+    position: absolute;
+    background: #ca3a11;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 14px;
+    text-align: center;
+    z-index: 10000;
+    right: 7px;
+    color: #FFF;
+    font-weight: bold;
+    top: 50px;
+    padding-top: 2px;
+  }
+
+  .imgHex{
+    display: none;
+    min-height:100%;
+    width: 100%;
+  }
+  .bg-ent{
+    background-size: 70%;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.hex3 {
+  transform: rotate(-60deg);
+    //border-bottom: solid 50px rgba(0, 0, 0, 0);
+  }
+
+  #list-settings {
+    display: none;
+    .delete-diamond {
+      position: absolute;
+      margin-top: 3px;
+      margin-left: 78px;
+      font-size: 20px;
+      background: transparent;
+      border: 1px solid #000;
+      border-radius: 50%;
+      height: 33px;
+      width: 33px;
+      z-index: 10;
+      transform: rotate(30deg);
+      padding: 0;
+    }
+    .empty_diamond, .add_diamond {
+      button {
+        display: none;
+      }
+    }
+  }
+
+  @keyframes shake-rotate {
+    0%, 50%, 100% {
+      transform: translate(0, 0) rotate(0);
+    }
+    3% {
+      transform: translate(0, 0) rotate(0.5deg);
+    }
+    6% {
+      transform: translate(0, 0) rotate(1deg);
+    }
+    12% {
+      transform: translate(0, 0) rotate(1.5deg);
+    }
+    18% {
+      transform: translate(0, 0) rotate(2deg);
+    }
+    22% {
+      transform: translate(0, 0) rotate(2.5deg);
+    }
+    25% {
+      transform: translate(0, 0) rotate(3deg);
+    }
+    30% {
+      transform: translate(0, 0) rotate(2.5deg);
+    }
+    35% {
+      transform: translate(0, 0) rotate(2deg);
+    }
+    40% {
+      transform: translate(0, 0) rotate(1.5deg);
+    }
+    43% {
+      transform: translate(0, 0) rotate(1deg);
+    }
+    47% {
+      transform: translate(0, 0) rotate(0.5deg);
+    }
+    53% {
+      transform: translate(0, 0) rotate(-0.5deg);
+    }
+    56% {
+      transform: translate(0, 0) rotate(-1deg);
+    }
+    60% {
+      transform: translate(0, 0) rotate(-1.5deg);
+    }
+    68% {
+      transform: translate(0, 0) rotate(-2deg);
+    }
+    72% {
+      transform: translate(0, 0) rotate(-2.5deg);
+    }
+    75% {
+      transform: translate(0, 0) rotate(-3deg);
+    }
+    79% {
+      transform: translate(0, 0) rotate(-2.5deg);
+    }
+    85% {
+      transform: translate(0, 0) rotate(-2deg);
+    }
+    91% {
+      transform: translate(0, 0) rotate(-1.5deg);
+    }
+    96% {
+      transform: translate(0, 0) rotate(-0.5deg);
+    }
+  }
+
+  .shake-rotate {
+    animation-name: shake-rotate;
+    animation-duration: 800ms;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+  }
+
+  #close-settings {
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    z-index: 11;
+    background-color: silver;
+    width: 60px;
+    border-radius: 50%;
+    min-height: 60px;
+    text-align: center;
+    font-size: 40px;
+    padding-top: 10px;
+    margin-left: 40%;
+    -webkit-box-shadow: 2px 2px 5px #888888;
+    box-shadow: 2px 2px 5px #888888;
+    right: 20px;
+  }
+
+  .content-ios{
+    .losange-titre {
+      position: absolute;
+      width: 125px !important;
+      min-height: 45px !important;
+      color: #FFF;
+      font-size: 13px;
+      background-color: transparent;
+      z-index: 10;
+      top: 50px;
+      left: 35px;
+      text-align: center;
+      -webkit-transform: rotate(-60deg);
+      transform: rotate(-60deg);
+    }
+    .delete-diamond {
+      margin-top: 2px !important;
+      margin-left: 59px !important;
+    }
+    .hex2 {
+      .msg-notif {
+        top: 40px;
+        padding-top: 0px;
+      }
+    }
+  }
+
+}
+
+.button-inner, ion-footer {
+  visibility: visible;
+}
+
+@media screen and (max-width: 340px) {
+  page-home {
+    #list-categ-home {
+      margin-left: 1%;
+    }
+    .draggable-objects{
+      margin-left: calc((100% - 310px)/2);
+    }
+    li {
+      width: 115px !important;
+      height: 115px !important;
+      margin-top: -57px !important;
+
+      .hexa {
+        width: 115px !important;
+        height: 100px !important;
+
+        .icon-hexa {
+          left: 38px;
+          top: -6px;
+        }
+
+        .losange-titre {
+          top: 35px !important;
+          left: 22px !important;
+          width: 106px !important;
+        }
+
+        .add_diamond {
+          .add {
+            ion-icon {
+              margin-top: 0px !important;
+              margin-left: 18px !important;
+            }
+          }
+        }
+
+      }
+
+    }
+    .content-ios{
+      .icon-hexa {
+        left: 35px !important;
+        top: -6px;
+      }
+    }
+    .okl {
+      margin-right: 75px !important;
+    }
+    .diamonds {
+      background-size: 100% !important;
+    }
+    .ko {
+      margin-left: 95px !important;
+    }
+    .losange-titre {
+      font-size: 12px;
+    }
+  }
+
+  #alert-meteo{
+    height: 95%;
+    top: 5%;
+  }
+}
+
+#side-menu-right{
+  color: #424242;
+}
+
+
+//iPhone XR
+@media only screen
+and (device-width : 414px)
+and (device-height : 896px)
+and (-webkit-device-pixel-ratio : 2) {
+  #alert-meteo{
+    height: 95%;
+    top: 5%;
+  }
+
+}
+
+//iPhone XS
+@media only screen
+and (device-width : 375px)
+and (device-height : 812px)
+and (-webkit-device-pixel-ratio : 3) {
+  #alert-meteo{
+    height: 95%;
+    top: 5%;
+  }
+
+}
+
+// iPhone XSMax
+@media only screen
+and (device-width : 414px)
+and (device-height : 896px)
+and (-webkit-device-pixel-ratio : 3) {
+  #alert-meteo{
+    height: 95%;
+    top: 5%;
+  }
+}
+
+.platform-ios {
+
+  #alert-meteo{
+    height: 95%;
+    top: 5%;
+  }
+}

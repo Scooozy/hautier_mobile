@@ -1,0 +1,30 @@
+<ion-content>
+	<h1 class="title">Mes Groupes</h1>
+
+	<p id="noData">Vous ne faites parti d'aucun groupe.</p>
+
+	<div class="header_button">
+		<div id="select-user-groupe" tappable (click)="selectGroupe()">
+			<ion-icon name="person-add"></ion-icon>
+		</div>
+
+		<div id="add-user-groupe" tappable (click)="createGroupe()">
+			<div class="icon-plus"></div>
+		</div>
+	</div>
+
+	<div id="dem-list">
+		<ion-list>
+			<ion-item *ngFor="let demg of demandesGroupe; let i =index" class="item-list-sugg" id="item-list-sugg{{demg.id}}" tappable (click)="demDetail(demg.id,i)">
+				<div class="content-list-dem">
+					<div>{{demg.nom}}</div>
+				</div>
+				<ion-icon class="arrow-list-dem" ios="ios-arrow-forward-outline" md="md-arrow-dropright"></ion-icon>
+			</ion-item>
+
+		</ion-list>
+	</div>
+</ion-content>
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>
+

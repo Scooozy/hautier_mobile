@@ -1,0 +1,35 @@
+
+<ion-content content="content" #content>
+
+  <div id="head-pic">
+    <div id="back-button" tappable (click)="goBackToList()">
+      <div class="icon-fleche-gauche"></div>
+    </div>
+    <div class="hexagon">
+      <div class="hexTop"></div>
+      <div class="hexBottom"></div>
+      <div class="icon-journal"></div>
+    </div>
+<!--     <div class="losange-detail" id="header-bar-losange1">
+      <img src="./img/school_bag64.png">
+      <div id="icon-cartable-details" class="icon-news"></div>
+    </div> -->
+  </div>
+
+  <div class="content-guidelines">
+    <!-- Title Content -->
+    <div class="title-content">
+      <p class="name-place">{{title}}</p>
+      <p class="type-place">{{created}}</p>
+    </div>
+
+    <div class="detail-txt" id="short-desc-detail"></div>
+
+    <div class="detail-txt" id="desc-detail"></div>
+
+  </div>
+
+</ion-content>
+
+<div id="load-news"></div>
+<ion-spinner icon="circles" id="loader-news"></ion-spinner>

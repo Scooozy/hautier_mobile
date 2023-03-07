@@ -1,0 +1,256 @@
+page-detailsig-contact {
+
+  ion-content{
+
+    #img-detail-sign{
+      width: 90%;
+      margin-left: 5%;
+      margin-top: 10px;
+      margin-bottom: 50px;
+    }
+
+    #desc-detail-sign {
+      width: 90%;
+      margin-left: 5%;
+      margin-top: 20px;
+      color: #4d6073;
+    }
+
+    #user-sign-box{
+      margin-top: 25px;
+      border-top: 1px solid lightgrey;
+      border-bottom: 1px solid lightgrey;
+      width: 90%;
+      margin-left: 5%;
+      padding-top: 5px;
+      padding-bottom: 6px;
+
+      #img-user-sign-box{
+        display: inline-block;
+        vertical-align: middle;
+        width: 15%;
+
+        img{
+          width: 40px;
+          border-radius: 50%;
+          object-fit: cover;
+          height: 40px;
+        }
+
+      }
+
+
+      #suivi-detail-sign {
+        width: 25% !important;
+        margin-left: 15px;
+        text-align: center;
+        display: inline-block;
+        vertical-align: middle;
+
+        div:nth-child(1){
+          font-size: 25px;
+        }
+
+      }
+
+      #img-user-sign-none{
+        width: 40px !important;
+        height: 40px;
+        background: lightgrey;
+        border-radius: 50%;
+        /* text-align: center; */
+        font-size: 25px;
+        color: #FFF;
+        padding-top: 7px;
+        padding-left: 10px;
+        display: none;
+        vertical-align: middle;
+      }
+
+      #name-user-sign{
+        display: inline-block;
+        vertical-align: middle;
+        width: 53%;
+
+        div:nth-child(1){
+          font-size: 15px;
+          font-weight: 600;
+        }
+
+        div:nth-child(2){
+          font-size: 11px;
+          font-style: italic;
+        }
+
+      }
+
+    }
+
+    #back-button{
+      width: 35px;
+      height: 35px;
+      text-align: center;
+      border-radius: 50%;
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      padding-top: 5px;
+      font-size: 25px;
+      background-color: #eaeaea;
+      z-index: 10;
+      opacity: 0.8;
+
+      div{
+        color: #000;
+        font-size: 25px;
+      }
+
+    }
+
+    #sign-details-map{
+      width: 100%;
+      height: 215px;
+
+      .leaflet-top, .leaflet-left{
+        display: none;
+      }
+
+    }
+
+    #triangle-bottomright {
+      width: 0;
+      height: 0;
+      border-bottom: 45px solid #FFF;
+      border-left: 100px solid transparent;
+      position: absolute;
+      z-index: 1000;
+      margin-top: -44px;
+    }
+
+    #losange-detail-sign {
+      width: 80px;
+      height: 80px;
+      background-color: #007BC0;
+      transform: rotate(45deg);
+      position: absolute;
+      right: 10%;
+      box-shadow: 2px 4px 8px 0px #c1c1c1;
+      z-index: 1000;
+      border-radius: 7px;
+      margin-top: -76px;
+      color: #FFF;
+      font-size: 50px;
+
+      div{
+        transform: rotate(-45deg);
+        padding-left: 6px;
+        padding-top: 6px;
+      }
+
+    }
+
+    #title-detail-sign {
+      color: #4d6073;
+      margin-top: 20px;
+      margin-left: 5%;
+      font-size: 20px;
+      font-weight: 600;
+      width: 70%;
+    }
+
+  }
+
+
+  .hexa, .hexa div {
+    position: absolute;
+    margin: 0 auto;
+    transform-origin: 50% 50%;
+    overflow: hidden;
+    width: 140px;
+    height: 118px;
+  }
+
+  .hexa div {
+    width: 100%;
+    height: 100%;
+  }
+
+  .icon-hexa{
+    left: 45px;
+    top: 20px;
+    color: #FFF;
+    font-size: 50px;
+    width: 50px !important;
+    height: 50px !important;
+  }
+
+  .hexa {
+    transform: rotate(120deg);
+    position: absolute;
+    right: 10px;
+    margin-top: -80px;
+    z-index: 1000;
+    width: 140px;
+    height: 90px;
+
+    .showNotif{
+      border-radius: 50%;
+      position: absolute;
+      z-index: 10;
+      width: 15px;
+      height: 15px;
+      background: #007BC0;
+      top: 50px;
+      left: 2px;
+      vertical-align: top;
+      margin-bottom: 10px;
+      font-size: 12px;
+      color: #FFF;
+      text-align: center;
+      transform: rotate(-120deg);
+    }
+
+  }
+
+  .hex1 {
+    transform: rotate(-60deg);
+  }
+
+  .hex2 {
+    transform: rotate(-60deg);
+    background-color: #007BC0;
+
+    .msg-notif{
+      position: absolute;
+      background: #ca3a11;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      font-size: 14px;
+      text-align: center;
+      z-index: 10000;
+      right: 7px;
+      color: #FFF;
+      font-weight: bold;
+      top: 50px;
+      padding-top: 2px;
+    }
+
+    .imgHex{
+      display: none;
+      min-height:100%;
+      width: 100%;
+    }
+    .bg-ent{
+      background-size: 70%;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  .hex3 {
+    transform: rotate(-60deg);
+    //border-bottom: solid 50px rgba(0, 0, 0, 0);
+  }
+
+}

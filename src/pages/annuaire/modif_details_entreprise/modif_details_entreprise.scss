@@ -1,0 +1,76 @@
+page-modifDetailsEntreprise {
+  background: #ffffff !important;
+
+  ion-content {
+
+  #app-form-title {
+    color: #4B7B89;
+    font-size: 20px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+  }
+
+  form{
+    margin-top: 20px !important;
+  }
+
+  .item-inner {
+    border-bottom-color: transparent !important;
+    box-shadow: none !important;
+  }
+
+  .item_fav{
+    background: transparent;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid lightgrey;
+    margin-bottom: 20px;
+  }
+
+  .item_bio{
+    background: transparent;
+    padding: 10px;
+    width: 100%;
+    border: 1px solid lightgrey;
+    margin-bottom: 20px;
+    height: 135px;
+
+    ion-textarea{
+      height:100%;
+    }
+  }
+
+  .item{
+    background: transparent;
+    padding: 5px;
+    width: 100%;
+    border: 1px solid lightgrey;
+    margin-bottom: 20px;
+  }
+
+  .label_favoris{
+    margin-left: 16px;
+    margin-right: 0px;
+    background: #BBBBBB;
+    height: 30px;
+    margin-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+  }
+
+  #submit_button{
+    width: 100%;
+    text-align: center;
+    background-color: #4B7B89;
+    padding: 10px;
+    color: #FFF;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+}
+}

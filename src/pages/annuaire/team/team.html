@@ -1,0 +1,26 @@
+<div class="header-box">
+  <div class="icon-association picto"></div>
+  <p class="title">MA TEAM</p>
+</div>
+<ion-content content="content" #content>
+
+  <div class="tw-list tabs-list">
+    <ion-list>
+      <ion-item *ngFor="let item of places; let i = index">
+        <!--<div class="img-n1" [style.backgroundImage]="'url(https://www.yachtclubdesentrepreneurs.com/images/jevents/jevlocations/{{n1.image}})'"></div>-->
+        <div class="img-tw" *ngIf="item.image != ''" (click)="goToTW(item.id_employe,i)" [ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/entreprise/profils/' + item.image + ')'}"></div>
+        <div class="img-tw picto-tw" *ngIf="item.image == ''" (click)="goToTW(item.id_employe,i)">
+          <ion-icon name="person"></ion-icon>
+        </div>
+        <div class="tw-content">
+          <p (click)="goToTW(item.id_employe,i)">{{item.nom}} {{item.prenom}}</p>
+          <p>{{item.title}}</p>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>
+<div *ngIf="flag" class="icon-check" id="close-settings" tappable (click)="backToFormualaire()"></div>
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>

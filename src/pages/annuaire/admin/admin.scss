@@ -1,0 +1,221 @@
+page-admin{
+
+  .header-box{
+    padding: 16px;
+    position: fixed;
+    width: 100%;
+    margin-top: 44px;
+    z-index: 1;
+    background: #FFF;
+
+    .picto, .title{
+      display: inline-block;
+      vertical-align: top;
+      color: #007BC0;
+    }
+
+    .picto{
+      font-size: 30px;
+      width: 30px;
+    }
+
+    .title{
+      font-size: 25px;
+      margin: 0 0 0 16px;
+      width: calc(100% - 50px);
+    }
+
+  }
+
+	ion-content{
+    //height: calc(100% - 90px);
+    margin-top: 90px;
+
+
+		#profil{
+			width: 100%;
+
+      ion-list{
+        border-bottom: 1px solid #dedede;
+        border-top: 1px solid #dedede;
+        margin-top: 15px;
+
+        ion-item{
+          padding: 0 !important;
+
+          .item-inner{
+            padding: 0 !important;
+
+            ion-label{
+              margin: 16px;
+
+              div, ion-icon{
+                display: inline-block;
+                vertical-align: middle;
+              }
+              div{
+                width: 75%;
+              }
+              ion-icon{
+                width: 23%;
+                color: #007BC0;
+                text-align: right;
+              }
+
+            }
+
+          }
+
+        }
+
+      }
+
+		}
+
+    #team{
+      margin-top: 35px;
+      position: relative;
+
+      .open-message{
+        position: absolute;
+        right: 16px;
+        top: 0;
+
+        ion-icon{
+          font-size: 25px;
+          color: #007BC0;
+        }
+
+      }
+
+      ion-list{
+        ion-item{
+          .item-inner{
+            padding: 0 !important;
+            ion-label{
+              margin-right: 0 !important;
+              .img-tw{
+                width: 45px;
+                height: 45px;
+                display: inline-block;
+                vertical-align: middle;
+                border-radius: 50%;
+                background-position: center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-color: #F2F2F2;
+              }
+
+              .picto-tw{
+                text-align: center;
+                font-size: 20px;
+                padding-top: 7px;
+              }
+
+              .name-tw{
+                display: inline-block;
+                vertical-align: middle;
+                width: calc(100% - 110px);
+                padding-left: 10px;
+              }
+
+              .add-rm{
+                width: 20px;
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 20px;
+                text-align: center;
+              }
+
+              .icon_add{
+                color: #20c400;
+              }
+
+              .icon_delete{
+                color: #39414c;
+                width: 20px;
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 20px;
+                text-align: center;
+                margin-right: 10px;
+              }
+
+              .icon_remove{
+                color: #007BC0;
+              }
+
+            }
+          }
+        }
+      }
+
+      .lvl2-list{
+        ion-item {
+          .item-inner {
+            padding: 0 !important;
+            ion-label {
+              margin-right: 0 !important;
+              .img-tw {
+                background-size: contain;
+              }
+            }
+          }
+        }
+      }
+
+    }
+
+		.sous-titre{
+			padding: 0 15px;
+
+			.titre{
+				font-size: 18px;
+				color: #000000;
+				margin-bottom: 0;
+        width: max-content;
+        display: inline-block;
+        padding-right: 10px;
+			}
+
+			.trait {
+				display: inline-block;
+				height: 1px;
+				background-color: #007BC0;
+				margin-bottom: 5px;
+			}
+
+		}
+
+	}
+
+}
+
+.platform-ios{
+  page-admin{
+    .header-box{
+      margin-top: 60px !important;
+    }
+    .tab-box {
+      margin-top: 130px !important;
+      .tabs{
+        width: 32% !important;
+      }
+    }
+    .scroll-content {
+      margin-top: 40px !important;
+    }
+    ion-content{
+      top: 40px;
+      height: calc(100% - 40px);
+
+      ion-list{
+        ion-item{
+          border-top: none !important;
+          border-bottom: none !important;
+          padding-right: 16px !important;
+        }
+      }
+    }
+  }
+}

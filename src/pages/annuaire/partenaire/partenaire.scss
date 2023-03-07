@@ -1,0 +1,109 @@
+
+page-partenaire{
+
+  .header-box{
+    padding: 16px;
+    position: fixed;
+    width: 100%;
+    margin-top: 44px;
+    z-index: 1;
+    background: #FFF;
+
+    .picto, .title{
+      display: inline-block;
+      vertical-align: middle;
+      color: #39414c;
+    }
+
+    .picto{
+      font-size: 40px;
+    }
+
+    .title{
+      font-size: 25px;
+      margin: 0 16px;
+    }
+
+  }
+	ion-content{
+    margin-top: 106px;
+    height: calc(100% - 106px);
+
+    .scroll-content{
+      margin-top: 0 !important;
+      padding-top: 0 !important;
+    }
+
+    .partenaire-list{
+
+      ion-list{
+
+        ion-item{
+
+          .item-inner{
+            padding-right: 0 !important;
+
+            ion-label{
+              margin-right: 0 !important;
+
+              .img-partenaire{
+                width: 45px;
+                height: 45px;
+                display: inline-block;
+                vertical-align: middle;
+                border-radius: 50%;
+                background-position: center;
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-color: #F2F2F2;
+              }
+
+              .name-partenaire{
+                display: inline-block;
+                vertical-align: middle;
+                margin: inherit;
+                padding-left: 10px;
+                width: 75%;
+                font-weight: bold;
+              }
+
+              .partenaire-content{
+                display: inline-block;
+                vertical-align: middle;
+                padding-left: 10px;
+                width: 50%;
+                p{
+                  margin: inherit;
+                }
+                p:first-of-type{
+                  margin: inherit;
+                  font-weight: bold;
+                }
+                p:last-of-type{
+                  font-size: 12px;
+                }
+              }
+
+              .arrow-right{
+                float: right;
+                margin-right: 10px;
+                margin-top: 10px;
+              }
+
+            }
+
+          }
+        }
+      }
+    }
+
+	}
+}
+
+.platform-ios{
+  page-partenaire{
+    .header-box{
+      margin-top: 60px !important;
+    }
+  }
+}

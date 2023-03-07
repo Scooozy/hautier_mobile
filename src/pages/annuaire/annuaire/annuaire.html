@@ -1,0 +1,45 @@
+<div class="header-box">
+  <div class="icon-annuaire picto"></div>
+  <p class="title">ANNUAIRE</p>
+</div>
+<div *ngIf="tab_n1 == true" class="tab-box">
+  <!--<div *ngIf="tab_n1 == true" class="n1 tabs " (click)="displayList('n1')">Filiales</div>-->
+  <div *ngIf="tab_n2 == true" class="n2 tabs active" (click)="displayList('n2')">Services</div>
+  <div *ngIf="tab_tw == true" class="tw tabs" (click)="displayList('tw')">Collaborateurs</div>
+</div>
+<ion-content>
+
+  <div *ngIf="tab_n1 == true" class="n2-list tabs-list">
+    <ion-list>
+      <ion-item *ngFor="let n2 of lvl2">
+        <div class="img-n2" (click)="goToPlace(n2.loc_id)" [ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/jevents/jevlocations/' + n2.image + ')'}"></div>
+        <p class="n1-n2-name" (click)="goToPlace(n2.loc_id)">{{n2.title}}</p>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div class="tw-list tabs-list">
+    <div class="filter-bar">
+      <div class="search-bar" >
+        <input type="text" [(ngModel)]="search" placeholder="Rechercher un utilisateur..." (keyup)="searchTW()" />
+      </div>
+    </div>
+    <ion-list>
+      <ion-item *ngFor="let item of tw; let i = index" (click)="goToTW(item.id, i)">
+        <div class="img-tw" *ngIf="item.image != ''" [ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/entreprise/profils/' + item.image + ')'}"></div>
+        <div class="img-tw picto-tw" *ngIf="item.image == ''">
+          <ion-icon name="person"></ion-icon>
+        </div>
+        <div class="tw-content">
+          <p><span class="name">{{item.nom}}</span> <span class="fname">{{item.prenom}}</span></p>
+          <p>{{item.title}}</p>
+        </div>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>
+<div *ngIf="flag" class="icon-check" id="close-settings" tappable (click)="backToFormualaire()"></div>
+
+<div id="load" *ngIf="load"></div>
+<ion-spinner icon="circles" id="loader" *ngIf="load"></ion-spinner>
+

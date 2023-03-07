@@ -1,0 +1,61 @@
+<div class="header-box">
+  <ion-icon name="settings" class="picto"></ion-icon>
+  <p class="title">{{title}}</p>
+</div>
+<ion-content content="content" #content>
+
+  <div id="profil">
+    <div class="sous-titre st-profil">
+      <h3 class="titre titre_profil">{{n1_title}}</h3>
+      <div class="trait trait_profil"></div>
+      <!--<ion-icon (click)="goToModifProfilEnt()" name="create"></ion-icon>-->
+    </div>
+    <ion-list>
+      <ion-item (click)="goToModifProfilEnt()">
+        <div>Modifier les informations</div>
+        <ion-icon name="create"></ion-icon>
+      </ion-item>
+      <ion-item (click)="getImage()">
+        <div>Modifier le logo</div>
+        <ion-icon name="create"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div id="team" *ngIf="isPart == false">
+    <div class="sous-titre st-team">
+      <h3 class="titre titre_team">{{team_title}}</h3>
+      <div class="trait trait_team"></div>
+    </div>
+    <div *ngIf="lvl == 'n2'" tappable class="open-message" (click)="sendMail()">
+      <ion-icon name="person-add"></ion-icon>
+    </div>
+    <ion-list *ngIf="lvl == 'n2'">
+      <ion-item *ngFor="let place of places">
+        <div *ngIf="place.image != ''" (click)="goToTW(place.id_employe)" class="img-tw"[ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/entreprise/profils/' + place.image + ')'}"></div>
+        <div class="img-tw picto-tw" *ngIf="place.image == ''" (click)="goToTW(place.id_employe)">
+          <ion-icon name="person"></ion-icon>
+        </div>
+        <div class="name-tw" (click)="goToTW(place.id_employe)">{{place.prenom}} {{place.nom}}</div>
+        <ion-icon class="icon_delete" name="trash" (click)="displayDeleteChoice(place.id_employe,place.prenom,place.nom)"></ion-icon>
+        <ion-icon *ngIf="place.published == '1'" class="icon_add add-rm" name="checkmark" (click)="refuse(place.id_employe)"></ion-icon>
+        <ion-icon *ngIf="place.published == '0'" class="icon_remove add-rm" name="remove" (click)="accept(place.id_employe)"></ion-icon>
+      </ion-item>
+    </ion-list>
+    <ion-list class="lvl2-list" *ngIf="lvl == 'n1'">
+      <ion-item *ngFor="let place of lvl2">
+        <div *ngIf="place.image != ''" (click)="goToEnt(place.loc_id)" class="img-tw"[ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/jevents/jevlocations/' + place.image + ')'}"></div>
+        <div class="img-tw picto-tw" *ngIf="place.image == ''" (click)="goToEnt(place.loc_id)">
+          <ion-icon name="person"></ion-icon>
+        </div>
+        <div class="name-tw" (click)="goToEnt(place.loc_id)">{{place.title}}</div>
+        <ion-icon *ngIf="place.published == '1'" class="icon_add add-rm" name="checkmark" (click)="refuseEnt(place.loc_id)"></ion-icon>
+        <ion-icon *ngIf="place.published == '0'" class="icon_remove add-rm" name="remove" (click)="acceptEnt(place.loc_id)"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>
+
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>

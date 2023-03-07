@@ -1,0 +1,23 @@
+<div class="header-box">
+  <div class="icon-entreprise picto"></div>
+  <p class="title">PARTENAIRES</p>
+</div>
+<ion-content>
+
+  <div class="partenaire-list">
+    <ion-list *ngIf="partenairesLength != 0">
+      <ion-item *ngFor="let partenaire of partenaires; let i = index" (click)="goToPlace(partenaire.loc_id, i)">
+        <!--<div class="img-n1" [style.backgroundImage]="'url(https://hautier.teamsmart.fr/images/jevents/jevlocations/{{n1.image}})'"></div>-->
+        <div class="img-partenaire" [ngStyle]="{'background-image': 'url(https://hautier.teamsmart.fr/images/jevents/jevlocations/' + partenaire.image + ')'}"></div>
+        <p class="name-partenaire" >{{partenaire.title}}</p>
+        <ion-icon class="arrow-right" name="arrow-dropright"></ion-icon>
+      </ion-item>
+    </ion-list>
+    <p *ngIf="partenairesLength == 0">Aucun partenaire à afficher</p>
+  </div>
+
+</ion-content>
+<div *ngIf="flag" class="icon-check" id="close-settings" tappable (click)="backToFormualaire()"></div>
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>
+

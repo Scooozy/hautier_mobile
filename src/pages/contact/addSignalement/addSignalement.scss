@@ -1,0 +1,146 @@
+page-add-signalement-contact {
+
+  ion-content{
+
+    #sign1{
+
+      #btn-camera{
+        width: 15%;
+        display: inline-block;
+        vertical-align: top;
+        background-color: #62b0ad;
+        color: #FFF;
+        padding: 8px;
+        text-align: center;
+        font-size: 26px;
+        margin-left: -2%
+      }
+
+      #sign-btn-map{
+        width: 15%;
+        display: inline-block;
+        vertical-align: top;
+        background-color: #62b0ad;
+        color: #FFF;
+        padding: 8px;
+        text-align: center;
+        font-size: 23px;
+        margin-left: -2%;
+      }
+
+      select, ion-input, input, textarea, #image-signalement {
+        background: transparent;
+        padding: 10px;
+        width: 100%;
+        border: 1px solid lightgrey;
+        margin-bottom: 20px;
+      }
+
+      ion-input{
+        padding: 10px 0 11px 12px !important;
+      }
+
+      #sign-send-btn{
+        width: 100%;
+        text-align: right;
+        background-color: #007BC0;
+        padding: 10px;
+        color: #FFF;
+        font-weight: bold;
+        font-size: 16px;
+
+        div{
+          display: inline-block;
+          vertical-align: middle;
+        }
+
+        div:nth-child(1){
+          width: 57%;
+          margin-right: 7%;
+        }
+
+        div:nth-child(2){
+          width: 29%;
+          text-align: center;
+          transform: rotate(45deg);
+          font-size: 35px;
+        }
+
+      }
+
+      #location{
+        width: 85% !important;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      textarea{
+        height: 135px;
+      }
+
+      ion-input{
+        padding: 19px 0 18px 12px;
+      }
+
+      #image-signalement {
+
+        display: inline-block;
+        vertical-align: middle;
+        width: 85%;
+        min-height: 46px;
+
+        img{
+          width: 49%;
+          display: none;
+          vertical-align: middle;
+        }
+
+        div{
+          width: 49%;
+          display: inline-block;
+          vertical-align: middle;
+          color: #a2a2a2;
+        }
+
+      }
+
+    }
+
+    #sign-form {
+      //margin-bottom: 65px;
+      width: 90%;
+      margin-left: 5%;
+      //margin-top: 60px;
+
+      #sign-form-title {
+        color: #62b0ad;
+        font-size: 20px;
+        margin-top: 15px;
+        margin-bottom: 20px;
+      }
+
+    }
+
+      #back-button{
+      width: 35px;
+      height: 35px;
+      text-align: center;
+      border-radius: 50%;
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      padding-top: 5px;
+      font-size: 25px;
+      background-color: #eaeaea;
+
+      div{
+        color: #000;
+        font-size: 25px;
+      }
+
+    }
+
+
+  }
+
+}

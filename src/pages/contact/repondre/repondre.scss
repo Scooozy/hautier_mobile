@@ -1,0 +1,86 @@
+page-repondre-contact {
+
+  ion-content{
+
+    #back-button{
+      width: 35px;
+      height: 35px;
+      text-align: center;
+      border-radius: 50%;
+      position: absolute;
+      top: 15px;
+      left: 15px;
+      padding-top: 5px;
+      font-size: 25px;
+      background-color: #eaeaea;
+
+      div{
+        color: #000;
+        font-size: 25px;
+      }
+
+    }
+
+    .sondage-form{
+      margin-top: 60px;
+      width: 90%;
+      margin-left: 5%;
+
+      #valid-reponse-box-sond{
+        margin-top: 30px;
+
+        #valid-reponse-sond{
+          background-color: #007BC0;
+          text-align: center;
+          color: #FFF;
+          padding: 15px;
+          margin-bottom: 15px;
+        }
+
+        div:nth-child(2){
+          font-style: italic;
+        }
+
+      }
+
+      #reponse-box-song{
+        margin-top: 30px;
+
+        .reponses {
+          width: 100%;
+          text-align: center;
+          margin-bottom: 10px;
+
+          div {
+            margin: auto;
+            background-color: #4d6073;
+            color: #FFF;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            font-weight: 600;
+          }
+
+        }
+
+      }
+
+      .question {
+
+        div:nth-child(1){
+          font-size: 20px;
+          color: #4d6073;
+          font-weight: 600;
+          margin-bottom: 7px;
+        }
+
+        div:nth-child(2), .question div:nth-child(3){
+          font-style: italic;
+        }
+
+      }
+
+    }
+
+  }
+
+}

@@ -1,0 +1,36 @@
+<ion-content>
+	<div id="dashboard-box-1">
+		<div class="hexagon">
+			<div class="hexTop"></div>
+			<div class="hexBottom"></div>
+			<div class="icon-association"></div>
+		</div>
+		<div id="account-box-2">
+			<p>{{title}}</p>
+		</div>
+	</div>
+
+	<ul class="draggable-objects" id="list-categ-home">
+		<li *ngFor="let obj of grid" class="{{obj.id_line}} cat-diamond-home li-grid li-grid-{{obj.clic}}" id="li{{obj.id}}">
+			<div class="hexa" id="hexagon_{{obj.clic}}">
+				<div class="hex1">
+					<div class="hex2">
+						<img class="imgHex" />
+					</div>
+					<div class="hex3" ion-long-press [interval]="500" (onPressStart)="pressed(obj.clic)"(onPressEnd)="released()" tappable (click)="savePlace(obj.clic)">
+						<div class="person" id="person-{{obj.clic}}">
+							<ion-icon ios="ios-person" md="md-person"></ion-icon>
+						</div>
+					</div>
+					<button ion-long-press [interval]="500" (onPressStart)="pressed(obj.clic)"(onPressEnd)="released()" tappable (click)="savePlace(obj.clic)" div id="{{obj.id}}" class="losange-titre">{{obj.title}}</button>
+					<div *ngIf="flag && obj.clic != id_user" class="background_icon_star">
+						<div (click)="addFavoris(obj.clic)"accesskey="" class="icon-favori icon-hexa-star icon-hexa-star-{{obj.clic}}"></div>
+					</div>
+				</div>
+			</div>
+		</li>
+	</ul>
+
+</ion-content>
+<div *ngIf="flag" class="icon-check" id="close-settings" tappable (click)="backToFormualaire()"></div>
+

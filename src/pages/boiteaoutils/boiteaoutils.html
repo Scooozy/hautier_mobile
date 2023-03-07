@@ -1,0 +1,26 @@
+<div class="header-box">
+  <div class="icon-fourniture picto"></div>
+  <p class="title">Boîte à outils</p>
+</div>
+<ion-content>
+
+  <select class="select_cat" (change)="displayFile()">
+    <option value="0">Tous les fichiers</option>
+    <option *ngFor="let cat of toolboxcat" value="{{cat.id}}">{{cat.label}}</option>
+  </select>
+
+  <div class="tabs-list">
+    <ion-list>
+      <ng-container *ngFor="let file of files">
+        <ion-item *ngIf="select_cat == 0 || select_cat == file.type" (click)="DownloadFile(file.url)">
+          <div class="doc">
+            <ion-icon class="icon-boiteoutil" name="document"></ion-icon>
+            <p class="n1-n2-name block">{{file.name}}</p>
+          </div>
+        </ion-item>
+      </ng-container>
+    </ion-list>
+    <div *ngIf="file_length == 0">Aucun fichier n'est disponible</div>
+  </div>
+
+</ion-content>

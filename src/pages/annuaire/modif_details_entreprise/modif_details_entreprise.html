@@ -1,0 +1,40 @@
+<ion-content padding>
+
+  <div id="app-form-title">
+    <p>Je modifie le profil de l'entreprise</p>
+  </div>
+
+  <form (ngSubmit)="saveProfil()">
+
+    <ion-item class="item_bio">
+      <ion-textarea rows="4" id="input_bio" type="text" (ionChange)='checkvalid()' placeholder="Description" [(ngModel)]="bio" name="bio"></ion-textarea>
+    </ion-item>
+
+    <ion-item class="item">
+      <ion-input id="input_tel" type="number" (ionChange)='checkvalid()' placeholder="Téléphone" [(ngModel)]="tel" name="tel"></ion-input>
+    </ion-item>
+
+    <ion-item class="item">
+      <ion-input id="input_mail" type="email" (ionChange)='checkvalid()' placeholder="E-mail" [(ngModel)]="mail" name="mail"></ion-input>
+    </ion-item>
+
+    <!--<ion-item class="item">
+      <ion-input id="input_twitter" type="text" (ionChange)='checkvalid()' placeholder="Saisir l'identifiant twitter" [(ngModel)]="twitter" name="twitter"></ion-input>
+    </ion-item>
+
+    <ion-item class="item">
+      <ion-input id="input_facebook" type="text" (ionChange)='checkvalid()' placeholder="Saisir l'identifiant facebook" [(ngModel)]="facebook" name="facebook"></ion-input>
+    </ion-item>
+
+    <ion-item class="item">
+      <ion-input id="input_insta" type="text" (ionChange)='checkvalid()' placeholder="Saisir l'identifiant instagram" [(ngModel)]="insta" name="insta"></ion-input>
+    </ion-item>
+
+    <ion-item class="item">
+      <ion-input id="input_linkedin" type="text" (ionChange)='checkvalid()' placeholder="Saisir l'identifiant linkedin" [(ngModel)]="linkedin" name="linkedin"></ion-input>
+    </ion-item>-->
+
+    <button id="submit_button" ion-button type="submit" disabled block>Enregistrer</button>
+  </form>
+</ion-content>
+

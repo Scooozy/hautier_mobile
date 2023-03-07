@@ -1,0 +1,20 @@
+
+<ion-content>
+
+  <div id="list-categ">
+    <ul class="draggable-objects">
+      <li *ngFor="let cat of categ; let i = index" class="{{cat.id_line}}" id="li{{cat.id}}s">
+        <div class="black_diamond">
+          <div class="losange-content">
+            <div id="icon-cartable-home1" class="{{cat.icon}} icons" tappable (click)="goTo(i, cat.id, cat.icon, cat.label)"></div>
+            <div id="{{cat.id}}" tappable (click)="goTo(i,cat.id)" class="names-categ" >{{cat.label}}</div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+</ion-content>
+
+<div id="load"></div>
+<ion-spinner icon="circles" id="loader"></ion-spinner>

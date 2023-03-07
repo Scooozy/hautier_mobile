@@ -1,0 +1,36 @@
+<ion-content padding>
+
+  <div id="comment_block">
+    <ng-container *ngFor="let c of lesComments; let i = index">
+      <ion-card *ngIf="right_read_comment || c.id_user == id_user">
+
+        <!-- <img src="{{ac.image}}"> -->
+
+        <ion-card-content>
+          <p id="comment_{{i}}">{{c.comment}}</p>
+        </ion-card-content>
+
+        <ion-item>
+          <ion-avatar id="img_avatar_{{i}}" item-left>
+            <ion-icon md="md-person"></ion-icon>
+          </ion-avatar>
+          <h2>{{name_sender[i]}}</h2>
+          <div class="bottom_card">
+            <p class="date">{{dateForComment(c.date)}}</p>
+          </div>
+        </ion-item>
+      </ion-card>
+    </ng-container>
+  </div>
+
+  <form *ngIf="right_comment" (ngSubmit)="saveComment()">
+
+    <ion-item class="item_comment">
+      <ion-textarea rows="4" id="input_comment" type="text" (ionChange)='checkvalid()' placeholder="Saisir votre commentaire" [(ngModel)]="comment" name="comment"></ion-textarea>
+    </ion-item>
+
+    <button id="submit_button" ion-button type="submit" disabled block>Ajouter le commentaire</button>
+
+  </form>
+</ion-content>
+

@@ -1,0 +1,232 @@
+page-annuaire-favoris{
+
+	ion-content{
+
+		.title{
+			text-align: center;
+		}
+
+		.select-cat{
+			display: none;
+		}
+
+		.accessFiltre{
+			font-size: 30px;
+			width: 30px;
+			height: 30px;
+			margin: auto;
+		}
+
+
+		.person{
+			display: none;
+			position: absolute;
+			padding-top: 20px;
+			top: 0px;
+			left: 50px;
+
+			.icon-entreprise{
+				position: absolute;
+				padding-top: 20px;
+				top: -10px;
+				left: 20px;
+				color: #fff;
+				z-index: 6;
+				font-size: 60px;
+			}
+		}
+
+		.imgHex{
+			min-height: 104px;
+			max-height: 180px;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+		}
+
+		.imgHexPartenaire{
+			min-height: 0px !important;
+			max-width: 80%;
+			height: auto;
+			margin-top: 25px;
+		}
+
+
+		.hexa, .hexa div {
+			position: absolute;
+			margin: 0 auto;
+			transform-origin: 50% 50%;
+			overflow: hidden;
+			width: 137px;
+			height: 118px;
+		}
+
+		.hexa {
+			width: 137px;
+			height: 118.49px;
+		}
+
+		.hexa div {
+			width: 100%;
+			height: 100%;
+		}
+
+		.hexa {
+			transform: rotate(120deg);
+			position: absolute;
+		}
+
+		.hex1 {
+			transform: rotate(-60deg);
+		}
+
+		.hex2 {
+			transform: rotate(-60deg);
+			background-color: rgba(0,0,0,0.1);
+		}
+
+		.hex3 {
+			transform: rotate(-60deg);
+			border-bottom: solid 35px rgba(0, 0, 0, 0.6);
+		}
+
+		.hexa_img{
+			background-color: lightgrey;
+			background-repeat: no-repeat;
+			width: 100%;
+			height: 100%;
+			color: #FFF;
+		}
+
+		.draggable-objects {
+			width: 103%;
+			padding-top: 20px !important;
+			margin-top: 20px;
+			margin-left: 0;
+			padding-left: 0;
+		}
+
+		ul.draggable-objects:after {
+			display: block;
+			content: "";
+			clear: both;
+		}
+
+		.draggable-objects li {
+			float: left;
+			display: block;
+			width: 135px;
+			height: 135px;
+			margin-bottom: -4px;
+			margin-top: -67px;
+		}
+
+		.dragging-object{
+			position: relative;
+			z-index: 20;
+		}
+
+		.cat-diamond, .cat-diamond-home {
+			width: 150px;
+			height: 150px;
+			margin-top: -85px;
+			margin-right: 7px;
+		}
+
+		.losange-titre{
+			position: absolute;
+			width: 95px !important;
+			min-height: 45px !important;
+			color: #FFF;
+			font-size: 16px;
+			background-color: transparent;
+			z-index: 6;
+			top: 56px;
+			left: 58px;
+			text-align: center;
+			transform: rotate(-60deg);
+			font-size: 12px;
+		}
+
+		.ko{
+			margin-left: 111px !important;
+		}
+		.okl{
+			margin-right: 87px !important;
+		}
+
+		#list-settings {
+			display: none;
+			.delete-diamond {
+				position: absolute;
+				margin-top: 52px;
+				margin-left: 105px;
+				font-size: 20px;
+				z-index: 11;
+				background: transparent;
+				border: 1px solid #000;
+				border-radius: 50%;
+				height: 33px;
+				width: 33px;
+			}
+			.empty_diamond, .add_diamond {
+				button {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 340px){
+	page-listEntreprises {
+		ul{
+			margin-left: 1% !important;
+			margin-top: 95px !important;
+			li {
+				width: 115px !important;
+				height: 115px !important;
+				margin-top: -55px !important;
+
+				.hexa{
+					width: 115px !important;
+					height: 100px !important;
+				}
+
+				.imgHex{
+					max-width: 70%;
+					margin-top: 15px;
+				}
+
+				.losange-titre {
+					position: initial !important;
+					width: 89px !important;
+					min-height: 45px !important;
+					color: #FFF;
+					background-color: transparent;
+					z-index: 10;
+					margin-top: 44px !important;
+					margin-left: 37px !important;
+					text-align: center;
+					-webkit-transform: rotate(-60deg);
+					transform: rotate(-60deg);
+					font-size: 12px;
+				}
+
+				.person{
+					left: 32px;
+					ion-icon{
+						margin-left: 7px;
+					}
+				}
+
+			}
+			.okl{
+				margin-right: 81px !important;
+			}
+			.ko{
+				margin-left: 98px !important;
+			}
+		}
+	}
+}
